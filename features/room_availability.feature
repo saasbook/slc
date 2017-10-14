@@ -6,28 +6,36 @@ Feature: select room availability
   
 Scenario: select room reservation 
  Given I have not reserved a room
- When I am on the home page
- Then I should be able to reserve a room
+ When I am on the room availability page
+ Then I should be able to reserve a room for a time and day
+ 
+ Scenario: all rooms selected
+ Given I have not reserved a room 
+ When I am on the room availability page 
+ And I see all rooms and times are reserved
+ Then I should not be able to reserve a room at a specific time
  
 Scenario: select view reservation 
  Given I have reserved a room
- When I am on the home page
+ When I am on the room availability page 
+ And I press "View Reservation"
  Then I should be able to view my current reservation
-    
-Scenario: admin reserves room
- Given I am on the room availability page
- When I try to click on a specific room and time
- Then I should be able to reserve a room at a specific time
  
-Scenario: admin cancels room reservation
- Given I am viewing my current reservation
- When I select cancel reservation
- Then I should have my reservation cancelled 
+Scenario: select view reservation without room reserved
+ Given I have not reserved a room
+ When I am on the room availability page 
+ And I press "View Reservation"
+ Then I should see an appropriate message
     
-Scenario: all rooms selected
- Given I am on the room availability page
- When I try to click on a specific room and time
- Then I should not be able to reserve a room at a specific time
+Scenario: admin cancels room reservation
+ Given I have reserved a room
+ And I am on the current reservation page
+ When I select "Cancel Reservation"
+ Then I should have my reservation cancelled 
+
+    
+    
+
  
 
 
