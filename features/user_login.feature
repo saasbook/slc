@@ -77,3 +77,5 @@ Scenario: redirect to room availability page
   When I am on the home page
   And I select "Room Reservation"
   Then I should be redirected to the room reservation form
+  
+  
