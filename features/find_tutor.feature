@@ -20,9 +20,11 @@ Scenario: tutor fills in form information
   And I fill in "Phone Number" with "123-456-7890"
   And I fill in "Class Standing" with "Junior"
   And I fill in "Major" with "Physics"
-  And I select "Monday" and "Tuesday" at "1" for "Time Availability"
+  And I select the following time availabilities:
+    | Monday  | 1 |
+    | Tuesday | 1 |
   And I press "Submit"
-  Then I should see a message that I completed the form
+  Then I should see a confirmation message
   
 
 
@@ -33,7 +35,8 @@ Scenario: tutee finds tutor of class he wants help in
   And I fill in "SID" with "1234"
   And I fill in "Phone Number" with "123-456-7890"
   And I fill in "Course Requesting Help In" with "CS61A"
-  And I select "Monday" at "1" for "Time Availability"
+  And I select the following time availabilities:
+    | Monday  | 1 |
   And I select "Yes" for "DSP Student"
   And I press "Submit"
   Then I should see a message that I completed the form
@@ -44,7 +47,7 @@ Scenario: tutee selects a tutor and sets a time
   And   I select "Juno Morey"
   Then  I should see "Monday, Wednesday, Friday" in available times
   Then  I select "Monday" 
-  And   I fill in "Confirm"
+  And   I select "Confirm"
   Then  I should be on the home page
 
 Scenario: student sees current tutor and time under reservations

@@ -28,7 +28,7 @@ end
 Then /^I should see "(.*)"$/ do |message|
   #Pending
   fail "Unimplemented"
-end
+end*
 
 Then /^I should press "(.*)"$/ do |button|
   #Pending
