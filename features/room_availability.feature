@@ -29,8 +29,8 @@ Scenario: select view reservation without room reserved
     
 Scenario: admin cancels room reservation
  Given I have reserved a room
- And I am on the current reservation page
- When I select "Cancel Reservation"
+ When I am on the current reservation page
+ And I select "Cancel Reservation"
  Then I should have my reservation cancelled 
 
     
