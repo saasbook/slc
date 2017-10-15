@@ -28,7 +28,7 @@ end
 Then /^I should see "(.*)"$/ do |message|
   #Pending
   fail "Unimplemented"
-end*
+end
 
 Then /^I should press "(.*)"$/ do |button|
   #Pending
@@ -36,6 +36,11 @@ Then /^I should press "(.*)"$/ do |button|
 end
 
 Then /^I should be on the home page$/ do
+  #Pending
+  fail "Unimplemented"
+end
+
+Then /^I should be on the "(.*)" page$/ do |pagetype|
   #Pending
   fail "Unimplemented"
 end

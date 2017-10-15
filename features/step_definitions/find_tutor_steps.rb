@@ -8,8 +8,6 @@ When /^I go to the "(.*)" page$/ do |page|
 	fail "Unimplemented"
 end
 
-When /^I fill in "(.*)"$/ do |
-
 When /^I fill in "(.*)" with "(.*)"$/ do |field, value|
   #Pending
   fail "Unimplemented"
@@ -21,6 +19,11 @@ When /^I select the following time availabilities: (.*)/ do |days, times|
 end
 
 When /^I press "(.*)"$/ do |button|
+	#pending
+	fail "Unimplemented"
+end
+
+When /^I select "(.*)"$/ do |option|
 	#pending
 	fail "Unimplemented"
 end
@@ -41,13 +44,17 @@ When /^I press "(.*)"$/ do |button|
 end
 
 
-
 Then /^I should see "(.*)" under "(.*)" $/ do |value, column|
 	#Pending
 	fail "Unimplemented"
 end
 
 Then /^I should see a confirmation message$/ do
+	#Pending
+	fail "Unimplemented"
+end
+
+Then /^I should see a message that I completed the form$/ do
 	#Pending
 	fail "Unimplemented"
 end

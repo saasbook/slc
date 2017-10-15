@@ -13,6 +13,11 @@ Then /^I should be able to reserve a room for "(.*)" and "(.*)"$/ do |time, day|
   fail "Unimplemented"
 end
 
+Then /^I should see an appropriate message$/ do
+  #Pending
+  fail "Unimplemented"
+end
+
 When /^I see all rooms and times are reserved$/ do
   #Pending
   fail "Unimplemented"
