@@ -1,0 +1,2 @@
+class TuteeController < ApplicationController
+end
