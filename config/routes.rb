@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   devise_for :tutees
   devise_for :tutors
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
