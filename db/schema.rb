@@ -11,6 +11,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171017052838) do
+
+  create_table "time_availabilities", force: :cascade do |t|
+    t.string   "day"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tutees", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "year"
+    t.string   "phone_number"
+    t.string   "major"
+    t.string   "requested_class"
+    t.integer  "sid"
+    t.boolean  "in_dsp"
+    t.integer  "tutor_id"
+  end
+
+  add_index "tutees", ["email"], name: "index_tutees_on_email", unique: true
+  add_index "tutees", ["reset_password_token"], name: "index_tutees_on_reset_password_token", unique: true
+
+  create_table "tutors", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "year"
+    t.string   "phone_number"
+    t.string   "major"
+    t.text     "bio"
+    t.integer  "sid"
+    t.string   "tutor_cohort"
+  end
+
+  add_index "tutors", ["email"], name: "index_tutors_on_email", unique: true
+  add_index "tutors", ["reset_password_token"], name: "index_tutors_on_reset_password_token", unique: true
 
 end
