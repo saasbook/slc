@@ -4,4 +4,5 @@ class Tutee < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :tutor
+  has_many :time_availabilitys, as: :time_availabilityable 
 end
