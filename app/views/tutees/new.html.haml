@@ -1,0 +1,40 @@
+%h1 Tutee Information Form
+
+-#Form tag has action and method which determines how its submitted 
+= form_tag tutees_path, :method => :post do
+
+
+  = label :tutee, :first_name, 'First Name' 
+  -#<label for= "tutee_first_name">First Name</label>
+  = text_field :tutee, 'first_name'
+  -#<input id= "movie_first_name" name = "movie[first_name]"
+  
+  = label :tutee, :last_name, 'Last Name'
+  = text_field :tutee, 'last_name'  
+  
+  = label :tutee, :sid, 'SID'
+  = text_field :tutee, 'sid' 
+  
+  = label :tutee, :grade, 'Current Grade'
+  = text_field :tutee, 'grade' 
+  
+  = label :tutee, :email, 'Email'
+  = text_field :tutee, 'email'
+  
+  = label :tutee, :phone_number, 'Phone Number'
+  = text_field :tutee, 'phone_number' 
+  
+  = label :tutee, :phone_number, 'Phone Number'
+  = text_field :tutee, 'phone_number'
+  
+  = label :tutee, :semesters_at_cal, 'Semesters at Cal'
+  = text_field :tutee, 'semesters_at_cal'
+  
+  = label :tutee, :course_name, 'Class Requesting Help In'
+  = text_field :tutee, 'course_name'
+  
+  = label :tutee, :dsp, 'Member of DSP? (yes/no)'
+  = text_field :tutee, 'dsp'
+  
+  = submit_tag 'Submit'
+
