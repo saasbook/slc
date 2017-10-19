@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.5'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '4.2.9'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -61,3 +61,5 @@ group :production do
 end
 
 gem 'devise'
+gem 'haml'
+
