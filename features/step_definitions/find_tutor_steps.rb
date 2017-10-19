@@ -9,6 +9,7 @@ When /^I go to the "(.*)" page$/ do |page|
 end
 
 When /^I fill in "(.*)" with "(.*)"$/ do |field, value|
+	#@tutee.value = field
   #Pending
   fail "Unimplemented"
 end
