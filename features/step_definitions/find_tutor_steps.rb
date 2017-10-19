@@ -9,6 +9,7 @@ When /^I go to the "(.*)" page$/ do |page|
 end
 
 When /^I fill in "(.*)" with "(.*)"$/ do |field, value|
+	#@tutee.value = field
   #Pending
   fail "Unimplemented"
 end
@@ -34,11 +35,6 @@ When /^I select "(.*)" for "(.*)"$/ do |value, box|
 end
 
 When /^I see a list of tutors$/ do
-	#Pending
-	fail "Unimplemented"
-end
-
-When /^I press "(.*)"$/ do |button|
 	#Pending
 	fail "Unimplemented"
 end

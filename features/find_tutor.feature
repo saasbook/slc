@@ -20,27 +20,27 @@ Scenario: tutor fills in form information
   And I fill in "Phone Number" with "123-456-7890"
   And I fill in "Class Standing" with "Junior"
   And I fill in "Major" with "Physics"
-  And I select the following time availabilities:
-    | Monday  | 1 |
-    | Tuesday | 1 |
+  And I select "Monday" and "Tuesday" for my days_available
+  And I select "1-2" and "2-3" for my times_available
   And I press "Submit"
   Then I should see a confirmation message
   
 
-
-Scenario: tutee finds tutor of class he wants help in
-  When I go to the "Sign Up As A Tutee" page
-  And I fill in "Name" with "Jane Doe
+#Lexie, User Story 1
+Scenario: tutee fills in information
+  When I go to the "Tutee Information Form" page
+  And I fill in "First Name" with "Jane"
+  And I fill in "Last Name" with "Doe"
   And I fill in "Email" with "jdoe@berkeley.edu"
   And I fill in "SID" with "1234"
   And I fill in "Phone Number" with "123-456-7890"
   And I fill in "Course Requesting Help In" with "CS61A"
-  And I select the following time availabilities:
-    | Monday  | 1 |
-  And I select "Yes" for "DSP Student"
+  And I select "Monday" for day availability
+  And I select "1-2" for time availability
+  And I fill in "DSP Student?" with "Yes"
   And I press "Submit"
   Then I should see a message that I completed the form
-  And I should see a list of tutors
+  
 
 Scenario: tutee selects a tutor and sets a time 
   When  I see a list of tutors
