@@ -31,7 +31,7 @@ class TuteesController < ApplicationController
         
         #What do we want to render? Redirect to the home page
         #If succesful, home page, if not succesful new
-        redirect_to 'filler'
+        # redirect_to 'filler'
         #Why isn't this rendering?  
     
     end
