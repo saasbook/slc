@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018200733) do
+ActiveRecord::Schema.define(version: 20171019190653) do
 
   create_table "time_availabilitys", force: :cascade do |t|
     t.string   "day"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20171018200733) do
     t.integer  "sid"
     t.boolean  "in_dsp"
     t.integer  "tutor_id"
+    t.string   "last_name"
+    t.integer  "semesters_at_cal"
+    t.string   "first_name"
+    t.string   "grade"
   end
 
   add_index "tutees", ["email"], name: "index_tutees_on_email", unique: true

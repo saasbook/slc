@@ -31,4 +31,57 @@ body { padding-top: 60px; }
 @import "bootswatch/yeti/bootswatch";
 
 // Whatever application styles you have go last
-@import "base";
+// @import "base";
+
+h1 {
+    text-align: center;
+}
+
+form label {
+  display: block;
+  line-height: 25px;
+//   margin-left: 25px;
+  text-align: center;
+  
+  
+}
+
+form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+input[type=submit] {
+    display: block
+    // text-align: center;
+}
+
+// div.form
+// {
+//     display: block;
+//     text-align: center;
+// }
+
+// form
+// {
+//     display: inline-block;
+//     margin-left: auto;
+//     margin-right: auto;
+//     text-align: left;
+// }
+
+// #formItem label {
+//     display: block;
+//     text-align: center;
+//     line-height: 150%;
+//     font-size: .85em;
+// }
+
+// input[type="checkbox"] {
+//     margin-left: -20px;
+// }
+
+// input[type="checkbox"] {
+//     margin-left: -20px;
+// }
+
