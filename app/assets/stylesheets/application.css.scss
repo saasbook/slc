@@ -31,4 +31,33 @@ body { padding-top: 60px; }
 @import "bootswatch/yeti/bootswatch";
 
 // Whatever application styles you have go last
-@import "base";
+// @import "base";
+
+form label {
+  display: block;
+  line-height: 25px;
+  margin-left: 25px;
+  
+}
+
+// div.form
+// {
+//     display: block;
+//     text-align: center;
+// }
+
+// form
+// {
+//     display: inline-block;
+//     margin-left: auto;
+//     margin-right: auto;
+//     text-align: left;
+// }
+
+// #formItem label {
+//     display: block;
+//     text-align: center;
+//     line-height: 150%;
+//     font-size: .85em;
+// }
+

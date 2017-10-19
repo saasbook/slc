@@ -1,8 +1,11 @@
 %h1 Tutee Information Form
 
--#Form tag has action and method which determines how its submitted 
-= form_tag tutees_path, :method => :post do
+-#{:class => 'col-md-4 col-md-offset-4'}
 
+-#Form tag has action and method which determines how its submitted 
+-#class: "form-horizontal"
+= form_tag tutees_path, :method => :post do
+  
 
   = label :tutee, :first_name, 'First Name' 
   -#<label for= "tutee_first_name">First Name</label>
@@ -11,7 +14,7 @@
   -#<input id= "movie_first_name" name = "movie[first_name]"
   
   = label :tutee, :last_name, 'Last Name'
-  = text_field_tag :tutee, 'last_name'  
+  = text_field :tutee, 'last_name'
   
   = label :tutee, :sid, 'SID'
   = text_field :tutee, 'sid' 
@@ -25,9 +28,6 @@
   = label :tutee, :phone_number, 'Phone Number'
   = text_field :tutee, 'phone_number' 
   
-  = label :tutee, :phone_number, 'Phone Number'
-  = text_field :tutee, 'phone_number'
-  
   = label :tutee, :semesters_at_cal, 'Semesters at Cal'
   = text_field :tutee, 'semesters_at_cal'
   
@@ -35,26 +35,20 @@
   = text_field :tutee, 'major'
   
   = label :tutee, :course_name, 'Class Requesting Help In'
-  = text_field :tutee, 'course_name'
+  = text_field :tutee, 'requested_course'
   
-  // = label :tutee, :course_name, 'Day Availability'
-  // = text_field :tutee, 'course_name'
-  
-  = label :tutee, :day, 'Day Availability'
+  = label :tutee, :days_available, 'Day Availability'
   - ['Monday','Tuesday','Wednesday','Thursday','Friday'].each do |day|
-    = check_box_tag 'tutee[day]'
+    = check_box_tag :tutee, 'days_available'
+    = label_tag :tutee, day
   
-  // = label :tutee, :course_name, 'Time Availability'
-  // = text_field :tutee, 'course_name'
-  
-  = label :tutee, :time, 'Time Availability'
-  - ['8-9','9-10','10-11','11-12','12-1','1-2','2-3','3-4','4-5','5-6']
-    = check_box_tag 'tutee[time]' 
+  = label :tutee, :times_available, 'Time Availability'
+  - ['8-9','9-10','10-11','11-12','12-1','1-2','2-3','3-4','4-5','5-6'].each do |time|
+    = check_box_tag :tutee, 'times_available'
+    = label_tag :tutee, time
     
-  = label :tutee, :dsp, 'Member of DSP? (yes/no)'
-  = text_field :tutee, 'dsp'
-  
+  = label :tutee, :if_dsp, 'Member of DSP?'
+  = text_field :tutee, 'if_dsp'
+ 
   
   = submit_tag 'Submit'
-  = link_to 'Back to Home', tutees_path
-

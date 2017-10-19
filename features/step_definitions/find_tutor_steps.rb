@@ -38,11 +38,6 @@ When /^I see a list of tutors$/ do
 	fail "Unimplemented"
 end
 
-When /^I press "(.*)"$/ do |button|
-	#Pending
-	fail "Unimplemented"
-end
-
 
 Then /^I should see "(.*)" under "(.*)" $/ do |value, column|
 	#Pending

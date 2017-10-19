@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'bootswatch-rails'
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
