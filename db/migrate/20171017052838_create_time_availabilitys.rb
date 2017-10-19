@@ -1,6 +1,6 @@
-class CreateTimeAvailabilities < ActiveRecord::Migration
+class CreateTimeAvailabilitys < ActiveRecord::Migration
   def change
-    create_table :time_availabilities do |t|
+    create_table :time_availabilitys do |t|
       t.string :day
       t.time :start_time
       t.time :end_time
