@@ -12,8 +12,11 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
-    when /^the home\s?page$/
+    when /the tutee sign in page/
+      new_tutee_session_path
+    when /the tutor sign in page/
+      new_tutor_session_path
+    when /^the home\s?page$/ 
       '/'
 
     # Add more mappings here.

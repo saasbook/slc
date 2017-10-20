@@ -43,17 +43,19 @@ Scenario: register a new account as an admin
   Then  I should be on the home page
  
 Scenario: log in to system as tutee
-  When  I go to the login page
-  And   I fill in "Username" with "connorvotroubek@berkeley.edu"
-  And   I fill in "Password" with "gobears"
-  And   I press "Login"
+  Given I am on the tutee sign in page
+  And   The tutee "tutee1@example.com" with the password "tutee1" exists
+  And   I fill in "Email" with "tutee1@example.com"
+  And   I fill in "Password" with "tutee1"
+  And   I press "Log in"
   Then  I should be on the home page
  
- Scenario: log in to system as tutor
-  When  I go to the login page
-  And   I fill in "Username" with "connorvotroubek@berkeley.edu"
-  And   I fill in "Password" with "gobears"
-  And   I press "Login"
+Scenario: log in to system as tutor
+  When  I am on the tutor sign in page
+  And   The tutor "tutor2@example.com" with the password "tutor2" exists
+  And   I fill in "Email" with "tutor2@example.com"
+  And   I fill in "Password" with "tutor2"
+  And   I press "Log in"
   Then  I should be on the home page
   
 Scenario: log in to system as admin

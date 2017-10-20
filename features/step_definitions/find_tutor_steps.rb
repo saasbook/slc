@@ -8,21 +8,21 @@ When /^I go to the "(.*)" page$/ do |page|
 	fail "Unimplemented"
 end
 
-When /^I fill in "(.*)" with "(.*)"$/ do |field, value|
-	#@tutee.value = field
-  #Pending
-  fail "Unimplemented"
-end
+# When /^I fill in "(.*)" with "(.*)"$/ do |field, value|
+# 	#@tutee.value = field
+#   #Pending
+#   fail "Unimplemented"
+# end
 
 When /^I select the following time availabilities: (.*)/ do |days, times|
 	#pending
 	fail "Unimplemented"
 end
 
-When /^I press "(.*)"$/ do |button|
-	#pending
-	fail "Unimplemented"
-end
+# When /^I press "(.*)"$/ do |button|
+# 	#pending
+# 	fail "Unimplemented"
+# end
 
 When /^I select "(.*)"$/ do |option|
 	#pending
