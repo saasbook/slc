@@ -2,11 +2,11 @@
 
 <%= form_tag tutee_path(@tutee), :method => :put do %>
   
-  <%= label :tutee, :first_name, 'First Name'  %>
-  <%= text_field :tutee, 'first_name' %>
+  <%= label :tutee, :first_name, 'First Name' %>
+  <%= text_field :tutee, 'first_name', :value => nil %>
 
   <%= label :tutee, :last_name, 'Last Name' %>
-  <%= text_field :tutee, 'last_name' %>
+  <%= text_field :tutee, 'last_name', :value => nil %>
 
   <%= label :tutee, :sid, 'SID' %>
   <%= text_field :tutee, 'sid'  %>
@@ -15,7 +15,7 @@
   <%= text_field :tutee, 'grade'  %>
   
   <%= label :tutee, :email, 'Email' %>
-  <%= text_field :tutee, 'email' %>
+  <%= text_field :tutee, 'email', :value => nil %>
   
   <%= label :tutee, :phone_number, 'Phone Number' %>
   <%= text_field :tutee, 'phone_number'  %>
