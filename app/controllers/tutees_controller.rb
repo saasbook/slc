@@ -5,22 +5,13 @@ class TuteesController < ApplicationController
     def validate_params
         if params[:tutee][:first_name] == nil || params[:tutee][:first_name].length == 0
                 throw ArgumentError
-        # # begin  
-        #     if params[:tutee][:first_name] == nil || params[:tutee][:first_name].length == 0
-        #         throw ArgumentError
-        #     elsif params[:tutee][:last_name] == nil || params[:tutee][:last_name].length == 0
-        #         throw ArgumentError
-        #     end
-        # # rescue ArgumentError    
-        # #     flash[:warning] = "Required field."
-        # # end
+        elsif params[:tutee][:last_name] == nil || params[:tutee][:last_name].length == 0
+                throw ArgumentError        
         end
     end
     
-    
 
     def show
-       
     end
     
     def index
@@ -39,7 +30,6 @@ class TuteesController < ApplicationController
         @tutee = Tutee.find(params[:id])
     end
 
-    
     #Update all of the attributes gathered from edit form
     def update
         @tutee = Tutee.find(params[:id])

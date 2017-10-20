@@ -25,7 +25,6 @@ Scenario: tutor fills in form information
   And I press "Submit"
   Then I should see a confirmation message
   
-
 #Lexie, User Story 1
 @tutee_form_complete
 Scenario: tutee fills in information
@@ -58,6 +57,22 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[in_dsp]" with "Yes"
   Then I should not see "Thank you for submitting a tutor form request!"
   
+#Lexie, User Story 1  
+@tutee_form_no_last_name
+Scenario: tutee fills in information but lacks first name 
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I fill in "tutee[in_dsp]" with "Yes"
+  Then I should not see "Thank you for submitting a tutor form request!"
+  
+#Lexie, User Story 1 
 @tutee_form_routing
 Scenario: routing is correct
   When I go to Tutee Information Form for User 1
