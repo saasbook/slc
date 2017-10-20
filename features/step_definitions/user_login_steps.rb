@@ -8,22 +8,23 @@ Given /^I am on the register account page$/ do
   fail "Unimplemented"
 end
 
-Given /^I am on the home page$/ do 
-  #Pending
-  fail "Unimplemented"
-end
 
 # ====================================================== #
 
-# When /^I fill in "(.*)" with "(.*)"$/ do |field, value|
-#   #Pending
-#   fail "Unimplemented"
-# end
 
-# When /^I press "(.*)"$/ do |button|
-#   #Pending
-#   fail "Unimplemented"
-# end
+And /^The tutee "(.*)" with the password "(.*)" exists/ do |username, pass|
+  tutee = Tutee.new
+  tutee.email = username
+  tutee.password = pass
+  tutee.save!
+end
+
+And /^The tutor "(.*)" with the password "(.*)" exists/ do |username, pass|
+  tutor = Tutor.new
+  tutor.email = username
+  tutor.password = pass
+  tutor.save!
+end
 
 Then /^I should see "(.*)"$/ do |message|
   #Pending

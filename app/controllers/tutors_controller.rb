@@ -1,5 +1,9 @@
 class TutorsController < ApplicationController
     
+    def after_sign_in_path_for(tutor)
+        stored_location_for(tutor) || root
+    end
+    
     def index
     end
 
