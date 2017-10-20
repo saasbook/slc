@@ -28,10 +28,6 @@ Then /^I should not be able to reserve a room$/ do
   fail "Unimplemented"
 end
 
-When /^I press "(.*)"$/ do |button|
-  #Pending
-  fail "Unimplemented"
-end
 
 Then /^I should be able to view my current reservation$/ do
   #Pending
