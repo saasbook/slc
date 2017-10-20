@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+tutee = Tutee.new
+tutee.email = "test@example.com"
+tutee.password = "password"
+tutee.password_confirmation = "password"
+tutee.save!
