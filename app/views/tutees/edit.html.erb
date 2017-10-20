@@ -1,0 +1,48 @@
+<h1>Tutee Information Form</h1>
+
+<!---#{:class => 'col-md-4 col-md-offset-4'}-->
+
+<!---#Form tag has action and method which determines how its submitted -->
+<!---#class: "form-horizontal"-->
+
+<%= form_tag tutee_path(@tutee), :method => :put do %>
+  
+   <%= label :tutee, :first_name, 'First Name'  %>
+
+  <!---#<label for= "tutee_first_name">First Name</label>-->
+  <!---# There is such a model as tutee with attribute first name. Generate form element suitable for editing that attribute-->
+  <%= text_field :tutee, 'first_name' %>
+  <!---#<input id= "movie_first_name" name = "movie[first_name]"-->
+  
+  <%= label :tutee, :last_name, 'Last Name' %>
+  <%= text_field :tutee, 'last_name' %>
+
+  
+  <%= label :tutee, :sid, 'SID' %>
+  <%= text_field :tutee, 'sid'  %>
+
+  <%= label :tutee, :grade, 'Current Grade' %>
+  <%= text_field :tutee, 'grade'  %>
+  
+  <%= label :tutee, :email, 'Email' %>
+  <%= text_field :tutee, 'email' %>
+  
+  <%= label :tutee, :phone_number, 'Phone Number' %>
+  <%= text_field :tutee, 'phone_number'  %>
+  
+  <%= label :tutee, :semesters_at_cal, 'Semesters at Cal' %>
+  <%= text_field :tutee, 'semesters_at_cal' %>
+  
+  <%= label :tutee, :major, 'Major' %>
+  <%= text_field :tutee, 'major' %>
+  
+  <%= label :tutee, :requested_class, 'Class Requesting Help In' %>
+  <%= text_field :tutee, 'requested_class' %>
+  
+  <%= label :tutee, :in_dsp, 'Member of DSP?' %>
+  <%= text_field :tutee, 'in_dsp' %>
+
+  
+<%= submit_tag 'Submit' %>
+
+<% end %>
