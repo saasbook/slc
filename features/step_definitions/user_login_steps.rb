@@ -1,7 +1,7 @@
-Given /^I go to the login page$/ do 
-  #Pending
-  fail "Unimplemented"
-end
+# Given /^I go to the login page$/ do 
+#   #Pending
+#   fail "Unimplemented"
+# end
 
 Given /^I am on the register account page$/ do 
   #Pending
@@ -35,11 +35,6 @@ Then /^I should press "(.*)"$/ do |button|
   #Pending
   fail "Unimplemented"
 end
-
-# Then /^I should be on the home page$/ do
-#   #Pending
-#   fail "Unimplemented"
-# end
 
 Then /^I should be on the "(.*)" page$/ do |pagetype|
   #Pending

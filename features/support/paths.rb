@@ -18,7 +18,23 @@ module NavigationHelpers
       new_tutor_session_path
     when /^the home\s?page$/ 
       '/'
+      
+    when /^Tutee Information Form for User (.*)$/
+     "/tutees/#{$1}/edit"
 
+    when /^Tutee Submitted Form for User (.*)$/
+     "/tutees/#{$1}"
+
+    when /^the tutee login page$/
+      '/tutees/sign_in'
+
+    when /^the tutee registration page$/
+      '/tutees/sign_up'
+
+    when /^the tutor registration page$/
+      '/tutors/sign_up'
+     
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
