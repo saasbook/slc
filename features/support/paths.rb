@@ -21,6 +21,15 @@ module NavigationHelpers
 
     when /^Tutee Submitted Form for User (.*)$/
      "/tutees/#{$1}"
+
+    when /^the tutee login page$/
+      '/tutees/sign_in'
+
+    when /^the tutee registration page$/
+      '/tutees/sign_up'
+
+    when /^the tutor registration page$/
+      '/tutors/sign_up'
      
     
     # Add more mappings here.
