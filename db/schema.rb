@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019190653) do
+ActiveRecord::Schema.define(version: 20171024162753) do
 
   create_table "time_availabilitys", force: :cascade do |t|
     t.string   "day"
@@ -66,13 +66,14 @@ ActiveRecord::Schema.define(version: 20171019190653) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
+    t.string   "first_name"
     t.string   "year"
     t.string   "phone_number"
     t.string   "major"
     t.text     "bio"
     t.integer  "sid"
     t.string   "tutor_cohort"
+    t.string   "last_name"
   end
 
   add_index "tutors", ["email"], name: "index_tutors_on_email", unique: true
