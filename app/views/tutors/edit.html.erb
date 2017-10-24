@@ -1,0 +1,28 @@
+<h1>Tutor Information Form</h1>
+
+<%= form_tag tutor_path(@tutor), :method => :put do %>
+  
+  <%= label :tutor, :name, 'Name' %>
+  <%= text_field :tutor, 'name', :value => nil %>
+  
+  <%= label :tutor, :sid, 'SID' %>
+  <%= text_field :tutor, 'sid'  %>
+
+  <%= label :tutor, :year, 'Current Grade' %>
+  <%= text_field :tutor, 'year'  %>
+  
+  <%= label :tutor, :email, 'Email' %>
+  <%= text_field :tutor, 'email' %>
+  
+  <%= label :tutor, :phone_number, 'Phone Number' %>
+  <%= text_field :tutor, 'phone_number'  %>
+  
+  <%= label :tutor, :major, 'Major' %>
+  <%= text_field :tutor, 'major' %>
+  
+  <%= label :tutor, :bio, 'Bio' %>
+  <%= text_field :tutor, 'bio' %>
+  
+<%= submit_tag 'Submit' %>
+
+<% end %>
