@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   
   resources :tutors
   resources :tutees
+  get '/tutees/:id/tutor_match', to: 'tutees#tutor_match'
+  get '/tutors/:id/tutee_match', to: 'tutors#tutee_match'
   get '/login', to: 'pages#login'
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

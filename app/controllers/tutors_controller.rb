@@ -44,10 +44,9 @@ class TutorsController < ApplicationController
     def destroy
     end
     
-    private
-    
     def tutor_params
         params.require(:tutor).permit(:name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio)
     end
+
 end
 
