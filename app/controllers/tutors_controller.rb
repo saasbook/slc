@@ -25,4 +25,9 @@ class TutorsController < ApplicationController
     def destroy
     end
     
+    def tutee_match
+        @tutor = Tutor.find(params[:id])
+        @tutees = @tutor.tutees
+    end
+    
 end

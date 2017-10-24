@@ -55,3 +55,33 @@ Then /^I should see "(.*)" in available times$/ do |days|
 	fail "Unimplemented"
 end
 
+Given /^I have been assigned "(.*)" as tutor$/ do |tutor_name|
+	#pending
+	fail "Unimplemented"
+end
+
+When /^I go to the tutor match page$/ do
+	#pending
+	fail "Unimplemented"
+end
+
+Then /^I should see "(.*)" as my tutor$/ do |tutor_name|
+	#Pending 
+	fail "Unimplemented"
+end
+
+Given /^I have been assigned "(.*)" as tutee$/ do |tutee_name|
+	#pending
+	fail "Unimplemented"
+end
+
+When /^I go to the tutee match page$/ do
+	#pending
+	fail "Unimplemented"
+end
+
+Then /^I should see "(.*)" in (.*)/ do |tutee_lastname, tutee_list|
+	#Pending 
+	fail "Unimplemented"
+end
+

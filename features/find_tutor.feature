@@ -105,3 +105,23 @@ Scenario: student sees current tutor and time under reservations
   And   I press "My Reservations"
   Then  I should see "Juno Morey" under "Tutors"
   And   I should see "Monday" under "Session Time"
+  
+#Dhruv, User Story 1
+Scenario: tutee can view tutor
+  Given: I have been assigned "tutor1_name" as tutor
+  When   I go to the tutor match page
+  Then   I should see "tutor1_name" as my tutor
+  
+#Dhruv, User Story 2
+Scenario: tutor can view tutee
+  Given: I have been assigned "tutee1_lastname" as tutee
+  When   I go to the tutee match page
+  Then   I should see "tutee1_lastname" in my list of tutees
+
+#Dhruv, User Story 3
+Scenario: tutor can view mutiple tutees
+  Given: I have been assigned "tutee1_lastname" as tutee
+  And    I have been assigned "tutee2_lastname" as tutee
+  When   I go to the tutee match page
+  Then   I should see "tutee1_lastname" in my list of tutees
+  And    I should see "tutee2_lastname" in my list of tutees
