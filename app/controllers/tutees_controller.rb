@@ -44,6 +44,11 @@ class TuteesController < ApplicationController
     def destroy
     end
     
+    def tutor_match
+        @tutee = Tutee.find(params[:id])
+        @tutor = @tutee.tutor
+    end
+    
     private
     
     def tutee_params
