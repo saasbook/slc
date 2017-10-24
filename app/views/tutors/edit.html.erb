@@ -2,8 +2,11 @@
 
 <%= form_tag tutor_path(@tutor), :method => :put do %>
   
-  <%= label :tutor, :name, 'Name' %>
-  <%= text_field :tutor, 'name', :value => nil %>
+  <%= label :tutor, :first_name, 'First Name' %>
+  <%= text_field :tutor, 'first_name', :value => nil %>
+  
+  <%= label :tutor, :last_name, 'Last Name' %>
+  <%= text_field :tutor, 'last_name', :value => nil %>
   
   <%= label :tutor, :sid, 'SID' %>
   <%= text_field :tutor, 'sid'  %>
@@ -20,7 +23,10 @@
   <%= label :tutor, :major, 'Major' %>
   <%= text_field :tutor, 'major' %>
   
-  <%= label :tutor, :bio, 'Bio' %>
+  <%= label :tutor, :tutor_cohort, 'Tutor Cohort' %>
+  <%= text_field :tutor, 'tutor_cohort' %>
+  
+  <%= label :tutor, :bio, 'Biography' %>
   <%= text_field :tutor, 'bio' %>
   
 <%= submit_tag 'Submit' %>
