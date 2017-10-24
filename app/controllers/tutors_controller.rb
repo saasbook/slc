@@ -6,11 +6,9 @@ class TutorsController < ApplicationController
         stored_location_for(tutor) || root
     end
     def validate_params
-        if params[:tutor][:first_name] == nil || params[:tutor][:first_name].length == 0
+        if params[:tutor][:name] == nil || params[:tutor][:name].length == 0
                 throw ArgumentError
-        elsif params[:tutor][:last_name] == nil || params[:tutor][:last_name].length == 0
-                throw ArgumentError        
-        end
+            end
     end
     
 
@@ -37,7 +35,7 @@ class TutorsController < ApplicationController
     def update
         @tutor = Tutor.find(params[:id])
         @tutor.update_attributes!(tutor_params)
-        flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
+        flash[:notice] = "Form for #{@tutor.name} was succesfully created"
         redirect_to tutor_path(@tutor)
     end
     
