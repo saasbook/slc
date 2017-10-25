@@ -24,6 +24,15 @@ module NavigationHelpers
 
     when /^Tutee Submitted Form for User (.*)$/
      "/tutees/#{$1}"
+     
+    when /^Tutor Information Form for User (.*)$/
+     "/tutors/#{$1}/edit"
+
+    when /^Tutor Submitted Form for User (.*)$/
+     "/tutors/#{$1}"
+
+    when /^the tutor login page$/
+      '/tutors/sign_in'
 
     when /^the tutee login page$/
       '/tutees/sign_in'

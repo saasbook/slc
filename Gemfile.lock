@@ -405,7 +405,7 @@ DEPENDENCIES
   cucumber-rails-training-wheels
   database_cleaner
   devise
-  factory_bot_rails
+  factory_bot_rails (~> 4.0)
   guard-rspec
   haml
   jasmine-rails

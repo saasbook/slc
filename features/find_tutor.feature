@@ -11,19 +11,22 @@ Background: tutors are in the system and a user would like to find one
   #   | James Truitt | Mechanical Engineering | Senior | [MECHENG100, MECHENG150, EE16A] | Tuesday, Thursday |
   #   | Lexie Polevoi | Economics | Sophomore | [ECON100A, ECON1, ECON100B] | Monday, Wednesday, Thursday | 
 
-Scenario: tutor fills in form information
-  When I go to the "Sign Up As A Tutor" page
-  And I fill in "Name" with "John Doe"
-  And I fill in "Tutor Cohort" with "1"
-  And I fill in "Email" with "jdoe@berkeley.edu"
-  And I fill in "SID" with "1234"
-  And I fill in "Phone Number" with "123-456-7890"
-  And I fill in "Class Standing" with "Junior"
-  And I fill in "Major" with "Physics"
-  And I select "Monday" and "Tuesday" for my days_available
-  And I select "1-2" and "2-3" for my times_available
+#Lexie, User Story 2 
+@tutor_form_complete
+Scenario: tutor fills in information
+  When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with "Sophomore"
+  #And I fill in "tutor[requested_class]" with "CS61A"
+  #And I fill in "tutor[semesters_at_cal]" with "4"
+  And I fill in "tutor[tutor_cohort]" with "Computer Science"
+  And I fill in "tutor[bio]" with "Yes"
   And I press "Submit"
-  Then I should see a confirmation message
+  Then I should be on Tutor Submitted Form for User 1
   
 #Lexie, User Story 1
 @tutee_form_complete
@@ -105,23 +108,3 @@ Scenario: student sees current tutor and time under reservations
   And   I press "My Reservations"
   Then  I should see "Juno Morey" under "Tutors"
   And   I should see "Monday" under "Session Time"
-  
-#Dhruv, User Story 1
-Scenario: tutee can view tutor
-  Given: I have been assigned "tutor1_name" as tutor
-  When   I go to the tutor match page
-  Then   I should see "tutor1_name" as my tutor
-  
-#Dhruv, User Story 2
-Scenario: tutor can view tutee
-  Given: I have been assigned "tutee1_lastname" as tutee
-  When   I go to the tutee match page
-  Then   I should see "tutee1_lastname" in my list of tutees
-
-#Dhruv, User Story 3
-Scenario: tutor can view mutiple tutees
-  Given: I have been assigned "tutee1_lastname" as tutee
-  And    I have been assigned "tutee2_lastname" as tutee
-  When   I go to the tutee match page
-  Then   I should see "tutee1_lastname" in my list of tutees
-  And    I should see "tutee2_lastname" in my list of tutees

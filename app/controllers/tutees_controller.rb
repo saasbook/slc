@@ -1,7 +1,10 @@
 class TuteesController < ApplicationController
 
     before_action :validate_params, only: [:update]
-
+    
+    def after_sign_in_path_for(tutee)
+        stored_location_for(tutee) || root
+    end
 
     
     
@@ -21,7 +24,9 @@ class TuteesController < ApplicationController
         #Should there be anything here?
     end
 
+    #Not sure?
     def create
+        #@tutee = Tutee.new(tutee_params)
     end
     
     def new
