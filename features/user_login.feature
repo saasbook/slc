@@ -63,7 +63,3 @@ Scenario: redirect to tutee form
   And I select "Tutee Sign-Up"
   Then I should be redirected to the tutee form
 
-Scenario: redirect to room availability page
-  When I am on the home page
-  And I select "Room Reservation"
-  Then I should be redirected to the room reservation form
