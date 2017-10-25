@@ -6,7 +6,7 @@ Feature: a user registers an account or logs in to their existing account
 
 Background: no accounts have been made
 
-
+@log_in_before_account
 Scenario: log in to system before making an account
   When I go to the tutee login page
   And  I fill in "Email" with "connorvotroubek@berkeley.edu"
@@ -14,6 +14,7 @@ Scenario: log in to system before making an account
   And  I press "Log in"
   Then  I should be on the tutee login page
 
+@register_tutee
 Scenario: register a new account as a tutee
   When  I am on the tutee registration page
   And   I fill in "Email" with "j.morey@berkeley.edu"
@@ -22,6 +23,7 @@ Scenario: register a new account as a tutee
   And   I press "Sign up"
   Then  I should be on the home page
 
+@register_tutor
 Scenario: register a new account as a tutee
   When  I am on the tutor registration page
   And   I fill in "Email" with "connorvotroubek@berkeley.edu"
@@ -30,6 +32,7 @@ Scenario: register a new account as a tutee
   And   I press "Sign up"
   Then  I should be on the home page
  
+@log_in_tutee 
 Scenario: log in to system as tutee
   Given I am on the tutee sign in page
   And   The tutee "tutee1@example.com" with the password "tutee1" exists
@@ -37,7 +40,8 @@ Scenario: log in to system as tutee
   And   I fill in "Password" with "tutee1"
   And   I press "Log in"
   Then  I should be on the home page
- 
+  
+@log_in_tutor 
 Scenario: log in to system as tutor
   When  I am on the tutor sign in page
   And   The tutor "tutor2@example.com" with the password "tutor2" exists
