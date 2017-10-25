@@ -13,7 +13,6 @@ script:
  - bundle exec rake db:setup
  - bundle exec rake db:test:prepare
  - bundle exec rake db:seed
- - bundle exec rake db:seed RAILS_ENV=test
  - bundle exec rake spec
  - bundle exec cucumber --tags=@tutee_form_complete,@tutee_form_no_first_name,@tutee_form_no_last_name,@tutor_form_complete,@tutee_form_no_first_name,@tutee_form_no_last_name,@tutee_form_routing,@tutor_form_routing,@log_in_before_account,@register_tutee,@register_tutor,@log_in_tutee,@log_in_tutor 
 after_script:
