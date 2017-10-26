@@ -26,11 +26,6 @@ And /^The tutor "(.*)" with the password "(.*)" exists/ do |username, pass|
   tutor.save!
 end
 
-Then /^I should see "(.*)"$/ do |message|
-  #Pending
-  fail "Unimplemented"
-end
-
 Then /^I should press "(.*)"$/ do |button|
   #Pending
   fail "Unimplemented"

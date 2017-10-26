@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :tutees
-  devise_for :tutors
+ 
+  devise_for :tutees, controllers: { registrations: "registrations" }
+  devise_for :tutors, controllers: { registrations: "registrations" }
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   
   resources :tutors
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   get '/tutors/:id/tutee_match', to: 'tutors#tutee_match'
   get '/login', to: 'pages#login'
   root to: 'pages#home'
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
