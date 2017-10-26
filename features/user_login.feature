@@ -21,16 +21,16 @@ Scenario: register a new account as a tutee
   And   I fill in "Password" with "gooobears"
   And   I fill in "Password confirmation" with "gooobears"
   And   I press "Sign up"
-  Then  I should be on the home page
+  Then  I should be on Tutee Information Form for User 5
 
 @register_tutor
-Scenario: register a new account as a tutee
+Scenario: register a new account as a tutor
   When  I am on the tutor registration page
   And   I fill in "Email" with "connorvotroubek@berkeley.edu"
   And   I fill in "Password" with "gobears"
   And   I fill in "Password confirmation" with "gobears"
   And   I press "Sign up"
-  Then  I should be on the home page
+  Then  I should be on Tutor Information Form for User 4
  
 @log_in_tutee 
 Scenario: log in to system as tutee
@@ -39,7 +39,7 @@ Scenario: log in to system as tutee
   And   I fill in "Email" with "tutee1@example.com"
   And   I fill in "Password" with "tutee1"
   And   I press "Log in"
-  Then  I should be on the home page
+  Then  I should see "Thank you for submitting a tutor form request!"
   
 @log_in_tutor 
 Scenario: log in to system as tutor
@@ -48,7 +48,7 @@ Scenario: log in to system as tutor
   And   I fill in "Email" with "tutor2@example.com"
   And   I fill in "Password" with "tutor2"
   And   I press "Log in"
-  Then  I should be on the home page
+  Then  I should see "Thank you for submitting a tutee form request!"
   
 Scenario: log in to system as admin
   When  I go to the login page
