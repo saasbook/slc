@@ -21,7 +21,7 @@ Scenario: register a new account as a tutee
   And   I fill in "Password" with "gooobears"
   And   I fill in "Password confirmation" with "gooobears"
   And   I press "Sign up"
-  Then  I should be on Tutee Information Form for User 4
+  Then  I should be on Tutee Information Form for User 5
 
 @register_tutor
 Scenario: register a new account as a tutor
@@ -66,4 +66,3 @@ Scenario: redirect to tutee form
   When I am on the home page
   And I select "Tutee Sign-Up"
   Then I should be redirected to the tutee form
-

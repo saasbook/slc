@@ -149,4 +149,3 @@ Scenario: student sees current tutor and time under reservations
   And   I press "My Reservations"
   Then  I should see "Juno Morey" under "Tutors"
   And   I should see "Monday" under "Session Time"
-  

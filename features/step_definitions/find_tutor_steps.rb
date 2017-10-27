@@ -1,57 +1,34 @@
-Given /^there are the following tutors in the system: (.*)/ do |tutors_list|
-	#pending
-	fail "Unimplemented"
+Given /^I have not reserved a room$/ do 
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I select the following time availabilities: (.*)/ do |days, times|
-	#pending
-	fail "Unimplemented"
+Given /^I am on the "(.*)" page$/ do |page|
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I select "(.*)"$/ do |option|
-	#pending
-	fail "Unimplemented"
+Then /^I should be able to reserve a room for "(.*)" and "(.*)"$/ do |time, day|
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I select "(.*)" for "(.*)"$/ do |value, box|
-	#Pending
-	fail "Unimplemented"
+Then /^I should see an appropriate message$/ do
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I see a list of tutors$/ do
-	#Pending
-	fail "Unimplemented"
+When /^I see all rooms and times are reserved$/ do
+  #Pending
+  fail "Unimplemented"
 end
 
-
-Then /^I should go to the "(.*)" page$/ do |page|
-	# #pending
-	# fail "Unimplemented"
-	visit path_to(page_name)
+Then /^I should not be able to reserve a room$/ do
+  #Pending
+  fail "Unimplemented"
 end
 
-Then /^I should see "(.*)" under "(.*)" $/ do |value, column|
-	#Pending
-	fail "Unimplemented"
+Then /^I should be able to view my current reservation$/ do
+  #Pending
+  fail "Unimplemented"
 end
-
-Then /^I should see a confirmation message$/ do
-	#Pending
-	fail "Unimplemented"
-end
-
-Then /^I should see a message that I completed the form$/ do
-	#Pending
-	fail "Unimplemented"
-end
-
-Then /^I should see a list of tutors$/ do
-	#Pending
-	fail "Unimplemented"
-end
-
-Then /^I should see "(.*)" in available times$/ do |days|
-	#Pending 
-	fail "Unimplemented"
-end
-
