@@ -1,5 +1,3 @@
-<h1>Tutor-Tutee Match</h1>
-<p> <%= @tutor.name %> </p>
-<% @tutees.each do |tutee| -%>
-<%= tutee.first_name %>  <%= tutee.last_name %>
-<% end -%>
+<h1>Hello <%= @tutor.first_name %>  <%= @tutor.last_name %> !</h1>
+<p>Your student(s)</p>
+<p> <%=h @display_text %> </p>
