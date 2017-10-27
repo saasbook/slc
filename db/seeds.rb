@@ -118,7 +118,7 @@ tutor4.first_name = "tutor4_firstname"
 tutor4.last_name = "tutor4_lastname"
 tutor4.password = "tutor4"
 tutor4.password_confirmation = "tutor4"
-tutor4.time_availabilitys << taThurs10 << taWed13 << taWed14
+tutor4.time_availabilitys << taWed13 << taWed14 << taThurs10
 tutor4.save! 
 
 ######################################

@@ -42,7 +42,14 @@ module NavigationHelpers
 
     when /^the tutor registration page$/
       '/tutors/sign_up'
-     
+      
+    when /^the tutor match page for tutee (.*)$/
+      "/tutees/#{$1}/tutor_match"
+      
+    
+    when /^the tutee match page for tutor (.*)$/
+      "/tutors/#{$1}/tutee_match"
+      
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

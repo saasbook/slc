@@ -51,12 +51,12 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
         null,
         null,
         0,
@@ -161,10 +161,11 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
+        4,
+        4,
+        4,
+        4,
+        4,
         null,
         0,
         null,
@@ -176,6 +177,13 @@
         2,
         null,
         null,
+        null
+      ],
+      "/home/ubuntu/workspace/slc/app/models/time_availability.rb": [
+        1,
+        1,
+        1,
+        1,
         null
       ],
       "/home/ubuntu/workspace/slc/app/controllers/registrations_controller.rb": [
@@ -199,6 +207,6 @@
         null
       ]
     },
-    "timestamp": 1509082881
+    "timestamp": 1509148175
   }
 }

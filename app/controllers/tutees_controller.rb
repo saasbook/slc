@@ -51,6 +51,7 @@ class TuteesController < ApplicationController
     
     def tutor_match
         @tutee = Tutee.find(params[:id])
+        @tutee.assign_tutor
         @tutor = @tutee.tutor
         if !@tutor.nil?
             @display_text = "#{@tutor.first_name}  #{@tutor.last_name}"

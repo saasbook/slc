@@ -26,11 +26,16 @@ RSpec.describe TutorsController, type: :controller do
         end
     end
     
-     describe 'fill in attributes' do
+    describe "routes /tutors/1/tutee_match to correct path", :type => :routing do
+        it 'routes to tutee_match route' do
+            expect(get("tutors/1/tutee_match/")).to route_to("tutors#tutee_match", :id => "1")
+        end
+    end
+    
+    describe 'fill in attributes' do
         it 'should have a filled in first and last name attribute' do
             tutor = instance_double("Tutor", :email => "apple@gmail.com", :password => "example", :password_confirmation => "example", :first_name => "Sally", :last_name => "Sue")
             expect(tutor).to have_attributes(:email => "apple@gmail.com", :password => "example", :password_confirmation => "example", :first_name => "Sally", :last_name => "Sue")
         end
     end
-
 end
