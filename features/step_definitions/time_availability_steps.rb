@@ -13,7 +13,7 @@ Given /^I go to the "(.*)" edit info page$/ do
   fail "Unimplemented"
 end
 
-THen /^I should see the following checkboxes: "(.*)"$/ do |checkboxes|
+Then /^I should see the following checkboxes: "(.*)"$/ do |checkboxes|
   #Pending
   fail "Unimplemented" 
 end
