@@ -9,7 +9,7 @@ Scenario: Tutee tries to submit form without entering time availability
 	And I go to the tutee edit info page
 	And all of the time_availability checkboxes are unchecked
 	And I press submit
-	Then I should "Please select a time availaility"
+	Then I should see "Please select a time availaility"
 	And I should be on the edit info page
 
 Scenario: Tutor tries to submit form without entering time availability
@@ -27,7 +27,7 @@ Scenario: Tutee tries to select one time availability
 	And I check "Monday 12pm"
 	Then the Monday 12pm checkbox should be checked
 	And I press submit
-	Then I should be on the 
+	Then I should be on the tutee show page
 
 Scenario: Tutee tries to unselect one time availability
 	Given I am signed in as a tutee
