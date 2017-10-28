@@ -9,13 +9,8 @@ class Tutee < ActiveRecord::Base
   def assign_tutor
     if self.tutor.nil?
       matched_tutor, available_tutors = nil, []
-      Tutor.all.each do |tutor|
-        matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
-        if !matched_times.empty?
-          available_tutors << tutor
-        end
-      end
-      if !available_tutors.nil?
+      available_tutors = find_available_tutors
+      if !available_tutors.empty?
         matched_tutor = get_best_tutor(available_tutors)
       end
       matched_tutor
@@ -35,4 +30,16 @@ class Tutee < ActiveRecord::Base
     best_tutor.save!
     best_tutor
   end
+  
+  def find_available_tutors
+    available_tutors_list = []
+    Tutor.all.each do |tutor|
+      matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
+      if !matched_times.empty?
+        available_tutors_list << tutor
+      end
+    end
+    available_tutors_list
+  end
+  
 end
