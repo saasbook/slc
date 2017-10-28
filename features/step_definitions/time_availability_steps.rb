@@ -6,10 +6,12 @@ end
 Given /^"(.*)" is checked$/ do |checkbox_type|
   #Pending
   fail "Unimplemented"
+end
   
 Given /^I go to the (.*) form as (.*)/ do |form, user|
   #Pending
   fail "Unimplemented"
+end
   
 Given /^I am signed in as a "(.*)"$/ do |role|
   #Pending
