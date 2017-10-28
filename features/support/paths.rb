@@ -14,9 +14,11 @@ module NavigationHelpers
     case page_name
 
     ##### duplicates #########
-
     when /the tutee edit info page/
       edit_tutee_path
+    
+    when /the tutee show page/
+      tutee_path
 
     when /the tutor edit info page/
       edit_tutor_path 

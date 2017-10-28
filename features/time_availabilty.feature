@@ -38,7 +38,7 @@ Scenario: Tutee tries to unselect one time availability
 
 Scenario: Tutee tries to select applicable groups
   Given I am signed in as a tutee
-  And I go to the Tutee Information Form for User 1
+  And I go to the Tutee Information form as User 1
   Then I should see the following checkboxes:
     | name                                          | id |
     | Disabled Students' Program (DSP)              | 1  |
