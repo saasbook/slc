@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ubuntu/workspace/config/environment.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/config/application.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/application.rb": [
         1,
         null,
         1,
@@ -37,12 +37,12 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/boot.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/home/ubuntu/workspace/config/environments/test.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/environments/test.rb": [
         1,
         null,
         null,
@@ -86,7 +86,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/initializers/assets.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -99,7 +99,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/initializers/backtrace_silencers.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -108,12 +108,12 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/initializers/cookies_serializer.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/config/initializers/devise.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/devise.rb": [
         null,
         null,
         1,
@@ -392,13 +392,13 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/initializers/filter_parameter_logging.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/config/initializers/inflections.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -416,18 +416,18 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/initializers/mime_types.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/initializers/session_store.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/config/initializers/wrap_parameters.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -443,8 +443,9 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/config/routes.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/config/routes.rb": [
         1,
+        null,
         1,
         1,
         1,
@@ -455,6 +456,8 @@
         1,
         1,
         1,
+        null,
+        null,
         null,
         null,
         null,
@@ -511,7 +514,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/models/tutee.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/models/tutee.rb": [
         1,
         null,
         null,
@@ -521,7 +524,7 @@
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/models/tutor.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/models/tutor.rb": [
         1,
         null,
         null,
@@ -531,23 +534,23 @@
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/application_helper.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/pages_helper.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/helpers/pages_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/tutee_helper.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/helpers/tutee_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/helpers/tutor_helper.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/helpers/tutor_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/controllers/pages_controller.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/controllers/pages_controller.rb": [
         1,
         1,
         null,
@@ -556,147 +559,147 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/controllers/application_controller.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/home/ubuntu/workspace/app/controllers/tutees_controller.rb": [
         1,
         null,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
         0,
         0,
         0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/home/ubuntu/workspace/app/controllers/tutors_controller.rb": [
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
         0,
         null,
         null,
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/models/time_availability.rb": [
+      "/Users/junomorey/Documents/school/cs169/slc/app/controllers/tutees_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/junomorey/Documents/school/cs169/slc/app/controllers/tutors_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/junomorey/Documents/school/cs169/slc/app/models/time_availability.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1508958086
+    "timestamp": 1509167421
   },
   "Cucumber Features": {
     "coverage": {
