@@ -4,7 +4,7 @@ Feature: a user registers an account or logs in to their existing account
   So that I can get a tutor or sign up to be a tutor
   I want to log in and register
 
-Background: no accounts have been made
+Background: accounts made only for some user
 
 @log_in_before_account
 Scenario: log in to system before making an account
@@ -57,13 +57,4 @@ Scenario: log in to system as admin
   And   I press "Login"
   Then  I should be on the home page
   
-Scenario: redirect to tutor form
-  When I am on the home page
-  And I select "Tutor Sign-Up"
-  Then I should be redirected to the tutor form
-  
-Scenario: redirect to tutee form
-  When I am on the home page
-  And I select "Tutee Sign-Up"
-  Then I should be redirected to the tutee form
 
