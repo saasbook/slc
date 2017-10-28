@@ -36,4 +36,17 @@ Scenario: Tutee tries to unselect one time availability
 	And I check "Monday 12pm"
 	Then the Monday 12pm checkbox should be unchecked
 
+Scenario: Tutee tries to select applicable groups
+  Given I am signed in as a tutee
+  And I go to the Tutee Information Form for User 1
+  Then I should see the following checkboxes:
+    | name                                          | id |
+    | Disabled Students' Program (DSP)              | 1  |
+    | Educational Opportunity Program (EOP)         | 2  |
+    | Summer Bridge Cohort 2017                     | 3  |
+    | Fall Program for Freshman (FPF)               | 4  |
+    | Transfer, Re-Entry, or Student Parent (TRSP)  | 5  |
+    | UC Intercampus Exchange Program (UCIEP)       | 6  |
+    | Berkeley International Study Program (BISP)   | 7  |
+
 

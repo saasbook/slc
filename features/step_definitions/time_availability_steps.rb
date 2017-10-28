@@ -12,3 +12,8 @@ Given /^I go to the "(.*)" edit info page$/ do
   #Pending
   fail "Unimplemented"
 end
+
+THen /^I should see the following checkboxes: "(.*)"$/ do |checkboxes|
+  #Pending
+  fail "Unimplemented" 
+end

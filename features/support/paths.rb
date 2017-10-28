@@ -12,14 +12,19 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    when /the tutee edit info page/
-      edit_tutee_path
-    when /the tutor edit info page/
-      edit_tutor_path 
-    when /the tutee sign in page/
-      new_tutee_session_path
-    when /the tutor sign in page/
-      new_tutor_session_path
+
+    # when /the tutee edit info page/
+    #   edit_tutee_path
+
+    # when /the tutor edit info page/
+    #   edit_tutor_path 
+
+    # when /the tutee sign in page/
+    #   new_tutee_session_path
+
+    # when /the tutor sign in page/
+    #   new_tutor_session_path
+      
     when /^the home\s?page$/ 
       '/'
       
