@@ -3,7 +3,7 @@ CodeClimate GPA Badge: <a href="https://codeclimate.com/github/rails/rails"><img
 
 CodeClimate Coverage Badge: <a href="https://codeclimate.com/github/junomorey/slc-app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ba9e5241f42bad1abae2/test_coverage" /></a>
 
-Travis CI Badge: <img src="https://travis-ci.org/travis-ci/travis-web.svg?branch=daily-cron" />
+Travis CI Badge: https://travis-ci.org/junomorey/slc-app.svg?branch=master
 
 Link to deployed app on Heroku: https://slc-app.herokuapp.com/
 
