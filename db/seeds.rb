@@ -12,6 +12,8 @@ tutor1.first_name = "tutor1"
 tutor1.last_name = "name"
 tutor1.password = "tutor1"
 tutor1.password_confirmation = "tutor1"
+tutor1.tutee = tutee1
+tutor1.save!
 
 tutor2 = Tutor.new
 tutor2.email = "tutor2@gmail.com"
