@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017052838) do
+ActiveRecord::Schema.define(version: 20171024162753) do
 
-  create_table "time_availabilities", force: :cascade do |t|
+  create_table "time_availabilitys", force: :cascade do |t|
     t.string   "day"
     t.time     "start_time"
     t.time     "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "time_availabilityable_id"
+    t.string   "time_availabilityable_type"
   end
 
   create_table "tutees", force: :cascade do |t|
@@ -42,6 +44,10 @@ ActiveRecord::Schema.define(version: 20171017052838) do
     t.integer  "sid"
     t.boolean  "in_dsp"
     t.integer  "tutor_id"
+    t.string   "last_name"
+    t.integer  "semesters_at_cal"
+    t.string   "first_name"
+    t.string   "grade"
   end
 
   add_index "tutees", ["email"], name: "index_tutees_on_email", unique: true
@@ -60,13 +66,14 @@ ActiveRecord::Schema.define(version: 20171017052838) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
+    t.string   "first_name"
     t.string   "year"
     t.string   "phone_number"
     t.string   "major"
     t.text     "bio"
     t.integer  "sid"
     t.string   "tutor_cohort"
+    t.string   "last_name"
   end
 
   add_index "tutors", ["email"], name: "index_tutors_on_email", unique: true
