@@ -14,10 +14,35 @@ RSpec.describe TuteesController, type: :controller do
         end
     end
     
+    describe "routes /tutees/1/tutor_match to correct path", :type => :routing do
+        it 'routes to tutor_match route' do
+            expect(get("tutees/1/tutor_match/")).to route_to("tutees#tutor_match", :id => "1")
+        end
+    end
+
+    describe 'invalid params should throw an error' do
+        it 'should throw an ArgumentError with no first name' do
+            invalid_hash = {
+               first_name: nil
+            }
+            expect{put :update, id: 1, tutee: invalid_hash}.to raise_error(ArgumentError)
+        end
+        
+        it 'should throw an ArgumentError with no last name' do
+            invalid_hash = {
+               last_name: nil
+            }
+            expect{put :update, id: 1, tutee: invalid_hash}.to raise_error(ArgumentError)
+        end
+    end
+    
+    
      describe 'fill in attributes' do
         it 'should have a filled in first and last name attribute' do
             tutee = instance_double("Tutee", :email => "apple@gmail.com", :password => "example", :password_confirmation => "example", :first_name => "Sally", :last_name => "Sue")
             expect(tutee).to have_attributes(:email => "apple@gmail.com", :password => "example", :password_confirmation => "example", :first_name => "Sally", :last_name => "Sue")
         end
     end
+    
 end
+
