@@ -61,3 +61,4 @@ class TuteesController < ApplicationController
         :semesters_at_cal, :major, :requested_class, :in_dsp)
     end
 end
+

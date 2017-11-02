@@ -45,19 +45,6 @@ class TutorsController < ApplicationController
     def tutor_params
         params.require(:tutor).permit(:first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio)
     end
-    
-    def tutee_match
-        @tutor = Tutor.find(params[:id])
-        @tutees = @tutor.tutees
-        if !@tutees.empty?
-            @display_text = ""
-            @tutees.each do |tutee|
-                @display_text += "#{tutee.first_name}  #{tutee.last_name}\n"
-            end
-        else
-            @display_text = "You have not been assigned any students yet."
-        end
-    end
 
 end
 
