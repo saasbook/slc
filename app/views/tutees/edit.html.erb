@@ -32,10 +32,6 @@
   <%= label :tutee, :in_dsp, 'Member of DSP?' %>
   <%= text_field :tutee, 'in_dsp' %>
 
-  <% form_for @tutee do |f| %>
-    <% f.collection_check_boxes :DSP, :EOP, :SBC, :FPF, :TRS, {:item_wrapper_class => 'checkbox_container'} %>
-  <% end %>
-
 <%= submit_tag 'Submit' %>
 
 <% end %>
