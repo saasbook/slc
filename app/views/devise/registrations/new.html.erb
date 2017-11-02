@@ -16,17 +16,13 @@
         </div>
       
         <div class="field" style = "margin-top:25px">
-          <!--<% if @minimum_password_length %>-->
-          <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
-          <!--<% end %><br />-->
           <%= f.password_field :password, autocomplete: "off", placeholder: "Password", style: "margin-left:33%" %>
         </div>
-        <h6 style = "margin-left:33%"> <em> (6 characters minimum) </em> </h6>
+        <h6 style = "margin-left:33%"> <em> (<%= @minimum_password_length %> characters minimum) </em> </h6>
       
         <div class="field" style = "margin-top:15px">
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation", style: "margin-left:33%"  %>
         </div>
-     
       
        <div class="actions" style= "margin-bottom:50px">
           <div style= "margin-top:25px">
@@ -40,8 +36,8 @@
 </div>
 
 
-
 <div style= "text-align:center"> 
   <%= render "devise/shared/links" %>
+  <%= link_to "Back to Home", root_path %>
 </div>
 
