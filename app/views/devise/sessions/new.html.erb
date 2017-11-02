@@ -1,0 +1,49 @@
+<div style="margin: 0 auto; width:70%">
+
+  <div class="panel panel-default" style=width:70%">
+  
+    <div class="panel-heading text-center">
+      <h1>Log in</h1>
+    </div>
+  
+    <div class="panel-body" style="width:70%;margin-left:15%">
+    
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field" style="margin-top:50px">
+          <%= f.email_field :email, autofocus: true, placeholder: "Email", style: "margin-left:33%" %>
+        </div>
+
+        <div class="field" style="margin-top:25px">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Password", style: "margin-left:33%" %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field" style="margin-top:25px">
+            <div style="margin-left:33%">
+              <%= f.label :remember_me, style:"margin-right:30%" do %>
+              <%= f.check_box :remember_me, style:"margin-left:20x" %>
+               Remember me
+              <% end -%>
+            </div>
+          </div>
+        <% end -%>
+
+      <div class="actions" style= "margin-bottom:10px">
+          <div style= "margin-top:25px">
+            <%= f.submit "Log in", style: "margin-left:45%" %>
+        </div>
+      </div>
+  
+    <% end %>
+  
+    </div>
+  </div>
+</div> 
+
+
+<div style= "text-align:center"> 
+  <%= render "devise/shared/links"%>
+</div>
+
+
+
