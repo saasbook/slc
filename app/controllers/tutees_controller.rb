@@ -2,12 +2,6 @@ class TuteesController < ApplicationController
 
     before_action :validate_params, only: [:update]
     
-    def after_sign_in_path_for(tutee)
-        stored_location_for(tutee) || root
-    end
-
-    
-    
     def validate_params
         if params[:tutee][:first_name] == nil || params[:tutee][:first_name].length == 0
                 throw ArgumentError

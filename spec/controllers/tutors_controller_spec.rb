@@ -38,4 +38,46 @@ RSpec.describe TutorsController, type: :controller do
             expect(tutor).to have_attributes(:email => "apple@gmail.com", :password => "example", :password_confirmation => "example", :first_name => "Sally", :last_name => "Sue")
         end
     end
+    
+    
+    describe 'invalid params should throw an error' do
+        it 'should throw an ArgumentError with no first name' do
+            invalid_hash = {
+               first_name: nil
+            }
+            expect{put :update, id: 1, tutor: invalid_hash}.to raise_error(ArgumentError)
+        end
+    end
+
+    describe 'invalid params throwing an error' do
+        it 'should throw an ArgumentError with no last name' do
+            invalid_hash = {
+               first_name: "C",
+               last_name: nil
+            }
+            expect{put :update, id: 1, tutor: invalid_hash}.to raise_error(ArgumentError)
+        end
+    end
+    
+    describe 'update should redirect' do
+
+        it 'redirect to the show view' do
+            tutor = Tutor.create(:email => "email@c.com", :password => "password")
+            put :update, :id => tutor.id, :tutor => { :first_name => "C", :last_name => "V" }
+            tutor.reload
+            expect(tutor.first_name).to eq("C")
+            expect(tutor.last_name).to eq("V")
+        end
+    end
+    
+    describe 'test tutee match function' do
+        it 'should say there are no available tutors' do
+            tutor = Tutor.create(:email => "email@c.com", :password => "password")
+            put :update, :id => tutor.id, :tutor => { :first_name => "C", :last_name => "V" }
+            tutor.reload
+            put :tutee_match, :id => tutor.id
+            #response.should have_text("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
+            expect(tutor.tutees).to eq([])
+        end
+    end
 end
