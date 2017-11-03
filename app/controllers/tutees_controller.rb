@@ -45,7 +45,13 @@ class TuteesController < ApplicationController
     
     def tutor_match
         @tutee = Tutee.find(params[:id])
+        @tutee.assign_tutor
         @tutor = @tutee.tutor
+        if !@tutor.nil?
+            @display_text = "#{@tutor.first_name}  #{@tutor.last_name}"
+        else
+            @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
+        end
     end
     
     private
@@ -55,3 +61,4 @@ class TuteesController < ApplicationController
         :semesters_at_cal, :major, :requested_class, :in_dsp)
     end
 end
+

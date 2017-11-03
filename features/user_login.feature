@@ -30,7 +30,7 @@ Scenario: register a new account as a tutor
   And   I fill in "Password" with "gobears"
   And   I fill in "Password confirmation" with "gobears"
   And   I press "Sign up"
-  Then  I should be on Tutor Information Form for User 4
+  Then  I should be on Tutor Information Form for User 5
  
 @log_in_tutee 
 Scenario: log in to system as tutee
@@ -57,4 +57,13 @@ Scenario: log in to system as admin
   And   I press "Login"
   Then  I should be on the home page
   
+Scenario: redirect to tutor form
+  When I am on the home page
+  And I select "Tutor Sign-Up"
+  Then I should be redirected to the tutor form
+  
+Scenario: redirect to tutee form
+  When I am on the home page
+  And I select "Tutee Sign-Up"
+  Then I should be redirected to the tutee form
 
