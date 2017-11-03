@@ -69,7 +69,7 @@ RSpec.describe TuteesController, type: :controller do
     end
     
     describe 'test tutee match function' do
-        it 'should say there are no available tutors' do
+        it 'match a tutee to a tutor' do
             tutor = Tutor.create(:email => "email@c.com", :password => "password", :first_name => "C", :last_name => "V")
 
             tutee = Tutee.create(:email => "email@cv.com", :password => "password")
@@ -78,7 +78,7 @@ RSpec.describe TuteesController, type: :controller do
             ta = TimeAvailability.create(:day => "Monday", :start_time => "8")
             tutee.time_availabilitys << ta
             tutor.time_availabilitys << ta
-            #response.should have_text("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
+            put :tutor_match, :id => tutee.id
             expect(nil).to be_nil
         end
     end
