@@ -34,6 +34,12 @@ module NavigationHelpers
     when /^the home\s?page$/ 
       '/'
       
+    when /^the tutor match page for User (.*)$/
+     "/tutees/#{$1}/tutor_match"
+       
+    when /^the tutee match page for User (.*)$/
+     "/tutors/#{$1}/tutee_match"
+     
     when /^Tutee Information Form for User (.*)$/
      "/tutees/#{$1}/edit"
 

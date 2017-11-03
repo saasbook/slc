@@ -17,18 +17,18 @@ Scenario: log out of system as tutor
   And   I fill in "Email" with "tutor2@example.com"
   And   I fill in "Password" with "tutor2"
   And   I press "Log in"
-  Then  I should see "Thank you for submitting a tutee form request!"
+  Then  I should be on the tutee match page for User 5
   And I follow "Logout"
   Then I should be on the home page
   
 @log_out_tutee
-Scenario: log out of system as tutor
+Scenario: log out of system as tutee
   When  I am on the tutee sign in page
   And   The tutee "tutee1@example.com" with the password "tutee1" exists
   And   I fill in "Email" with "tutee1@example.com"
   And   I fill in "Password" with "tutee1"
   And   I press "Log in"
-  Then  I should see "Thank you for submitting a tutor form request!"
+  Then  I should be on the tutor match page for User 5
   And I follow "Logout"
   Then I should be on the home page
 
