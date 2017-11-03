@@ -36,7 +36,7 @@ class TutorsController < ApplicationController
         @tutor = Tutor.find(params[:id])
         @tutor.update_attributes!(tutor_params)
         flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
-        redirect_to tutor_path(@tutor)
+        redirect_to tutee_match_path(@tutor)
     end
     
     def destroy
@@ -52,7 +52,7 @@ class TutorsController < ApplicationController
       if !@tutees.empty?
           @display_text = ""
           @tutees.each do |tutee|
-              @display_text += "#{tutee.first_name}  #{tutee.last_name}\n"
+              @display_text += "#{tutee.first_name} #{tutee.last_name}\n"  
           end
       else
           @display_text = "You have not been assigned any students yet."
@@ -60,4 +60,5 @@ class TutorsController < ApplicationController
     end
 
 end
+
 

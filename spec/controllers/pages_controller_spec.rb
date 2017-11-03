@@ -8,12 +8,12 @@ RSpec.describe PagesController, type: :controller do
   end
 
   describe "After sigin-in" do
-    it "redirects to the /tutee page" do
-        controller.after_sign_in_path_for(@tutee).should == "/tutees/#{@tutee.id}"
+    it "redirects to the tutor match page" do
+        controller.after_sign_in_path_for(@tutee).should == "/tutees/#{@tutee.id}/tutor_match"
     end
     
-    it "redirects to the /tutor page" do
-        controller.after_sign_in_path_for(@tutor).should == "/tutors/#{@tutee.id}"
+    it "redirects to the tutee match page" do
+        controller.after_sign_in_path_for(@tutor).should == "/tutors/#{@tutee.id}/tutee_match"
     end
 
   end

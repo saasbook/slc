@@ -37,7 +37,7 @@ class TuteesController < ApplicationController
         @tutee = Tutee.find(params[:id])
         @tutee.update_attributes!(tutee_params)
         flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
-        redirect_to tutee_path(@tutee)
+        redirect_to tutor_match_path(@tutee)
     end
     
     def destroy
