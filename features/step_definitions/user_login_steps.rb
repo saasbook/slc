@@ -41,10 +41,7 @@ When /^I select "(.*)" for "(.*)"$/ do |field, role|
   fail "Unimplemented"
 end
 
-When /^I select "(.*)"$/ do |button|
-  #Pending
-  fail "Unimplemented"
-end
+
 
 Then /^I should be redirected to the "(.*)" form$/ do |form|
   #Pending
