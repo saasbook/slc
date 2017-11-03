@@ -77,7 +77,6 @@ Scenario: tutee fills in information
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
   And I press "Submit"
   Then I should be on Tutee Submitted Form for User 1
 
@@ -93,7 +92,6 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
   Then I should not see "Thank you for submitting a tutor form request!"
   
 #Lexie, User Story 1  
@@ -108,7 +106,6 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
   Then I should not see "Thank you for submitting a tutor form request!"
   
 #Lexie, User Story 1 
@@ -124,7 +121,6 @@ Scenario: routing is correct for tutee form
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
   And I press "Submit"
   Then I should be on Tutee Submitted Form for User 1
   And I follow "Back to Home"
