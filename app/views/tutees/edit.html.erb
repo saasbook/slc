@@ -1,58 +1,105 @@
-<h1>Tutee Information Form</h1>
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Tutee Information Form</legend>
+    <%= form_tag tutee_path(@tutee), :method => :put do %>
+      
+      <div class="form-group">
+        <label for="first_name" class="col-lg-2 control-label">First Name</label>
+        <%= text_field :tutee, 'first_name', :value => nil %>
+      </div>
 
-<%= form_tag tutee_path(@tutee), :method => :put do %>
-  
-  <%= label :tutee, :first_name, 'First Name' %>
-  <%= text_field :tutee, 'first_name', :value => nil %>
+      <div class="form-group">
+        <label for="last_name" class="col-lg-2 control-label">Last Name</label>
+        <%= text_field :tutee, 'last_name', :value => nil %>
+      </div>
 
-  <%= label :tutee, :last_name, 'Last Name' %>
-  <%= text_field :tutee, 'last_name', :value => nil %>
+      <div class="form-group">
+        <label for="sid" class="col-lg-2 control-label">Student ID</label>
+        <%= text_field :tutee, 'sid'  %>
+      </div>
 
-  <%= label :tutee, :sid, 'SID' %>
-  <%= text_field :tutee, 'sid'  %>
+      <div class="form-group">
+        <label for="grade" class="col-lg-2 control-label">Grade Level</label>
+        <%= text_field :tutee, 'grade'  %>
+      </div>
+      
+      <div class="form-group">
+        <label for="email" class="col-lg-2 control-label">Email</label>
+        <%= text_field :tutee, 'email' %>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone_number" class="col-lg-2 control-label">Phone Number</label>
+        <%= text_field :tutee, 'phone_number'  %>
+      </div>
+      
+      <div class="form-group">
+        <label for="semesters_at_cal" class="col-lg-2 control-label">Semesters At Cal</label>
+        <%= text_field :tutee, 'semesters_at_cal' %>
+      </div>
+      
+      <div class="form-group">
+        <label for="major" class="col-lg-2 control-label">Major</label>
+        <%= text_field :tutee, 'major' %>
+      </div>
+      
+      <div class="form-group">
+        <label for="requested_class" class="col-lg-2 control-label">Requested Class</label>
+        <%= text_field :tutee, 'requested_class' %>
+      </div>
 
-  <%= label :tutee, :grade, 'Current Grade' %>
-  <%= text_field :tutee, 'grade'  %>
-  
-  <%= label :tutee, :email, 'Email' %>
-  <%= text_field :tutee, 'email' %>
-  
-  <%= label :tutee, :phone_number, 'Phone Number' %>
-  <%= text_field :tutee, 'phone_number'  %>
-  
-  <%= label :tutee, :semesters_at_cal, 'Semesters at Cal' %>
-  <%= text_field :tutee, 'semesters_at_cal' %>
-  
-  <%= label :tutee, :major, 'Major' %>
-  <%= text_field :tutee, 'major' %>
-  
-  <%= label :tutee, :requested_class, 'Class Requesting Help In' %>
-  <%= text_field :tutee, 'requested_class' %>
+      <div class="list-group">
+        <h5>Please Check any groups you are involved in</h5>
+      </div>
 
-  <h5>Please Check any groups you are involved in</h5>
-  
-  <%= check_box_tag "DSP", @tutee.DSP %>
-  <label for="DSP">Disabled Students Program (DSP)</label>
 
-  <%= check_box_tag "EOP", @tutee.EOP %>
-  <label for="EOP">Educational Opportunity Program (EOP)</label>
+      <div class="form-group">
+        <div class="row">
+            <div class="col-md-4 "></div>
+          <div class="col-md-4">
+          <div class="checkbox">  
+            <%= check_box_tag "DSP", @tutee.DSP %>
+            <label for="DSP">Disabled Students Program (DSP)</label>
+          </div>
+                
+      
+          <div class="checkbox">  
+            <%= check_box_tag "EOP", @tutee.EOP %>
+            <label for="EOP">Educational Opportunity Program (EOP)</label>
+          </div>
 
-  <%= check_box_tag "SBC", @tutee.SBC %>
-  <label for="SBC">Summer Bridge Cohort 2017</label>
+          <div class="checkbox">  
+            <%= check_box_tag "SBC", @tutee.SBC %>
+            <label for="SBC">Summer Bridge Cohort 2017</label>
+          </div>
 
-  <%= check_box_tag "FPF", @tutee.FPF %>
-  <label for="FPF">Fall Program for Freshman (FPF)</label>
+          <div class="checkbox">  
+            <%= check_box_tag "FPF", @tutee.FPF %>
+            <label for="FPF">Fall Program for Freshman (FPF)</label>
+          </div>
 
-  <%= check_box_tag "TRSP", @tutee.TRSP %>
-  <label for="TRSP">Transfer, Re-Entry, or Student Parent (TRSP)</label>
+          <div class="checkbox">  
+            <%= check_box_tag "TRSP", @tutee.TRSP %>
+            <label for="TRSP">Transfer, Re-Entry, or Student Parent (TRSP)</label>
+          </div>
 
-  <%= check_box_tag "UCIEP", @tutee.UCIEP %>
-  <label for="UCIEP">UC Intercampus Exchange Program (UCIEP)</label>
+          <div class="checkbox">  
+            <%= check_box_tag "UCIEP", @tutee.UCIEP %>
+            <label for="UCIEP">UC Intercampus Exchange Program (UCIEP)</label>
+          </div>
 
-  <%= check_box_tag "BISP", @tutee.BISP %>
-  <label for="BISP">Berkeley International Study Program (BISP)</label>
-  
+          <div class="checkbox">  
+            <%= check_box_tag "BISP", @tutee.BISP %>
+            <label for="BISP">Berkeley International Study Program (BISP)</label>
+          </div>
+        </div>
+                    <div class="col-md-4 "></div>
+      </div>
+      
+     
 
-<%= submit_tag 'Submit' %>
+      <%= submit_tag 'Submit' %>
 
-<% end %>
+    <% end %>
+  </fieldset>
+</form>
