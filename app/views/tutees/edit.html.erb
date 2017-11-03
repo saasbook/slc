@@ -28,9 +28,30 @@
   
   <%= label :tutee, :requested_class, 'Class Requesting Help In' %>
   <%= text_field :tutee, 'requested_class' %>
+
+  <h5>Please Check any groups you are involved in</h5>
   
-  <%= label :tutee, :in_dsp, 'Member of DSP?' %>
-  <%= text_field :tutee, 'in_dsp' %>
+  <%= check_box_tag "DSP", @tutee.DSP %>
+  <label for="DSP">Disabled Students Program (DSP)</label>
+
+  <%= check_box_tag "EOP", @tutee.EOP %>
+  <label for="EOP">Educational Opportunity Program (EOP)</label>
+
+  <%= check_box_tag "SBC", @tutee.SBC %>
+  <label for="SBC">Summer Bridge Cohort 2017</label>
+
+  <%= check_box_tag "FPF", @tutee.FPF %>
+  <label for="FPF">Fall Program for Freshman (FPF)</label>
+
+  <%= check_box_tag "TRSP", @tutee.TRSP %>
+  <label for="TRSP">Transfer, Re-Entry, or Student Parent (TRSP)</label>
+
+  <%= check_box_tag "UCIEP", @tutee.UCIEP %>
+  <label for="UCIEP">UC Intercampus Exchange Program (UCIEP)</label>
+
+  <%= check_box_tag "BISP", @tutee.BISP %>
+  <label for="BISP">Berkeley International Study Program (BISP)</label>
+  
 
 <%= submit_tag 'Submit' %>
 
