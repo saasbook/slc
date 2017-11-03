@@ -11,7 +11,6 @@ class Tutee < ActiveRecord::Base
       matched_tutor, available_tutors = nil, []
       available_tutors = find_available_tutors
       if !available_tutors.empty?
-        puts "getting closer"
         matched_tutor = get_best_tutor(available_tutors)
       end
       matched_tutor
@@ -37,7 +36,6 @@ class Tutee < ActiveRecord::Base
     Tutor.all.each do |tutor|
       matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
       if !matched_times.empty?
-        puts "i am hurrrr"
         available_tutors_list << tutor
       end
     end
