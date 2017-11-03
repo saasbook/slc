@@ -71,8 +71,7 @@ RSpec.describe TuteesController, type: :controller do
     describe 'test tutee match function' do
         it 'should say there are no available tutors' do
             tutor = Tutor.create(:email => "email@c.com", :password => "password", :first_name => "C", :last_name => "V")
-            puts tutor.id
-            
+
             tutee = Tutee.create(:email => "email@cv.com", :password => "password")
             put :update, :id => tutee.id, :tutee => { :first_name => "Con", :last_name => "Vot" }
 

@@ -8,7 +8,6 @@ class Tutee < ActiveRecord::Base
   
   def assign_tutor
     if self.tutor.nil?
-      puts "in function homie"
       matched_tutor, available_tutors = nil, []
       available_tutors = find_available_tutors
       if !available_tutors.empty?
@@ -26,11 +25,8 @@ class Tutee < ActiveRecord::Base
   def get_best_tutor(available_tutors_list)
     available_tutors_list = available_tutors_list.sort_by{|tutor| tutor.tutees.length}
     best_tutor = available_tutors_list[0]
-    puts available_tutors_list[0]
-    puts "chiddddddD"
     self.tutor =  best_tutor # Assigning tutor with least existing tutees
     self.save!
-    puts self.tutor
     best_tutor.tutees << self
     best_tutor.save!
     best_tutor
@@ -39,12 +35,7 @@ class Tutee < ActiveRecord::Base
   def find_available_tutors
     available_tutors_list = []
     Tutor.all.each do |tutor|
-      puts tutor
-      puts "I AM HEREEEE"
-      puts tutor.time_availabilitys
-      puts self.time_availabilitys
       matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
-      puts matched_times
       if !matched_times.empty?
         puts "i am hurrrr"
         available_tutors_list << tutor
