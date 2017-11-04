@@ -34,6 +34,7 @@ class TuteesController < ApplicationController
 
     #Update all of the attributes gathered from edit form
     def update
+        puts "HERE"
         @tutee = Tutee.find(params[:id])
         @tutee.update_attributes!(tutee_params)
         flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
@@ -58,7 +59,7 @@ class TuteesController < ApplicationController
     
     def tutee_params
         params.require(:tutee).permit(:first_name, :last_name, :sid, :grade, :email, :phone_number,
-        :semesters_at_cal, :major, :requested_class, :in_dsp)
+        :semesters_at_cal, :major, :requested_class, :DSP, :EOP, :SBC, :FPF, :TRSP, :UCIEP, :BISP)
     end
 end
 

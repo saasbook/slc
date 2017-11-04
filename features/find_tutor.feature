@@ -19,7 +19,7 @@ Scenario: tutor fills in information
   And I fill in "tutor[tutor_cohort]" with "Computer Science"
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
-  Then I should be on the tutee match page for User 1
+  Then I should be on Tutor Submitted Form for User 1
 
 #Lexie, User Story 2 
 @tutor_form_no_first_name
@@ -32,7 +32,7 @@ Scenario: tutor fills in information but lacks first name
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[tutor_cohort]" with "Computer Science"
   And I fill in "tutor[bio]" with "Info"
-  Then I should not see "Hello Jane Doe!"
+  Then I should not see "Thank you for submitting a tutee form request!"
   
 #Lexie, User Story 2 
 @tutor_form_no_last_name
@@ -45,7 +45,7 @@ Scenario: tutor fills in information but lacks first name
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[tutor_cohort]" with "Computer Science"
   And I fill in "tutor[bio]" with "Info"
-  Then I should not see "Hello Jane Doe!"
+  Then I should not see "Thank you for submitting a tutee form request!"
   
 #Lexie, User Story 2 
 @tutor_form_routing
@@ -60,7 +60,7 @@ Scenario: routing is correct for tutor form
   And I fill in "tutor[tutor_cohort]" with "Computer Science"
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
-  Then I should be on the tutee match page for User 1
+  Then I should be on Tutor Submitted Form for User 1
   And I follow "Back to Home"
   Then I should be on the home page  
   
@@ -77,10 +77,8 @@ Scenario: tutee fills in information
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
   And I press "Submit"
-  Then I should be on the tutor match page for User 1
-  
+  Then I should be on Tutee Submitted Form for User 1
 
 #Lexie, User Story 1  
 @tutee_form_no_first_name
@@ -94,8 +92,7 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
-  Then I should not see "Hello Jane Doe!"
+  Then I should not see "Thank you for submitting a tutor form request!"
   
 #Lexie, User Story 1  
 @tutee_form_no_last_name
@@ -109,8 +106,7 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
-  Then I should not see "Hello Jane Doe!"
+  Then I should not see "Thank you for submitting a tutor form request!"
   
 #Lexie, User Story 1 
 @tutee_form_routing
@@ -125,9 +121,8 @@ Scenario: routing is correct for tutee form
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  And I fill in "tutee[in_dsp]" with "Yes"
   And I press "Submit"
-  Then I should be on the tutor match page for User 1
+  Then I should be on Tutee Submitted Form for User 1
   And I follow "Back to Home"
   Then I should be on the home page
 

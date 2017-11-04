@@ -23,7 +23,12 @@ Given /^I go to the "(.*)" edit info page$/ do
   fail "Unimplemented"
 end
 
-Then /^I should see the following checkboxes: "(.*)"$/ do |checkboxes|
-  #Pending
-  fail "Unimplemented" 
+Then /^I should see the following checkboxes:$/ do |checkbox_table|
+  checkbox_table.rows_hash.each do |title, id|
+    if page.respond_to? :should
+      page.should have_content(title)
+    else
+      assert page.has_content?(title)
+    end
+  end 
 end

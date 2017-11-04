@@ -44,13 +44,13 @@ module NavigationHelpers
      "/tutees/#{$1}/edit"
 
     when /^Tutee Submitted Form for User (.*)$/
-     "/tutees/#{$1}"
+     "/tutees/#{$1}/tutor_match"
      
     when /^Tutor Information Form for User (.*)$/
      "/tutors/#{$1}/edit"
 
     when /^Tutor Submitted Form for User (.*)$/
-     "/tutors/#{$1}"
+     "/tutors/#{$1}/tutee_match"
 
     when /^the tutor login page$/
       '/tutors/sign_in'
