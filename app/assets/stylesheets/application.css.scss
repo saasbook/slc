@@ -1,0 +1,15 @@
+@import "bootstrap-sprockets";
+
+@import "bootswatch/yeti/variables";
+
+@import "bootstrap";
+
+body { padding-top: 60px; }
+
+@import "bootswatch/yeti/bootswatch";
+
+ .submit-form{
+     margin-left:auto;
+     margin-right:auto;
+     max-width: 500px;
+ }

@@ -1,0 +1,55 @@
+<h1>Tutee Information Form</h1>
+
+<%= form_tag tutee_path(@tutee), :method => :put do %>
+  
+  <%= label :tutee, :first_name, 'First Name' %>
+  <%= text_field :tutee, 'first_name', :value => nil %>
+
+  <%= label :tutee, :last_name, 'Last Name' %>
+  <%= text_field :tutee, 'last_name', :value => nil %>
+
+  <%= label :tutee, :sid, 'SID' %>
+  <%= text_field :tutee, 'sid'  %>
+
+  <%= label :tutee, :grade, 'Current Grade' %>
+  <%= text_field :tutee, 'grade'  %>
+  
+  <%= label :tutee, :email, 'Email' %>
+  <%= text_field :tutee, 'email' %>
+  
+  <%= label :tutee, :phone_number, 'Phone Number' %>
+  <%= text_field :tutee, 'phone_number'  %>
+  
+  <%= label :tutee, :semesters_at_cal, 'Semesters at Cal' %>
+  <%= text_field :tutee, 'semesters_at_cal' %>
+  
+  <%= label :tutee, :major, 'Major' %>
+  <%= text_field :tutee, 'major' %>
+  
+  <%= label :tutee, :requested_class, 'Class Requesting Help In' %>
+  <%= text_field :tutee, 'requested_class' %>
+
+  <%= check_box :tutee, "DSP" %>
+  <label for="DSP">Disabled Students Program (DSP)</label>
+  
+  <%= check_box :tutee,"EOP" %>
+  <label for="EOP">Educational Opportunity Program (EOP)</label>
+ 
+  <%= check_box :tutee, "SBC" %>
+  <label for="SBC">Summer Bridge Cohort 2017</label>
+  
+  <%= check_box :tutee,"FPF" %>
+  <label for="FPF">Fall Program for Freshman (FPF)</label>
+  
+  <%= check_box :tutee,"TRSP" %>
+  <label for="TRSP">Transfer, Re-Entry, or Student Parent (TRSP)</label>
+  
+  <%= check_box :tutee,"UCIEP" %>
+  <label for="UCIEP">UC Intercampus Exchange Program (UCIEP)</label>
+  
+  <%= check_box :tutee,"BISP" %>
+  <label for="BISP">Berkeley International Study Program (BISP)</label>
+  
+<%= submit_tag 'Submit' %>
+
+<% end %>
