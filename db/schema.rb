@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103213754) do
+ActiveRecord::Schema.define(version: 20171106202846) do
 
   create_table "time_availabilities", force: :cascade do |t|
     t.string   "day"
-    t.integer  "start_time"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "time_availabilityable_id"
     t.string   "time_availabilityable_type"
+    t.integer  "start_time"
   end
 
   create_table "time_availabilities_tutees", id: false, force: :cascade do |t|
