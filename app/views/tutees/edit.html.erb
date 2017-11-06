@@ -49,6 +49,11 @@
   
   <%= check_box :tutee,"BISP" %>
   <label for="BISP">Berkeley International Study Program (BISP)</label>
+
+  <% TimeAvailability.all.each do |time| %>
+    <%= check_box :times, time.id %>
+    <%= label :time, time.start_time %>
+  <% end %>
   
 <%= submit_tag 'Submit' %>
 
