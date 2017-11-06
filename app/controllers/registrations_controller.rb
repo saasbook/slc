@@ -12,6 +12,8 @@ class RegistrationsController < Devise::RegistrationsController
       edit_tutor_path(resource)
     elsif resource.class == Tutee
       edit_tutee_path(resource)
+    elsif resource.class == Admin
+      admin_path(resource)
     end
   end
 

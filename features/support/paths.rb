@@ -28,6 +28,12 @@ module NavigationHelpers
 
     when /the tutor sign in page/
       new_tutor_session_path
+  
+    when /the admin sign in page/
+      new_admin_session_path
+  
+    when /the admin show page for (.*)/
+     "/admins/#{$1}"
 
     ##############################
 
@@ -67,9 +73,11 @@ module NavigationHelpers
     when /^the tutor match page for tutee (.*)$/
       "/tutees/#{$1}/tutor_match"
       
-    
     when /^the tutee match page for tutor (.*)$/
       "/tutors/#{$1}/tutee_match"
+      
+    when /^the admin registration page$/
+      '/admins/sign_up'
       
     
     # Add more mappings here.
