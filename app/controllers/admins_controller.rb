@@ -1,7 +1,8 @@
 class AdminsController < ApplicationController
 
     def show
-        
+        @tutors = Tutor.all
+        @tutees = Tutee.all
     end
     
     def index
