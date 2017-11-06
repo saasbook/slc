@@ -34,10 +34,11 @@ class TuteesController < ApplicationController
 
     #Update all of the attributes gathered from edit form
     def update
+        puts "HERE"
         @tutee = Tutee.find(params[:id])
         @tutee.update_attributes!(tutee_params)
         flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
-        redirect_to tutee_path(@tutee)
+        redirect_to tutor_match_path(@tutee)
     end
     
     def destroy
@@ -45,13 +46,20 @@ class TuteesController < ApplicationController
     
     def tutor_match
         @tutee = Tutee.find(params[:id])
+        @tutee.assign_tutor
         @tutor = @tutee.tutor
+        if !@tutor.nil?
+            @display_text = "#{@tutor.first_name}  #{@tutor.last_name}"
+        else
+            @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
+        end
     end
     
     private
     
     def tutee_params
         params.require(:tutee).permit(:first_name, :last_name, :sid, :grade, :email, :phone_number,
-        :semesters_at_cal, :major, :requested_class, :in_dsp)
+        :semesters_at_cal, :major, :requested_class, :DSP, :EOP, :SBC, :FPF, :TRSP, :UCIEP, :BISP)
     end
 end
+

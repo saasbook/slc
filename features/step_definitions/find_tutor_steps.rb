@@ -1,87 +1,101 @@
-Given /^there are the following tutors in the system: (.*)/ do |tutors_list|
-	#pending
-	fail "Unimplemented"
+Given /^I have not reserved a room$/ do 
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I select the following time availabilities: (.*)/ do |days, times|
-	#pending
-	fail "Unimplemented"
+Given /^I am on the "(.*)" page$/ do |page|
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I select "(.*)"$/ do |option|
-	#pending
-	fail "Unimplemented"
+Then /^I should be able to reserve a room for "(.*)" and "(.*)"$/ do |time, day|
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I select "(.*)" for "(.*)"$/ do |value, box|
-	#Pending
-	fail "Unimplemented"
+Then /^I should see an appropriate message$/ do
+  #Pending
+  fail "Unimplemented"
 end
 
-When /^I see a list of tutors$/ do
-	#Pending
-	fail "Unimplemented"
+When /^I see all rooms and times are reserved$/ do
+  #Pending
+  fail "Unimplemented"
 end
 
-
-Then /^I should go to the "(.*)" page$/ do |page|
-	# #pending
-	# fail "Unimplemented"
-	visit path_to(page_name)
+Then /^I should not be able to reserve a room$/ do
+  #Pending
+  fail "Unimplemented"
 end
 
-Then /^I should see "(.*)" under "(.*)" $/ do |value, column|
-	#Pending
-	fail "Unimplemented"
+Then /^I should be able to view my current reservation$/ do
+  #Pending
+  fail "Unimplemented"
 end
 
-Then /^I should see a confirmation message$/ do
-	#Pending
-	fail "Unimplemented"
+############ Tutor-Tutee-Match Tests ############
+
+Given /^I have been assigned "(.*)" "(.*)" as tutor$/ do |tutor_firstname, tutor_lastname|
+	tutor5 = Tutor.new
+	tutor5.first_name = tutor_firstname
+	tutor5.last_name = tutor_lastname
+	tutor5.email = "tutor5@gmail.com"
+  tutor5.password = "tutor5"
+  tutor5.password_confirmation = "tutor5"
+	tutor5.save!
+	
+	tutee5 = Tutee.new
+	tutee5.first_name = "tutee5_firstname"
+	tutee5.last_name = "tutee5_lastname"
+	tutee5.email = "tutee5@gmail.com"
+  tutee5.password = "tutee5"
+  tutee5.password_confirmation = "tutee5"
+	tutee5.tutor = tutor5
+	tutee5.save!
 end
 
-Then /^I should see a message that I completed the form$/ do
-	#Pending
-	fail "Unimplemented"
+Given /^Tutee (.*) has been matched with its Tutor$/ do |tutee_id|
+  Tutee.find_by_id(tutee_id).assign_tutor
 end
 
-Then /^I should see a list of tutors$/ do
-	#Pending
-	fail "Unimplemented"
-end
+# When /^I go to the "(.*)" page$/ do |page_name|
+# 	visit path_to(page_name)
+# end
 
-Then /^I should see "(.*)" in available times$/ do |days|
-	#Pending 
-	fail "Unimplemented"
-end
+# When /^I am on the tutor match page for tutee "(.*)"$/ do |tutee_id|
+# 	visit path_to(page_name)
+# end
 
-Given /^I have been assigned "(.*)" as tutor$/ do |tutor_name|
-	#pending
-	fail "Unimplemented"
-end
 
-When /^I go to the tutor match page$/ do
-	#pending
-	fail "Unimplemented"
-end
+# Then /^I should see "(.*)" as my tutor$/ do |tutor_name|
+# 	if page.respond_to? :should
+#     	page.should have_content(tutor_name)
+# 	else
+# 		assert page.has_no_content?(tutor_name)
+# 	end
+# end
 
-Then /^I should see "(.*)" as my tutor$/ do |tutor_name|
-	#Pending 
-	fail "Unimplemented"
-end
+# Given /^I have been assigned "(.*)" as tutee$/ do |tutee_name|
+# 	tutee2 = Tutee.new
+# 	tutee2.last_name = tutee_name
+# 	tutor2 = Tutor.new
+# 	tutee2.tutor = tutor2
+# 	tutee2.save!
+# 	tutor2.save!
+# end
 
-Given /^I have been assigned "(.*)" as tutee$/ do |tutee_name|
-	#pending
-	fail "Unimplemented"
-end
+# Then /^I should see "(.*)" as my tutee/ do |tutee_lastname|
+# 	if page.respond_to? :should
+#     	page.should have_content(tutee_lastname)
+# 	else
+# 		assert page.has_no_content?(tutee_lastname)
+# 	end
+# end
 
-When /^I go to the tutee match page$/ do
-	#pending
-	fail "Unimplemented"
-end
-
-Then /^I should see "(.*)" in (.*)/ do |tutee_lastname, tutee_list|
-	#Pending 
-	fail "Unimplemented"
-end
-
+# Then /^I should see "(.*)" as my tutor/ do |tutor_lastname|
+# 	if page.respond_to? :should
+#     	page.should have_content(tutor_lastname)
+# 	else
+# 		assert page.has_no_content?(tutor_lastname)
+# 	end
+# end

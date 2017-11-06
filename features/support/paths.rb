@@ -34,17 +34,23 @@ module NavigationHelpers
     when /^the home\s?page$/ 
       '/'
       
+    when /^the tutor match page for User (.*)$/
+     "/tutees/#{$1}/tutor_match"
+       
+    when /^the tutee match page for User (.*)$/
+     "/tutors/#{$1}/tutee_match"
+     
     when /^Tutee Information Form for User (.*)$/
      "/tutees/#{$1}/edit"
 
     when /^Tutee Submitted Form for User (.*)$/
-     "/tutees/#{$1}"
+     "/tutees/#{$1}/tutor_match"
      
     when /^Tutor Information Form for User (.*)$/
      "/tutors/#{$1}/edit"
 
     when /^Tutor Submitted Form for User (.*)$/
-     "/tutors/#{$1}"
+     "/tutors/#{$1}/tutee_match"
 
     when /^the tutor login page$/
       '/tutors/sign_in'
@@ -57,7 +63,14 @@ module NavigationHelpers
 
     when /^the tutor registration page$/
       '/tutors/sign_up'
-     
+      
+    when /^the tutor match page for tutee (.*)$/
+      "/tutees/#{$1}/tutor_match"
+      
+    
+    when /^the tutee match page for tutor (.*)$/
+      "/tutors/#{$1}/tutee_match"
+      
     
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
