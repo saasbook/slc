@@ -1,60 +1,181 @@
 <h1>Tutee Information Form</h1>
 
-<%= form_tag tutee_path(@tutee), :method => :put do %>
-  
-  <%= label :tutee, :first_name, 'First Name' %>
-  <%= text_field :tutee, 'first_name', :value => nil %>
+  <%= form_tag tutee_path(@tutee), :class => "form-horizontal", :method => :put do %>
+    <form>
+      <fieldset>
+        <div class="form-group">
+          <%= label :tutee, :first_name, :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'first_name', placeholder: "John", :value => nil, :class => "form-control"%>
+          </div>
+        </div>
 
-  <%= label :tutee, :last_name, 'Last Name' %>
-  <%= text_field :tutee, 'last_name', :value => nil %>
+        <div class="form-group">
+          <%= label :tutee, :last_name, 'Last Name', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'last_name', placeholder: "Doe", :value => nil, :class => "form-control" %>
+          </div>
+        </div>
 
-  <%= label :tutee, :sid, 'SID' %>
-  <%= text_field :tutee, 'sid'  %>
+        <div class="form-group">  
+          <%= label :tutee, :sid, 'SID', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'sid', placeholder: "12345678", :value => nil, :class => "form-control"  %>
+          </div>
+        </div>
+        <div class="form-group">  
+          <%= label :tutee, :grade, 'Current Grade', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'grade', placeholder: "senior", :value => nil, :class => "form-control"  %>
+          </div>
+        </div>
+        <div class="form-group">  
+          <%= label :tutee, :email, 'Email', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'email', placeholder: "john.doe@berkeley.edu", :value => nil, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">  
+          <%= label :tutee, :phone_number, 'Phone Number', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'phone_number', placeholder: "XXX-XXX-XXXX", :value => nil, :class => "form-control"  %>
+          </div>
+        </div>
+        <div class="form-group">  
+          <%= label :tutee, :semesters_at_cal, 'Semesters at Cal', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'semesters_at_cal', placeholder: "7", :value => nil, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= label :tutee, :major, 'Major', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'major', placeholder: "Media Studies", :value => nil, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">  
+          <%= label :tutee, :requested_class, 'Class Requesting Help In', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= text_field :tutee, 'requested_class', placeholder: "Art History 100", :value => nil, :class => "form-control" %>
+          </div>
+        </div>
 
-  <%= label :tutee, :grade, 'Current Grade' %>
-  <%= text_field :tutee, 'grade'  %>
-  
-  <%= label :tutee, :email, 'Email' %>
-  <%= text_field :tutee, 'email' %>
-  
-  <%= label :tutee, :phone_number, 'Phone Number' %>
-  <%= text_field :tutee, 'phone_number'  %>
-  
-  <%= label :tutee, :semesters_at_cal, 'Semesters at Cal' %>
-  <%= text_field :tutee, 'semesters_at_cal' %>
-  
-  <%= label :tutee, :major, 'Major' %>
-  <%= text_field :tutee, 'major' %>
-  
-  <%= label :tutee, :requested_class, 'Class Requesting Help In' %>
-  <%= text_field :tutee, 'requested_class' %>
+        <div class="form-group">
+          <%= label :tutee, :DSP, 'Disabled Students Program (DSP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee, "DSP" %>
+          </div>
+        </div>
 
-  <%= check_box :tutee, "DSP" %>
-  <label for="DSP">Disabled Students Program (DSP)</label>
-  
-  <%= check_box :tutee,"EOP" %>
-  <label for="EOP">Educational Opportunity Program (EOP)</label>
- 
-  <%= check_box :tutee, "SBC" %>
-  <label for="SBC">Summer Bridge Cohort 2017</label>
-  
-  <%= check_box :tutee,"FPF" %>
-  <label for="FPF">Fall Program for Freshman (FPF)</label>
-  
-  <%= check_box :tutee,"TRSP" %>
-  <label for="TRSP">Transfer, Re-Entry, or Student Parent (TRSP)</label>
-  
-  <%= check_box :tutee,"UCIEP" %>
-  <label for="UCIEP">UC Intercampus Exchange Program (UCIEP)</label>
-  
-  <%= check_box :tutee,"BISP" %>
-  <label for="BISP">Berkeley International Study Program (BISP)</label>
+        <div class="form-group">
+          <%= label :tutee, :EOP, 'Educational Opportunity Program', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"EOP" %>
+          </div>
+        </div>
 
-  <% TimeAvailability.all.each do |time| %>
-    <%= check_box :times, time.id %>
-    <%= label :time, time.start_time %>
-  <% end %>
-  
-<%= submit_tag 'Submit' %>
+        <div class="form-group">
+          <%= label :tutee, :SBC, 'Summer Bridge Cohort 2017', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"SBC" %>
+          </div>
+        </div>
 
-<% end %>
+        <div class="form-group">
+          <%= label :tutee, :FPF, 'Fall Prograrm for Freshman', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"FPF" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :TRSP, 'Transfer, Re-Entry, or Student Parent (TRSP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"TRSP" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :UCIEP, 'UC Intercampus Exchange Program (UCIEP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"UCIEP" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :BISP, 'Berkeley International Study Program', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"BISP" %>
+          </div>
+        </div>
+
+        <% TimeAvailability.where(day: "Sunday").each do |time| %>
+          <div class="form-group">
+            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
+            <div class="col-lg-5">
+              <%= check_box :times, time.id %>
+            </div>
+          </div>
+        <% end %>
+
+         <% TimeAvailability.where(day: "Monday").each do |time| %>
+          <div class="form-group">
+            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
+            <div class="col-lg-5">
+              <%= check_box :times, time.id %>
+            </div>
+          </div>
+        <% end %>
+
+         <% TimeAvailability.where(day: "Tuesday").each do |time| %>
+          <div class="form-group">
+            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
+            <div class="col-lg-5">
+              <%= check_box :times, time.id %>
+            </div>
+          </div>
+        <% end %>
+
+         <% TimeAvailability.where(day: "Wednesday").each do |time| %>
+          <div class="form-group">
+            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
+            <div class="col-lg-5">
+              <%= check_box :times, time.id %>
+            </div>
+          </div>
+        <% end %>
+
+         <% TimeAvailability.where(day: "Thursday").each do |time| %>
+          <div class="form-group">
+            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
+            <div class="col-lg-5">
+              <%= check_box :times, time.id %>
+            </div>
+          </div>
+        <% end %>
+
+         <% TimeAvailability.where(day: "Friday").each do |time| %>
+          <div class="form-group">
+            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
+            <div class="col-lg-5">
+              <%= check_box :times, time.id %>
+            </div>
+          </div>
+        <% end %>
+
+         <% TimeAvailability.where(day: "Saturday").each do |time| %>
+          <div class="form-group">
+            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
+            <div class="col-lg-5">
+              <%= check_box :times, time.id %>
+            </div>
+          </div>
+        <% end %>
+      
+        <%= submit_tag 'Submit' %>
+
+      <% end %>
+    </fieldset>
+</form>
+
+
