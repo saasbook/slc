@@ -21,7 +21,7 @@ Background: tutors and tutees are in the system and an admin would like to view 
 
 @admin_view_existing_database
 Scenario: admin can view the entire database of tutors and tutees
-  Given  I sign up as a new admin
+  Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1
   Then   I should see "tutee1_firstname"
   And    I should see "tutee1_lastname"
@@ -47,8 +47,8 @@ Scenario: admin can view the entire database of tutors and tutees
 Scenario: tutor-tutee-match updates admin's view
   #There are 4 pre-existing tutees and tutors in the database
   Given  A new tutee has been assigned "tutor5_firstname" "tutor5_lastname" as tutor
-  When   I sign up as a new admin
-  And    I am on the admin show page for 1
+  And    The admin "admin1@example.com" with the password "admin1" exists
+  When   I am on the admin show page for 1
   Then   I should see "tutor5_firstname"
   And    I should see "tutor5_lastname"
   And    I should see "tutee5_firstname"

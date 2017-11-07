@@ -49,7 +49,11 @@
           <td><%= name.sid %></td>
           <td><%= name.phone_number %></td>
           <td><%= name.year %></td>
-          <td><%= name.tutor.first_name %>  <%= name.tutor.last_name %></td>
+          <% if !name.tutor.nil? %>
+            <td> <%= name.tutor.first_name %>  <%= name.tutor.last_name %></td>
+          <% else %>
+            <td> <%= name.tutor %></td>
+          <% end %>
         </tr>
     <% end %>
   </tbody>
