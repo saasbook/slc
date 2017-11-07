@@ -40,5 +40,5 @@ Scenario: log in to system as admin
   And   I fill in "Password" with "admin1"
   And   I press "Log in" 
   Then  I should be on the admin show page for 1
-  And I follow "Logout"
-  Then I should be on the home page
+  And   I press "Logout"
+  Then  I should be on the home page
