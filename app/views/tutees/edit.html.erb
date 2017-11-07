@@ -1,4 +1,3 @@
-<h1>Tutee Information Form</h1>
 
   <%= form_tag tutee_path(@tutee), :class => "form-horizontal", :method => :put do %>
     <form>
@@ -61,6 +60,28 @@
         </div>
 
         <div class="form-group">
+          <%= label :tutee, 'Available Times', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+              <table class="table table-striped table-hover table-bordered">
+                <tr class="table-info">
+                  <th></th>
+                  <% TimeAvailability.group(:start_time).order(:id).each do |t| %>
+                    <th><%= t.start_time %></th>
+                  <% end %>
+                </tr>
+                <% TimeAvailability.group(:day).order(:id).each do |t| %>
+                  <tr>
+                    <th><%= t.day %></th>
+                    <% TimeAvailability.group(:start_time).order(:id).each do |t| %>
+                      <td><%= check_box_tag 'time' %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </table>
+          </div>
+        </div>
+
+        <div class="form-group">
           <%= label :tutee, :DSP, 'Disabled Students Program (DSP)', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
             <%= check_box :tutee, "DSP" %>
@@ -109,70 +130,11 @@
           </div>
         </div>
 
-        <% TimeAvailability.where(day: "Sunday").each do |time| %>
-          <div class="form-group">
-            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
-            <div class="col-lg-5">
-              <%= check_box :times, time.id %>
-            </div>
-          </div>
-        <% end %>
+        
 
-         <% TimeAvailability.where(day: "Monday").each do |time| %>
-          <div class="form-group">
-            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
-            <div class="col-lg-5">
-              <%= check_box :times, time.id %>
-            </div>
-          </div>
-        <% end %>
-
-         <% TimeAvailability.where(day: "Tuesday").each do |time| %>
-          <div class="form-group">
-            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
-            <div class="col-lg-5">
-              <%= check_box :times, time.id %>
-            </div>
-          </div>
-        <% end %>
-
-         <% TimeAvailability.where(day: "Wednesday").each do |time| %>
-          <div class="form-group">
-            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
-            <div class="col-lg-5">
-              <%= check_box :times, time.id %>
-            </div>
-          </div>
-        <% end %>
-
-         <% TimeAvailability.where(day: "Thursday").each do |time| %>
-          <div class="form-group">
-            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
-            <div class="col-lg-5">
-              <%= check_box :times, time.id %>
-            </div>
-          </div>
-        <% end %>
-
-         <% TimeAvailability.where(day: "Friday").each do |time| %>
-          <div class="form-group">
-            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
-            <div class="col-lg-5">
-              <%= check_box :times, time.id %>
-            </div>
-          </div>
-        <% end %>
-
-         <% TimeAvailability.where(day: "Saturday").each do |time| %>
-          <div class="form-group">
-            <%= label :time, :start_time, time.start_time, :class => 'col-lg-4 control-label' %>
-            <div class="col-lg-5">
-              <%= check_box :times, time.id %>
-            </div>
-          </div>
-        <% end %>
-      
+        <center>
         <%= submit_tag 'Submit' %>
+        </center>
 
       <% end %>
     </fieldset>
