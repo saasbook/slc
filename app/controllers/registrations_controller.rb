@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  protected
+  #protected
 
   # BUGFIX
   # https://stackoverflow.com/questions/19451881/devise-after-sign-in-path-for-works-but-not-the-other-ones
