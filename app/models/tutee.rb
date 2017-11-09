@@ -42,4 +42,6 @@ class Tutee < ActiveRecord::Base
     available_tutors_list
   end
   
+
+  
 end

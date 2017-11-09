@@ -55,6 +55,7 @@ class TuteesController < ApplicationController
         end
     end
     
+    
     private
     
     def tutee_params

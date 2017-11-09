@@ -1,7 +1,16 @@
-<h1>Hello <%= @tutee.first_name %>  <%= @tutee.last_name %>!</h1>
-<p>Your tutor:</p>
-<p> <%=h @display_text %> </p>
+<h1 class="text-center">Welcome <%= @tutee.first_name %>  <%= @tutee.last_name %>!</h1>
 
+<center><i>Congrats on your SLC match</i></center>
+<br>
+<br>
+<br>
+<p class="text-center">Your Tutor:</p>
+<p class="text-center"> <%=h @display_text %> </p>
+<br>
+<p class="text-center">Shared Time(s):</p>
+
+<div style= "text-align:center;margin-top:15%"> 
 <%= link_to "Logout",  destroy_tutee_session_path, :method => :delete %>
 <br>
 <%= link_to "Back to Home", root_path %>
+<div>
