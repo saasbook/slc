@@ -101,6 +101,25 @@ RSpec.describe TuteesController, type: :controller do
             expect(nil).to be_nil
         end
     end
+    
+    describe "Tutee is sent an email" do
+        xit "it is not implementd" do
+            pending("method not implemented") do
+                email = UserMailer.create_invite('SLC@example.com',
+                                     'tutee1@gmail.com', Time.now)
+                assert_emails 1 do
+                    email.deliver_now
+                end
+                assert_equal ['SLC@example.com'], email.from
+                assert_equal ['tutee1@gmail.com'], email.to
+                assert_equal 'This is a test', email.subject
+                # for pending purposes only
+                true.should be(true)
+            end
+        end
+    end
+    
+    
 
 end
 

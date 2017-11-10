@@ -80,4 +80,21 @@ RSpec.describe TutorsController, type: :controller do
             expect(tutor.tutees).to eq([])
         end
     end
+    
+    describe "Tutor is sent an email" do
+        xit "it is not implementd" do
+            pending("method not implemented") do
+                email = UserMailer.create_invite('SLC@example.com',
+                                     'tutor1@gmail.com', Time.now)
+                assert_emails 1 do
+                    email.deliver_now
+                end
+                assert_equal ['SLC@example.com'], email.from
+                assert_equal ['tutor1@gmail.com'], email.to
+                assert_equal 'This is a test', email.subject
+                # for pending purposes only
+                true.should be(true)
+            end
+        end
+    end
 end
