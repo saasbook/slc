@@ -26,9 +26,12 @@ And /^The tutor "(.*)" with the password "(.*)" exists/ do |username, pass|
   tutor.save!
 end
 
-Then /^I should press "(.*)"$/ do |button|
-  #Pending
-  fail "Unimplemented"
+When /^(?:|I )press the button "Tutor Login"$/ do
+  page.find("#tutor-login").click
+end
+
+When /^(?:|I )press the button "Tutee Login"$/ do
+  page.find("#tutee-login").click
 end
 
 Then /^I should be on the "(.*)" page$/ do |pagetype|
