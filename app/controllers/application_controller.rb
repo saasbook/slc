@@ -5,10 +5,12 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
     # check for the class of the object to determine what type it is
-   if resource.class == Tutor
+    if resource.class == Tutor
       tutee_match_path(resource)
     elsif resource.class == Tutee
       tutor_match_path(resource)
+    elsif resource.class == Admin
+      admin_path(resource)
     end
   end
   

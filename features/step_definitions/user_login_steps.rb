@@ -26,6 +26,13 @@ And /^The tutor "(.*)" with the password "(.*)" exists/ do |username, pass|
   tutor.save!
 end
 
+And /^The admin "(.*)" with the password "(.*)" exists/ do |username, pass|
+  admin = Admin.new
+  admin.email = username
+  admin.password = pass
+  admin.save!
+end
+
 When /^(?:|I )press the button "Tutor Login"$/ do
   page.find("#tutor-login").click
 end
