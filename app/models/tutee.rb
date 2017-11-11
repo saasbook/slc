@@ -5,6 +5,7 @@ class Tutee < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :tutor
   has_and_belongs_to_many :time_availabilitys, as: :time_availabilityable 
+  has_one :study_session
   
   def assign_tutor
     if self.tutor.nil?
