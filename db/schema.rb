@@ -11,12 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111015552) do
+ActiveRecord::Schema.define(version: 20171111041123) do
 
   create_table "study_sessions", force: :cascade do |t|
     t.integer "tutor_id"
     t.integer "tutee_id"
     t.integer "time_availability_id"
+  end
+
+  create_table "study_sessions_time_availabilities", force: :cascade do |t|
+    t.integer "time_availability_id"
+    t.integer "study_session_id"
   end
 
   create_table "time_availabilities", force: :cascade do |t|

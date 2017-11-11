@@ -1,5 +1,5 @@
 <h1>Hello <%= @tutee.first_name %>  <%= @tutee.last_name %>!</h1>
-<p>Your tutor:</p>
+<p>Your tutor and session time:</p>
 <p> <%=h @display_text %> </p>
 
 <%= link_to "Logout",  destroy_tutee_session_path, :method => :delete %>
