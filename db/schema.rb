@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106213228) do
+ActiveRecord::Schema.define(version: 20171111041123) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20171106213228) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+  create_table "study_sessions", force: :cascade do |t|
+    t.integer "tutor_id"
+    t.integer "tutee_id"
+    t.integer "time_availability_id"
+  end
+
+  create_table "study_sessions_time_availabilities", force: :cascade do |t|
+    t.integer "time_availability_id"
+    t.integer "study_session_id"
+  end
+
   create_table "time_availabilities", force: :cascade do |t|
     t.string   "day"
     t.time     "end_time"
@@ -39,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171106213228) do
     t.integer  "time_availabilityable_id"
     t.string   "time_availabilityable_type"
     t.integer  "start_time"
+    t.integer  "study_session_id"
   end
 
   create_table "time_availabilities_tutees", id: false, force: :cascade do |t|
@@ -83,6 +95,7 @@ ActiveRecord::Schema.define(version: 20171106213228) do
     t.boolean  "TRSP"
     t.boolean  "UCIEP"
     t.boolean  "BISP"
+    t.integer  "study_session_id"
   end
 
   add_index "tutees", ["email"], name: "index_tutees_on_email", unique: true
@@ -109,6 +122,7 @@ ActiveRecord::Schema.define(version: 20171106213228) do
     t.integer  "sid"
     t.string   "tutor_cohort"
     t.string   "last_name"
+    t.integer  "study_session_id"
   end
 
   add_index "tutors", ["email"], name: "index_tutors_on_email", unique: true

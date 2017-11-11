@@ -18,7 +18,7 @@ Background: tutors and tutees are in the system and an admin would like to view 
 #   | tutor3_firstname tutor3_lastname | tutor3@gmail.com | [Monday 8am, Wednesday 1pm, Wednesday 2pm] |
 #   | tutor4_firstname tutor4_lastname | tutor4@gmail.com | [Wednesday 1pm, Wednesday 2pm, Thursday 10am] |
 
-
+# Pivotal Tracker ID: 152174166
 @admin_view_existing_database
 Scenario: admin can view the entire database of tutors and tutees
   Given  The admin "admin1@example.com" with the password "admin1" exists
@@ -42,7 +42,7 @@ Scenario: admin can view the entire database of tutors and tutees
   And    I should see "tutee1@gmail.com"
   And    I should see "tutor4@gmail.com"
   
-  
+# Pivotal Tracker ID: 152174166
 @new_matches_update_admin_view
 Scenario: tutor-tutee-match updates admin's view
   #There are 4 pre-existing tutees and tutors in the database
@@ -53,11 +53,3 @@ Scenario: tutor-tutee-match updates admin's view
   And    I should see "tutor5_lastname"
   And    I should see "tutee5_firstname"
   And    I should see "tutee5_lastname"
-
-# @admin_edit_match
-# Scenario: admin edits a match between a tutor and a tutee
-  
-
-  
-
-

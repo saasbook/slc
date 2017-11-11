@@ -154,7 +154,7 @@ Scenario: student sees current tutor and time under reservations
 #   | tutee1_firstname tutee1_lastname | tutee1@gmail.com | [Monday 8am, Monday 3pm] |
 #   | tutee2_firstname tutee2_lastname | tutee2@gmail.com | [Monday 8am] |
 #   | tutee3_firstname tutee3_lastname | tutee3@gmail.com | [Monday 8am] |
-#   | tutee4_firstname tutee4_lastname | tutee4@gmail.com | [Monday 9am, Monday 3pm, Wednesday 2pm] |
+#   | tutee4_firstname tutee4_lastname | tutee4@gmail.com | [Monday 9am] |
 
 # Given following tutors are in the system: 
 #   | tutor1_firstname tutor1_lastname | tutor1@gmail.com | [Monday 8am, Monday 9am] |
@@ -183,7 +183,7 @@ Scenario: tutee can match with correct tutor
   
 #Dhruv, User Story 3 
 #151892797 (Pivotal Tracker ID)
-@tutor_teaching_load
+@tutor_time_availability_updated_after_match
 Scenario: tutor with the least existing students is matched
   Given  Tutee 1 has been matched with its Tutor
   And    Tutee 2 has been matched with its Tutor
@@ -193,14 +193,13 @@ Scenario: tutor with the least existing students is matched
 
 #Dhruv, User Story 3
 #151892797 (Pivotal Tracker ID)
-@tutor_accept_multiple_tutees
+@tutee_matched_to_any_tutor
 Scenario: tutor can have multiple tutees
   Given  Tutee 1 has been matched with its Tutor
   And    Tutee 2 has been matched with its Tutor
   And    Tutee 3 has been matched with its Tutor
   When   I am on the tutor match page for tutee 3
-  Then   I should see "tutor1_firstname"
-  And    I should see "tutor1_lastname"
+  Then   I should see "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
 
 #Dhruv, User Story 4
 #151892797 (Pivotal Tracker ID)
@@ -220,8 +219,9 @@ Scenario: tutor can view mutiple correctly matched tutees
   Given  Tutee 1 has been matched with its Tutor
   And    Tutee 2 has been matched with its Tutor
   And    Tutee 3 has been matched with its Tutor
+  And    Tutee 4 has been matched with its Tutor
   When   I am on the tutee match page for tutor 1
   Then   I should see "tutee1_firstname"
   And    I should see "tutee1_lastname"
-  And    I should see "tutee3_firstname"
-  And    I should see "tutee3_lastname"
+  And    I should see "tutee4_firstname"
+  And    I should see "tutee4_lastname"
