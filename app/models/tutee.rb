@@ -26,11 +26,12 @@ class Tutee < ActiveRecord::Base
   def assign_session(matched_tutor)
     matched_times = matched_tutor.time_availabilitys & self.time_availabilitys
     booked_time_availability = matched_times[0]
-    my_study_session = self.study_session
+    my_study_session = StudySession.create(:tutor_id => matched_tutor.id, :tutee_id => self.id, :time_availability_id => booked_time_availability.id)
     my_study_session.time_availability = booked_time_availability
     my_study_session.tutor = matched_tutor
     my_study_session.tutee = self
     my_study_session.save!
+    self.study_session = my_study_session
     self.time_availabilitys.delete(booked_time_availability) 
     self.save!
     matched_tutor.time_availabilitys.delete(booked_time_availability) # Remove availability since study session booked
