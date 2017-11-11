@@ -92,7 +92,7 @@ RSpec.describe TutorsController, type: :controller do
                 assert_equal ['SLC@example.com'], email.from
                 assert_equal ['tutor1@gmail.com'], email.to
                 assert_equal 'This is a test', email.subject
-                # for pending purposes only
+                # for pending purposes only:
                 true.should be(true)
             end
         end
