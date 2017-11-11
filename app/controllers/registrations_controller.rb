@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  protected
+  #protected
 
   # BUGFIX
   # https://stackoverflow.com/questions/19451881/devise-after-sign-in-path-for-works-but-not-the-other-ones
@@ -12,6 +12,8 @@ class RegistrationsController < Devise::RegistrationsController
       edit_tutor_path(resource)
     elsif resource.class == Tutee
       edit_tutee_path(resource)
+    elsif resource.class == Admin
+      admin_path(resource)
     end
   end
 

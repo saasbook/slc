@@ -35,7 +35,7 @@ end
 
 ############ Tutor-Tutee-Match Tests ############
 
-Given /^I have been assigned "(.*)" "(.*)" as tutor$/ do |tutor_firstname, tutor_lastname|
+Given /^A new tutee has been assigned "(.*)" "(.*)" as tutor$/ do |tutor_firstname, tutor_lastname|
 	tutor5 = Tutor.new
 	tutor5.first_name = tutor_firstname
 	tutor5.last_name = tutor_lastname

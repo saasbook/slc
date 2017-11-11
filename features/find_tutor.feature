@@ -167,7 +167,7 @@ Scenario: student sees current tutor and time under reservations
 @tutee_view_tutor
 Scenario: tutee can view the tutor
   #There are 4 pre-existing tutees and tutors in the database
-  Given  I have been assigned "tutor5_firstname" "tutor5_lastname" as tutor
+  Given  A new tutee has been assigned "tutor5_firstname" "tutor5_lastname" as tutor
   When   I am on the tutor match page for tutee 5
   Then   I should see "tutor5_firstname"
   And    I should see "tutor5_lastname"

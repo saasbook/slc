@@ -55,13 +55,13 @@ Scenario: log in to system as tutor
   And   I press "Log in"
   Then  I should be on the tutee match page for User 5
 
-#152174160 (Pivotal Tracker ID)  
-Scenario: log in to system as admin
-  When  I go to the login page
-  And   I fill in "Username" with "connorvotroubek@berkeley.edu"
-  And   I fill in "Password" with "gobears"
-  And   I press "Login"
-  Then  I should be on the home page
+# #152174160 (Pivotal Tracker ID)  
+# Scenario: log in to system as admin
+#   When  I go to the login page
+#   And   I fill in "Username" with "connorvotroubek@berkeley.edu"
+#   And   I fill in "Password" with "gobears"
+#   And   I press "Login"
+#   Then  I should be on the home page
 
 #151969340 (Pivotal Tracker ID)  
 @redirect_to_tutor_login
@@ -76,4 +76,32 @@ Scenario: redirect to tutee form
   When I am on the home page
   And I press the button "Tutee Login"
   Then I should be on the tutee sign in page
+  
+# Scenario: redirect to tutor form
+#   When I am on the home page
+#   And I select "Tutor Sign-Up"
+#   Then I should be redirected to the tutor form
+  
+# Scenario: redirect to tutee form
+#   When I am on the home page
+#   And I select "Tutee Sign-Up"
+#   Then I should be redirected to the tutee form
+
+@register_admin
+Scenario: register a new account as an admin
+  When  I am on the admin registration page
+  And   I fill in "Email" with "admin1@example.com"
+  And   I fill in "Password" with "admin1"
+  And   I fill in "Password confirmation" with "admin1"
+  And   I press "Sign up"
+  Then  I should be on the admin show page for 1
+
+@log_in_admin 
+Scenario: log in to system as admin
+  Given I am on the admin sign in page
+  And   The admin "admin1@example.com" with the password "admin1" exists
+  And   I fill in "Email" with "admin1@example.com"
+  And   I fill in "Password" with "admin1"
+  And   I press "Log in"
+  Then  I should be on the admin show page for 1
 
