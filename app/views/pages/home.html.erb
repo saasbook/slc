@@ -5,12 +5,12 @@
 </div>
 
 <div class="btn-group btn-group-justified">
-    <%= link_to new_tutee_session_path, :class => "btn btn-default" do %>
+    <%= link_to new_tutee_session_path, :class => "btn btn-default", :id=> "tutee-login" do %>
          <h1 class="glyphicon glyphicon-pencil"></h1>
          <div>Tutee Login</div>
     <% end %>      
   
-    <%= link_to new_tutor_session_path, :class => "btn btn-default" do %>
+    <%= link_to new_tutor_session_path, :class => "btn btn-default", :id=> "tutor-login" do %>
         <h1 class="glyphicon glyphicon-apple"></h1>
          <div>Tutor Login</div>
      <% end %>    
