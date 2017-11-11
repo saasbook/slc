@@ -44,6 +44,10 @@ Given /^I have been assigned "(.*)" "(.*)" as tutor$/ do |tutor_firstname, tutor
   tutor5.password_confirmation = "tutor5"
 	tutor5.save!
 	
+	ta = TimeAvailability.create(:day => "Friday", :start_time => 11)
+	my_study_session = StudySession.create(:tutor_id => 5, :tutee_id => 5, :time_availability_id => ta.id)
+  my_study_session.time_availabilitys << ta
+  
 	tutee5 = Tutee.new
 	tutee5.first_name = "tutee5_firstname"
 	tutee5.last_name = "tutee5_lastname"
@@ -55,7 +59,7 @@ Given /^I have been assigned "(.*)" "(.*)" as tutor$/ do |tutor_firstname, tutor
 end
 
 Given /^Tutee (.*) has been matched with its Tutor$/ do |tutee_id|
-  Tutee.find_by_id(tutee_id).assign_tutor
+  Tutee.find_by_id(tutee_id).assign_tutor_and_session
 end
 
 # When /^I go to the "(.*)" page$/ do |page_name|
