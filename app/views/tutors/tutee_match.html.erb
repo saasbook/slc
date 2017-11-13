@@ -5,18 +5,16 @@
 <br>
 <br>
 
-<p class="text-center">Your Student(s):</p>
+<p class="text-center">Your Student(s) and Session Time:</p>
 <p class="text-center"> 
 <% @tutees.each do |tutee| %>
-    <%= tutee.first_name%><%= tutee.last_name%><br>
+    <%= tutee.first_name%> <%= tutee.last_name %> 
+    <% @study_session_time = tutee.study_session.time_availabilitys[0] %>
+    <%= "- #{@study_session_time.day} at #{@study_session_time.start_time}" %>
+    <br>
 <% end %>
 </p>
 
-<br>
-<p class="text-center">Shared Time(s):</p>
-<p class="text-center">
-     <!--Add matched time variable here -->
-</p> 
 
 <div style= "text-align:center;margin-top:15%"> 
 <%= link_to "Logout",  destroy_tutor_session_path, :method => :delete %>
