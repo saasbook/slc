@@ -1,7 +1,6 @@
 
-  <%= form_tag tutee_path(@tutee), :class => "form-horizontal", :method => :put do %>
-    <form>
-      <fieldset>
+  <%= form_tag @tutee, :url => tutee_match_path, :class => "form-horizontal", :method => :put do %>
+    
         <div class="form-group">
           <%= label :tutee, :first_name, :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
@@ -89,7 +88,7 @@
         </div>
 
         <div class="form-group">
-          <%= label :tutee, :EOP, 'Educational Opportunity Program', :class => 'col-lg-4 control-label' %>
+          <%= label :tutee, :EOP, 'Educational Opportunity Program (EOP)', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
             <%= check_box :tutee,"EOP" %>
           </div>
@@ -103,7 +102,7 @@
         </div>
 
         <div class="form-group">
-          <%= label :tutee, :FPF, 'Fall Prograrm for Freshman', :class => 'col-lg-4 control-label' %>
+          <%= label :tutee, :FPF, 'Fall Program for Freshman (FPF)', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
             <%= check_box :tutee,"FPF" %>
           </div>
@@ -124,7 +123,7 @@
         </div>
 
         <div class="form-group">
-          <%= label :tutee, :BISP, 'Berkeley International Study Program', :class => 'col-lg-4 control-label' %>
+          <%= label :tutee, :BISP, 'Berkeley International Study Program (BISP)', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
             <%= check_box :tutee,"BISP" %>
           </div>
@@ -136,8 +135,7 @@
         <%= submit_tag 'Submit' %>
         </center>
 
-      <% end %>
-    </fieldset>
-</form>
+<% end %>
+    
 
 
