@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
  
+  devise_for :admins, controllers: { registrations: "registrations" }
   devise_for :tutees, controllers: { registrations: "registrations" }
   devise_for :tutors, controllers: { registrations: "registrations" }
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   
   resources :tutors
   resources :tutees
+  resources :admins
   get '/tutees/:id/tutor_match', to: 'tutees#tutor_match', as: 'tutor_match'
   get '/tutors/:id/tutee_match', to: 'tutors#tutee_match', as: 'tutee_match'
   get '/login', to: 'pages#login'

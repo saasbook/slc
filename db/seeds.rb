@@ -164,6 +164,6 @@ tutee4.password = "tutee4"
 tutee4.password_confirmation = "tutee4"
 tutee4.first_name = "tutee4_firstname"
 tutee4.last_name = "tutee4_lastname"
-tutee4.time_availabilitys << taMon9 << taMon15 << taWed14
+tutee4.time_availabilitys << taMon9
 tutee4.save!
 

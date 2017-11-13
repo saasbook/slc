@@ -1,16 +1,32 @@
-<h2>Forgot your password?</h2>
+<div style="margin: 0 auto; width:70%; margin-top:5%">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="panel panel-default" >
+  <div class="panel-heading text-center" style="background-color: #FDB515"> 
+      <h1>Forgot your password?</h1>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+     <div class="panel-body" style="align:center">
+     
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+      
+        <div class="field" style = "margin-top:40px;text-align:center">
+          <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Email" %>
+        </div>
+      
+        <br>
+        
+        <div class="actions" style = "margin-bottom:40px;text-align:center">
+          <%= f.submit "Send reset instructions" %>
+        </div>
+        <% end %>
+     
+     </div>
+</div>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="text-center">
+  <%= render "devise/shared/links"%>
+  <%= link_to "Back to Home", root_path %>
+</div>
+

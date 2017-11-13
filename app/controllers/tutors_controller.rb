@@ -49,12 +49,7 @@ class TutorsController < ApplicationController
     def tutee_match
       @tutor = Tutor.find(params[:id])
       @tutees = @tutor.tutees
-      if !@tutees.empty?
-          @display_text = ""
-          @tutees.each do |tutee|
-              @display_text += "#{tutee.first_name} #{tutee.last_name}\n"  
-          end
-      else
+      if @tutees.empty?
           @display_text = "You have not been assigned any students yet."
       end
     end

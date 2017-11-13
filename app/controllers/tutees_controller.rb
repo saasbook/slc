@@ -46,14 +46,17 @@ class TuteesController < ApplicationController
     
     def tutor_match
         @tutee = Tutee.find(params[:id])
-        @tutee.assign_tutor
+        @tutee.assign_tutor_and_session
         @tutor = @tutee.tutor
         if !@tutor.nil?
-            @display_text = "#{@tutor.first_name}  #{@tutor.last_name}"
+            @study_session_time = @tutee.study_session.time_availabilitys[0]
+            @display_text = "#{@tutor.first_name}  #{@tutor.last_name} - "
+            @display_text += "#{@study_session_time.day} at #{@study_session_time.start_time}"
         else
             @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
         end
     end
+    
     
     private
     
