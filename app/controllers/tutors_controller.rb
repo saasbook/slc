@@ -51,9 +51,6 @@ class TutorsController < ApplicationController
       @tutees = @tutor.tutees
       if @tutees.empty?
           @display_text = "You have not been assigned any students yet."
-    #   else
-    #       @study_session_time = @tutee.study_session.time_availabilitys[0]
-    #       @display_text += "#{@study_session_time.day} at #{@study_session_time.start_time}"
       end
     end
 

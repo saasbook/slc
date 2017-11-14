@@ -193,7 +193,7 @@ Scenario: tutor with the least existing students is matched
 
 #Dhruv, User Story 3
 #151892797 (Pivotal Tracker ID)
-@tutee_matched_to_any_tutor
+@tutee_not_matched_to_any_tutor
 Scenario: tutor can have multiple tutees
   Given  Tutee 1 has been matched with its Tutor
   And    Tutee 2 has been matched with its Tutor
