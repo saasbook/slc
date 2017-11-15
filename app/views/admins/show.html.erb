@@ -54,6 +54,7 @@
           <% else %>
             <td> <%= name.tutor %></td>
           <% end %>
+          <td><%= link_to "Edit", edit_match_path(name) %></td>
         </tr>
     <% end %>
   </tbody>

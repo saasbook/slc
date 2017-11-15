@@ -32,5 +32,20 @@ class AdminsController < ApplicationController
         
     end
     
+    def edit_match
+        @tutee = Tutee.find(params[:id])
+        @avail_tutors = @tutee.find_available_tutors
+    end
+    
+    def assign
+        puts params
+        #@admin = Admin.find(params[:id])
+        @tutee = Tutee.find(params[:tutee])
+        tutor = Tutor.find(params[:tutor])
+        @tutee.tutor = tutor
+        @tutee.save!
+        redirect_to admin_path(1)
+    end
+    
 end
 

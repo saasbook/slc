@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/tutees/:id/tutor_match', to: 'tutees#tutor_match', as: 'tutor_match'
   get '/tutors/:id/tutee_match', to: 'tutors#tutee_match', as: 'tutee_match'
   get '/login', to: 'pages#login'
+  get '/admins/tutees/:id/edit_match', to: 'admins#edit_match', as: 'edit_match'
+  get '/admins/1/tutees/:tutee/tutors/:tutor/assign', to: 'admins#assign', as: 'assign'
+
   root to: 'pages#home'
   
   

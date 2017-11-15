@@ -18,6 +18,17 @@ class Tutee < ActiveRecord::Base
       self.tutor
     end
   end
+
+  def find_available_tutors
+    available_tutors_list = []
+    Tutor.all.each do |tutor|
+      matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
+      if !matched_times.empty?
+        available_tutors_list << tutor
+      end
+    end
+    available_tutors_list
+  end
   
   private
   
@@ -31,15 +42,5 @@ class Tutee < ActiveRecord::Base
     best_tutor
   end
   
-  def find_available_tutors
-    available_tutors_list = []
-    Tutor.all.each do |tutor|
-      matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
-      if !matched_times.empty?
-        available_tutors_list << tutor
-      end
-    end
-    available_tutors_list
-  end
   
 end
