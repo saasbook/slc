@@ -1,21 +1,21 @@
 <h1 class="text-center" style="font-family:FreightTextPro">Student Learning Center Writing Program</h1>
 
 <div style= "margin-top:45px">
-<%= image_tag "cal.png", :class=> "center-block img-responsive", :size => "300x220", :style => "margin-bottom:80px" %>
+<%= image_tag "writing.png", :class=> "center-block img-responsive", :size => "500x350", :style => "margin-bottom:80px" %>
 </div>
 
 <div class="btn-group btn-group-justified">
-    <%= link_to new_tutee_session_path, :class => "btn btn-default", :id=> "tutee-login" do %>
+    <%= link_to new_tutee_session_path, :class => "btn btn-default", :id=> "tutee-login", :style=> "background-color: #FDB515; border-color: grey" do %>
          <h1 class="glyphicon glyphicon-pencil"></h1>
          <div>Writer Login</div>
     <% end %>      
   
-    <%= link_to new_tutor_session_path, :class => "btn btn-default", :id=> "tutor-login" do %>
+    <%= link_to new_tutor_session_path, :class => "btn btn-default", :id=> "tutor-login", :style=> "background-color: #FDB515;border-color: grey" do %>
         <h1 class="glyphicon glyphicon-apple"></h1>
          <div>Tutor Login</div>
      <% end %>    
  
-    <%= link_to new_admin_session_path, :class => "btn btn-default" do %>
+    <%= link_to new_admin_session_path, :class => "btn btn-default", :style=> "background-color: #FDB515;border-color: grey" do %>
         <h1 class="glyphicon glyphicon-user"></h1>
         <div>Admin Login</div>
     <% end %>    

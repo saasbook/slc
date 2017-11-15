@@ -1,11 +1,11 @@
 
-<h1 class="text-center">Welcome <%= @tutor.first_name %>  <%= @tutor.last_name %>!</h1>
-<center><i>Congrats on your SLC match</i></center>
+<h1 class="text-center">Congratulations, <%= @tutor.first_name %>  <%= @tutor.last_name %>!</h1>
+<center><i>Based on the information provided, we have identified the following student(s) for you</i></center>
 <br>
 <br>
 <br>
 
-<p class="text-center">Your Student(s) and Session Time:</p>
+<p class="text-center"><b>Your Student(s) and Session Time:</b></p>
 <p class="text-center"> 
     <% if @tutees.empty? %>
     <%=h @display_text %>
@@ -19,7 +19,17 @@
     <% end %>
 </p>
 
-<div style= "text-align:center;margin-top:15%"> 
+<br>
+<br>
+
+<p class="text-center">You should contact your student(s) within 48 hours.</p>
+<p class="text-center">In the mean time, if you have any questions or concerns, please email: 
+    <a href="mailto:slcwritingprg@berkeley.edu">slcwritingprg@berkeley.edu</a>.
+</p>
+<p class="text-center">We look forward to working with you and thank you for your service!</p>
+<p class="text-center">SLC Writing Program</p>
+
+<div style= "text-align:center;margin-top:5%"> 
 <%= link_to "Logout",  destroy_tutor_session_path, :method => :delete %>
 <br>
 <%= link_to "Back to Home", root_path %>
