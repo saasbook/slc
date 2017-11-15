@@ -1,0 +1,48 @@
+<div style="margin: 0 auto; width:70%;margin-top:5%">
+
+  <div class="panel panel-default">
+  
+    <div class="panel-heading text-center" id="login" style="background-color:#FDB515">
+      <h1>Log in</h1>
+    </div>
+  
+    <div class="panel-body" style="align:center">
+    
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field" style="margin-top:50px;text-align:center">
+          <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+        </div>
+
+        <div class="field" style="margin-top:25px;text-align:center">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field" style="margin-top:25px;text-align:center">
+            <div>
+              <%= f.label :remember_me do %>
+              <%= f.check_box :remember_me %>
+               Remember me
+              <% end -%>
+            </div>
+          </div>
+        <% end -%>
+
+      <div class="actions" style= "margin-bottom:10px;text-align:center">
+          <div style= "margin-top:25px">
+            <%= f.submit "Log in" %>
+        </div>
+      </div>
+    <% end %>
+  
+    </div>
+  </div>
+</div> 
+
+<div style= "text-align:center"> 
+  <%= render "devise/shared/links"%>
+  <%= link_to "Back to Home", root_path %>
+</div>
+
+
+

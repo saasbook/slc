@@ -1,0 +1,36 @@
+@import "bootstrap-sprockets";
+
+@import "bootswatch/yeti/variables";
+
+@import "bootstrap";
+
+body { padding-top: 60px; }
+
+@import "bootswatch/yeti/bootswatch";
+
+ .submit-form{
+     margin-left:auto;
+     margin-right:auto;
+     max-width: 500px;
+ }
+
+body {
+  background-image: url("homepage.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: freight-text-pro, serif;
+}
+
+h1 {
+    font-family: freight-text-pro, serif;
+}
+
+h6 {
+    font-family: freight-text-pro, serif;
+}
+
+*{
+  font-family: freight-text-pro, serif;;
+}
