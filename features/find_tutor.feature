@@ -34,7 +34,7 @@ Scenario: tutor fills in information but lacks first name
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[tutor_cohort]" with "Computer Science"
   And I fill in "tutor[bio]" with "Info"
-  Then I should not see "Thank you for submitting a tutee form request!"
+  Then I should be on Tutor Information Form for User 1
   
 #Lexie, User Story 2 
 #151891035 (Pivotal Tracker ID)
@@ -48,7 +48,7 @@ Scenario: tutor fills in information but lacks first name
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[tutor_cohort]" with "Computer Science"
   And I fill in "tutor[bio]" with "Info"
-  Then I should not see "Thank you for submitting a tutee form request!"
+  Then I should be on Tutor Information Form for User 1
   
 #Lexie, User Story 2 
 #152226966 (Pivotal Tracker ID)
@@ -98,7 +98,7 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  Then I should not see "Thank you for submitting a tutor form request!"
+  Then I should be on Tutee Information Form for User 1
   
 #Lexie, User Story 1  
 #151891035 (Pivotal Tracker ID)
@@ -113,7 +113,7 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
-  Then I should not see "Thank you for submitting a tutor form request!"
+  Then I should be on Tutee Information Form for User 1
   
 #Lexie, User Story 1 
 #151891035 (Pivotal Tracker ID)
@@ -133,6 +133,22 @@ Scenario: routing is correct for tutee form
   Then I should be on Tutee Submitted Form for User 1
   And I follow "Back to Home"
   Then I should be on the home page
+
+#Lexie Iteration 3
+#152832426 (Pivotal Tracker ID)  
+@tutee_back_to_form  
+Scenario: going from tutee match page back to info page
+  Given I am on Tutee Submitted Form for User 1
+  And I follow "Update Form"
+  Then I should be on Tutee Information Form for User 1
+  
+#Lexie Iteration 3
+#152832426  
+@tutor_back_to_form  
+Scenario: going from tutor match page back to info page
+  Given I am on Tutor Submitted Form for User 1
+  And I follow "Update Form"
+  Then I should be on Tutor Information Form for User 1  
 
 Scenario: tutee selects a tutor and sets a time 
   When  I see a list of tutors
@@ -193,7 +209,7 @@ Scenario: tutor with the least existing students is matched
 
 #Dhruv, User Story 3
 #151892797 (Pivotal Tracker ID)
-@tutee_matched_to_any_tutor
+@tutee_not_matched_to_any_tutor
 Scenario: tutor can have multiple tutees
   Given  Tutee 1 has been matched with its Tutor
   And    Tutee 2 has been matched with its Tutor

@@ -1,25 +1,38 @@
 
-<h1 class="text-center">Welcome <%= @tutor.first_name %>  <%= @tutor.last_name %>!</h1>
-<center><i>Congrats on your SLC match</i></center>
+<h1 class="text-center">Congratulations, <%= @tutor.first_name %>  <%= @tutor.last_name %>!</h1>
+<center><i>Based on the information provided, we have identified the following student(s) for you</i></center>
 <br>
 <br>
 <br>
 
-<p class="text-center">Your Student(s):</p>
+<p class="text-center"><b>Your Student(s) and Session Time:</b></p>
 <p class="text-center"> 
-<% @tutees.each do |tutee| %>
-    <%= tutee.first_name%><%= tutee.last_name%><br>
-<% end %>
+    <% if @tutees.empty? %>
+    <%=h @display_text %>
+    <% else %>
+        <% @tutees.each do |tutee| %>
+        <%= tutee.first_name%> <%= tutee.last_name %> 
+        <% @study_session_time = tutee.study_session.time_availabilitys[0] %>
+        <%= "- #{@study_session_time.day} at #{@study_session_time.start_time}" %>
+        <br>
+        <% end %>
+    <% end %>
 </p>
 
 <br>
-<p class="text-center">Shared Time(s):</p>
-<p class="text-center">
-     <!--Add matched time variable here -->
-</p> 
+<br>
 
-<div style= "text-align:center;margin-top:15%"> 
+<p class="text-center">You should contact your student(s) within 48 hours.</p>
+<p class="text-center">In the mean time, if you have any questions or concerns, please email: 
+    <a href="mailto:slcwritingprg@berkeley.edu">slcwritingprg@berkeley.edu</a>.
+</p>
+<p class="text-center">We look forward to working with you and thank you for your service!</p>
+<p class="text-center">SLC Writing Program</p>
+
+<div style= "text-align:center;margin-top:5%"> 
 <%= link_to "Logout",  destroy_tutor_session_path, :method => :delete %>
+<br>
+<%= link_to "Update Form", edit_tutor_path %>
 <br>
 <%= link_to "Back to Home", root_path %>
 </div>
