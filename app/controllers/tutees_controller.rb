@@ -52,6 +52,7 @@ class TuteesController < ApplicationController
             @study_session_time = @tutee.study_session.time_availabilitys[0]
             @display_text = "#{@tutor.first_name}  #{@tutor.last_name} - "
             @display_text += "#{@study_session_time.day} at #{@study_session_time.start_time}"
+            TuteeMailer.match_notification(@tutee, @tutor).deliver
         else
             @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
         end
