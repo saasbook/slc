@@ -1,35 +1,64 @@
-
-<h1>Tutor Information Form</h1>
-
-<%= form_tag tutor_path(@tutor), :method => :put do %>
-  
-  <%= label :tutor, :first_name, 'First Name' %>
-  <%= text_field :tutor, 'first_name', :value => nil %>
-  
-  <%= label :tutor, :last_name, 'Last Name' %>
-  <%= text_field :tutor, 'last_name', :value => nil %>
-  
-  <%= label :tutor, :sid, 'SID' %>
-  <%= text_field :tutor, 'sid'  %>
-
-  <%= label :tutor, :year, 'Current Grade' %>
-  <%= text_field :tutor, 'year'  %>
-  
-  <%= label :tutor, :email, 'Email' %>
-  <%= text_field :tutor, 'email' %>
-  
-  <%= label :tutor, :phone_number, 'Phone Number' %>
-  <%= text_field :tutor, 'phone_number'  %>
-  
-  <%= label :tutor, :major, 'Major' %>
-  <%= text_field :tutor, 'major' %>
-  
-  <%= label :tutor, :tutor_cohort, 'Tutor Cohort' %>
-  <%= text_field :tutor, 'tutor_cohort' %>
-  
-  <%= label :tutor, :bio, 'Biography' %>
-  <%= text_field :tutor, 'bio' %>
-  
-<%= submit_tag 'Submit' %>
-
+<%= form_tag tutor_path(@tutor),  :class => "form-horizontal", :method => :put do %>
+  <fieldset>
+    <legend>Tutor Information Form</legend>
+    <div class="form-group">
+      <%= label :tutor, :first_name, 'First Name', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'first_name', placeholder: "First Name", :value => nil, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :last_name, 'Last Name', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'last_name', placeholder: "Last Name", :value => nil, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :sid, 'SID', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'sid', placeholder: "SID", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :year, 'Year', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'year', placeholder: "Year", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :email, 'Email', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'email', placeholder: "Email", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :phone_number, 'Phone Number', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'phone_number', placeholder: "Phone Number", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :major, 'Major', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'major', placeholder: "Major", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :tutor_cohort, 'Tutor Cohort', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_field :tutor, 'tutor_cohort', placeholder: "Tutor Cohort", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label :tutor, :bio, 'Biography', :class => 'col-lg-4 control-label' %>
+      <div class="col-lg-5">
+        <%= text_area :tutor, 'bio', placeholder: "Tell us something about yourself!", :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-6 col-lg-offset-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
 <% end %>

@@ -11,77 +11,77 @@ taMon9 = TimeAvailability.create(:day => "Monday", :start_time => 9)
 taMon10 = TimeAvailability.create(:day => "Monday", :start_time => 10)
 taMon11 = TimeAvailability.create(:day => "Monday", :start_time => 11)
 taMon12 = TimeAvailability.create(:day => "Monday", :start_time => 12)
-taMon13 = TimeAvailability.create(:day => "Monday", :start_time => 13)
-taMon14 = TimeAvailability.create(:day => "Monday", :start_time => 14)
-taMon15 = TimeAvailability.create(:day => "Monday", :start_time => 15)
-taMon16 = TimeAvailability.create(:day => "Monday", :start_time => 16)
-taMon17 = TimeAvailability.create(:day => "Monday", :start_time => 17) # Monday 17:00 - 5pm
+taMon13 = TimeAvailability.create(:day => "Monday", :start_time => 1)
+taMon14 = TimeAvailability.create(:day => "Monday", :start_time => 2)
+taMon15 = TimeAvailability.create(:day => "Monday", :start_time => 3)
+taMon16 = TimeAvailability.create(:day => "Monday", :start_time => 4)
+taMon17 = TimeAvailability.create(:day => "Monday", :start_time => 5) # Monday 5:00 - 5pm
 
 taTues8 = TimeAvailability.create(:day => "Tuesday", :start_time => 8) # Tuesday 08:00 - 8am
 taTues9 = TimeAvailability.create(:day => "Tuesday", :start_time => 9)
 taTues10 = TimeAvailability.create(:day => "Tuesday", :start_time => 10)
 taTues11 = TimeAvailability.create(:day => "Tuesday", :start_time => 11)
 taTues12 = TimeAvailability.create(:day => "Tuesday", :start_time => 12)
-taTues13 = TimeAvailability.create(:day => "Tuesday", :start_time => 13)
-taTues14 = TimeAvailability.create(:day => "Tuesday", :start_time => 14)
-taTues15 = TimeAvailability.create(:day => "Tuesday", :start_time => 15)
-taTues16 = TimeAvailability.create(:day => "Tuesday", :start_time => 16)
-taTues17 = TimeAvailability.create(:day => "Tuesday", :start_time => 17) # Tuesday 17:00 - 5pm
+taTues13 = TimeAvailability.create(:day => "Tuesday", :start_time => 1)
+taTues14 = TimeAvailability.create(:day => "Tuesday", :start_time => 2)
+taTues15 = TimeAvailability.create(:day => "Tuesday", :start_time => 3)
+taTues16 = TimeAvailability.create(:day => "Tuesday", :start_time => 4)
+taTues17 = TimeAvailability.create(:day => "Tuesday", :start_time => 5) # Tuesday 5:00 - 5pm
 
 taWed8 = TimeAvailability.create(:day => "Wednesday", :start_time => 8) # Wednesday 08:00 - 8am
 taWed9 = TimeAvailability.create(:day => "Wednesday", :start_time => 9)
 taWed10 = TimeAvailability.create(:day => "Wednesday", :start_time => 10)
 taWed11 = TimeAvailability.create(:day => "Wednesday", :start_time => 11)
 taWed12 = TimeAvailability.create(:day => "Wednesday", :start_time => 12)
-taWed13 = TimeAvailability.create(:day => "Wednesday", :start_time => 13)
-taWed14 = TimeAvailability.create(:day => "Wednesday", :start_time => 14)
-taWed15 = TimeAvailability.create(:day => "Wednesday", :start_time => 15)
-taWed16 = TimeAvailability.create(:day => "Wednesday", :start_time => 16)
-taWed17 = TimeAvailability.create(:day => "Wednesday", :start_time => 17) # Wednesday 17:00 - 5pm
+taWed13 = TimeAvailability.create(:day => "Wednesday", :start_time => 1)
+taWed14 = TimeAvailability.create(:day => "Wednesday", :start_time => 2)
+taWed15 = TimeAvailability.create(:day => "Wednesday", :start_time => 3)
+taWed16 = TimeAvailability.create(:day => "Wednesday", :start_time => 4)
+taWed17 = TimeAvailability.create(:day => "Wednesday", :start_time => 5) # Wednesday 5:00 - 5pm
 
 taThurs8 = TimeAvailability.create(:day => "Thursday", :start_time => 8) # Thursday 08:00 - 8am
 taThurs9 = TimeAvailability.create(:day => "Thursday", :start_time => 9)
 taThurs10 = TimeAvailability.create(:day => "Thursday", :start_time => 10)
 taThurs11 = TimeAvailability.create(:day => "Thursday", :start_time => 11)
 taThurs12 = TimeAvailability.create(:day => "Thursday", :start_time => 12)
-taThurs13 = TimeAvailability.create(:day => "Thursday", :start_time => 13)
-taThurs14 = TimeAvailability.create(:day => "Thursday", :start_time => 14)
-taThurs15 = TimeAvailability.create(:day => "Thursday", :start_time => 15)
-taThurs16 = TimeAvailability.create(:day => "Thursday", :start_time => 16)
-taThurs17 = TimeAvailability.create(:day => "Thursday", :start_time => 17) # Thursday 17:00 - 5pm
+taThurs13 = TimeAvailability.create(:day => "Thursday", :start_time => 1)
+taThurs14 = TimeAvailability.create(:day => "Thursday", :start_time => 2)
+taThurs15 = TimeAvailability.create(:day => "Thursday", :start_time => 3)
+taThurs16 = TimeAvailability.create(:day => "Thursday", :start_time => 4)
+taThurs17 = TimeAvailability.create(:day => "Thursday", :start_time => 5) # Thursday 5:00 - 5pm
 
 taFri8 = TimeAvailability.create(:day => "Friday", :start_time => 8) # Friday 08:00 - 8am
 taFri9 = TimeAvailability.create(:day => "Friday", :start_time => 9)
 taFri10 = TimeAvailability.create(:day => "Friday", :start_time => 10)
 taFri11 = TimeAvailability.create(:day => "Friday", :start_time => 11)
 taFri12 = TimeAvailability.create(:day => "Friday", :start_time => 12)
-taFri13 = TimeAvailability.create(:day => "Friday", :start_time => 13)
-taFri14 = TimeAvailability.create(:day => "Friday", :start_time => 14)
-taFri15 = TimeAvailability.create(:day => "Friday", :start_time => 15)
-taFri16 = TimeAvailability.create(:day => "Friday", :start_time => 16)
-taFri17 = TimeAvailability.create(:day => "Friday", :start_time => 17) # Friday 17:00 - 5pm
+taFri13 = TimeAvailability.create(:day => "Friday", :start_time => 1)
+taFri14 = TimeAvailability.create(:day => "Friday", :start_time => 2)
+taFri15 = TimeAvailability.create(:day => "Friday", :start_time => 3)
+taFri16 = TimeAvailability.create(:day => "Friday", :start_time => 4)
+taFri17 = TimeAvailability.create(:day => "Friday", :start_time => 5) # Friday 5:00 - 5pm
 
 taSat8 = TimeAvailability.create(:day => "Saturday", :start_time => 8) # Saturday 08:00 - 8am
 taSat9 = TimeAvailability.create(:day => "Saturday", :start_time => 9)
 taSat10 = TimeAvailability.create(:day => "Saturday", :start_time => 10)
 taSat11 = TimeAvailability.create(:day => "Saturday", :start_time => 11)
 taSat12 = TimeAvailability.create(:day => "Saturday", :start_time => 12)
-taSat13 = TimeAvailability.create(:day => "Saturday", :start_time => 13)
-taSat14 = TimeAvailability.create(:day => "Saturday", :start_time => 14)
-taSat15 = TimeAvailability.create(:day => "Saturday", :start_time => 15)
-taSat16 = TimeAvailability.create(:day => "Saturday", :start_time => 16)
-taSat17 = TimeAvailability.create(:day => "Saturday", :start_time => 17) # Saturday 17:00 - 5pm
+taSat13 = TimeAvailability.create(:day => "Saturday", :start_time => 1)
+taSat14 = TimeAvailability.create(:day => "Saturday", :start_time => 2)
+taSat15 = TimeAvailability.create(:day => "Saturday", :start_time => 3)
+taSat16 = TimeAvailability.create(:day => "Saturday", :start_time => 4)
+taSat17 = TimeAvailability.create(:day => "Saturday", :start_time => 5) # Saturday 5:00 - 5pm
 
 taSun8 = TimeAvailability.create(:day => "Sunday", :start_time => 8) # Sunday 08:00 - 8am
 taSun9 = TimeAvailability.create(:day => "Sunday", :start_time => 9)
 taSun10 = TimeAvailability.create(:day => "Sunday", :start_time => 10)
 taSun11 = TimeAvailability.create(:day => "Sunday", :start_time => 11)
 taSun12 = TimeAvailability.create(:day => "Sunday", :start_time => 12)
-taSun13 = TimeAvailability.create(:day => "Sunday", :start_time => 13)
-taSun14 = TimeAvailability.create(:day => "Sunday", :start_time => 14)
-taSun15 = TimeAvailability.create(:day => "Sunday", :start_time => 15)
-taSun16 = TimeAvailability.create(:day => "Sunday", :start_time => 16)
-taSun17 = TimeAvailability.create(:day => "Sunday", :start_time => 17) # Sunday 17:00 - 5pm
+taSun13 = TimeAvailability.create(:day => "Sunday", :start_time => 1)
+taSun14 = TimeAvailability.create(:day => "Sunday", :start_time => 2)
+taSun15 = TimeAvailability.create(:day => "Sunday", :start_time => 3)
+taSun16 = TimeAvailability.create(:day => "Sunday", :start_time => 4)
+taSun17 = TimeAvailability.create(:day => "Sunday", :start_time => 5) # Sunday 5:00 - 5pm
 
 ###########################################
 
