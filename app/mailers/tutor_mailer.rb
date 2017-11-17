@@ -1,7 +1,7 @@
 class TutorMailer < ApplicationMailer
   default from: "slc.tutoring.noreply@gmail.com"
 
-  def match_notification(tutee, tutor, time_availabilty)
+  def match_notification(tutee, tutor, time_availability)
     @time_availability = time_availability
     @day = time_availability.day
     @time = time_availability.start_time.to_s + " " + am_or_pm
