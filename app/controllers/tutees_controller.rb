@@ -33,7 +33,7 @@ class TuteesController < ApplicationController
     end
 
     #Update all of the attributes gathered from edit form
-    def updat
+    def update
         @tutee = Tutee.find(params[:id])
         @tutee.update_attributes!(tutee_params)
         flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
