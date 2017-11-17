@@ -31,8 +31,8 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "jttruitt95@gmail.com",
-    password: "jstruitt2"
+    user_name: "slc.tutoring.noreply",
+    password: "SLC-admin"
   }
 
   # Debug mode disables concatenation and preprocessing of assets.
