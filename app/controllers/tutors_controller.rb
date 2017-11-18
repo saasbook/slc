@@ -33,8 +33,16 @@ class TutorsController < ApplicationController
 
     #Update all of the attributes gathered from edit form
     def update
+        @time_availabilitys_ids = params[:tutor][:time_availabilitys_ids]
         @tutor = Tutor.find(params[:id])
         @tutor.update_attributes!(tutor_params)
+        @tutor.time_availabilitys.destroy_all
+        if @time_availabilitys_ids != nil
+            @time_availabilitys_ids.each do |id|
+                time = TimeAvailability.find(id)
+                @tutor.time_availabilitys << time
+            end
+        end
         flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
         redirect_to tutee_match_path(@tutor)
     end
