@@ -1,5 +1,7 @@
   <%= form_tag @tutee, :url => tutee_match_path, :class => "form-horizontal", :method => :put do %>
     
+        <h1 style="text-align:center;margin-left:7%">Writer Information Form</h1>
+        
         <div class="form-group">
           <%= label :tutee, :first_name, :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
@@ -78,61 +80,69 @@
               </table>
           </div>
         </div>
-
-        <div class="form-group">
-          <%= label :tutee, :DSP, 'Disabled Students Program (DSP)', :class => 'col-lg-4 control-label' %>
-          <div class="col-lg-5">
-            <%= check_box :tutee, "DSP" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= label :tutee, :EOP, 'Educational Opportunity Program (EOP)', :class => 'col-lg-4 control-label' %>
-          <div class="col-lg-5">
-            <%= check_box :tutee,"EOP" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= label :tutee, :SBC, 'Summer Bridge Cohort 2017', :class => 'col-lg-4 control-label' %>
-          <div class="col-lg-5">
-            <%= check_box :tutee,"SBC" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= label :tutee, :FPF, 'Fall Program for Freshman (FPF)', :class => 'col-lg-4 control-label' %>
-          <div class="col-lg-5">
-            <%= check_box :tutee,"FPF" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= label :tutee, :TRSP, 'Transfer, Re-Entry, or Student Parent (TRSP)', :class => 'col-lg-4 control-label' %>
-          <div class="col-lg-5">
-            <%= check_box :tutee,"TRSP" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= label :tutee, :UCIEP, 'UC Intercampus Exchange Program (UCIEP)', :class => 'col-lg-4 control-label' %>
-          <div class="col-lg-5">
-            <%= check_box :tutee,"UCIEP" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= label :tutee, :BISP, 'Berkeley International Study Program (BISP)', :class => 'col-lg-4 control-label' %>
-          <div class="col-lg-5">
-            <%= check_box :tutee,"BISP" %>
-          </div>
-        </div>
-
         
-
-        <center>
-        <%= submit_tag 'Submit' %>
-        </center>
+      <div class="form-check">
+        <label id= "DSP" class="form-check-label" style="margin-left:34%">
+        <input type="checkbox" class="form-check-input" style="margin-right:20px">
+            Disabled Students Program (DSP)
+      </label>
+      </div>
+      
+      
+       <div class="form-check">
+        <label id= "EOP" class="form-check-label" style="margin-left:34%">
+        <input type="checkbox" class="form-check-input" style="margin-right:20px">
+            Educational Opportunity Program (EOP)
+      </label>
+      </div>
+      
+      
+       <div class="form-check">
+        <label id= "SBC" class="form-check-label" style="margin-left:34%">
+        <input type="checkbox" class="form-check-input" style="margin-right:20px">
+           Summer Bridge Cohort 2017
+      </label>
+      </div>
+      
+      
+       <div class="form-check">
+        <label id= "FPF" class="form-check-label" style="margin-left:34%">
+        <input type="checkbox" class="form-check-input" style="margin-right:20px">
+            Fall Program for Freshman (FPF)
+      </label>
+      </div>
+      
+      
+       <div class="form-check">
+        <label id= "TRSP" class="form-check-label" style="margin-left:34%">
+        <input type="checkbox" class="form-check-input" style="margin-right:20px">
+            Transfer, Re-Entry, or Student Parent (TRSP)
+      </label>
+      </div>
+      
+       <div class="form-check">
+        <label id= "UCIEP" class="form-check-label" style="margin-left:34%">
+        <input type="checkbox" class="form-check-input" style="margin-right:20px">
+             UC Intercampus Exchange Program (UCIEP)
+      </label>
+      </div>
+      
+       <div class="form-check">
+        <label id= "BISP" class="form-check-label" style="margin-left:34%">
+        <input type="checkbox" class="form-check-input" style="margin-right:20px">
+             Berkeley International Study Program (BISP)
+      </label>
+      </div>
+      
+      <br>
+      <br>
+      
+      <div class="form-group" style="text-align:center;margin-left:7%">
+      <div class="col-lg-6 col-lg-offset-3">
+        <button type="submit" class="btn btn-primary" style="text-align:center">Submit</button>
+      </div>
+    </div>
+    
 <% end %>
     
 
