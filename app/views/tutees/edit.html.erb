@@ -66,77 +66,74 @@
                 <tr class="table-info">
                   <th></th>
                   <% TimeAvailability.group(:start_time).order(:id).each do |t| %>
-                    <th><%= t.start_time %></th>
+                    <th><%= t.start_time %> - <%= (t.start_time + 1).to_s %></th>
                   <% end %>
                 </tr>
+                <% counter = 1 %>
                 <% TimeAvailability.group(:day).order(:id).each do |t| %>
                   <tr>
                     <th><%= t.day %></th>
                     <% TimeAvailability.group(:start_time).order(:id).each do |t| %>
-                      <td><%= check_box_tag 'time' %></td>
+                      <td><%= check_box_tag "tutee[time_availabilitys_ids][]", counter, @tutee.time_availabilitys.include?(t) %> </td>
+                      <% counter += 1 %>
                     <% end %>
                   </tr>
                 <% end %>
               </table>
           </div>
         </div>
+
+        <center><button id="select_all" type="button">Uncheck All</button></center>
         
-      <div class="form-check">
-        <label id= "DSP" class="form-check-label" style="margin-left:34%">
-        <input type="checkbox" class="form-check-input" style="margin-right:20px">
-            Disabled Students Program (DSP)
-      </label>
-      </div>
-      
-      
-       <div class="form-check">
-        <label id= "EOP" class="form-check-label" style="margin-left:34%">
-        <input type="checkbox" class="form-check-input" style="margin-right:20px">
-            Educational Opportunity Program (EOP)
-      </label>
-      </div>
-      
-      
-       <div class="form-check">
-        <label id= "SBC" class="form-check-label" style="margin-left:34%">
-        <input type="checkbox" class="form-check-input" style="margin-right:20px">
-           Summer Bridge Cohort 2017
-      </label>
-      </div>
-      
-      
-       <div class="form-check">
-        <label id= "FPF" class="form-check-label" style="margin-left:34%">
-        <input type="checkbox" class="form-check-input" style="margin-right:20px">
-            Fall Program for Freshman (FPF)
-      </label>
-      </div>
-      
-      
-       <div class="form-check">
-        <label id= "TRSP" class="form-check-label" style="margin-left:34%">
-        <input type="checkbox" class="form-check-input" style="margin-right:20px">
-            Transfer, Re-Entry, or Student Parent (TRSP)
-      </label>
-      </div>
-      
-       <div class="form-check">
-        <label id= "UCIEP" class="form-check-label" style="margin-left:34%">
-        <input type="checkbox" class="form-check-input" style="margin-right:20px">
-             UC Intercampus Exchange Program (UCIEP)
-      </label>
-      </div>
-      
-       <div class="form-check">
-        <label id= "BISP" class="form-check-label" style="margin-left:34%">
-        <input type="checkbox" class="form-check-input" style="margin-right:20px">
-             Berkeley International Study Program (BISP)
-      </label>
-      </div>
-      
-      <br>
-      <br>
-      
+        <div class="form-group">
+          <%= label :tutee, :DSP, 'Disabled Students Program (DSP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee, "DSP" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :EOP, 'Educational Opportunity Program (EOP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"EOP" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :SBC, 'Summer Bridge Cohort 2017', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"SBC" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :FPF, 'Fall Program for Freshman (FPF)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"FPF" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :TRSP, 'Transfer, Re-Entry, or Student Parent (TRSP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"TRSP" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :UCIEP, 'UC Intercampus Exchange Program (UCIEP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"UCIEP" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label :tutee, :BISP, 'Berkeley International Study Program (BISP)', :class => 'col-lg-4 control-label' %>
+          <div class="col-lg-5">
+            <%= check_box :tutee,"BISP" %>
+          </div>
+        </div>
+
       <div class="form-group" style="text-align:center;margin-left:7%">
       <div class="col-lg-6 col-lg-offset-3">
         <button type="submit" class="btn btn-primary" style="text-align:center">Submit</button>

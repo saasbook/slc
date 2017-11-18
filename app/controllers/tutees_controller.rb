@@ -34,8 +34,16 @@ class TuteesController < ApplicationController
 
     #Update all of the attributes gathered from edit form
     def update
+        @time_availabilitys_ids = params[:tutee][:time_availabilitys_ids]
         @tutee = Tutee.find(params[:id])
         @tutee.update_attributes!(tutee_params)
+        @tutee.time_availabilitys.destroy_all
+        if @time_availabilitys_ids != nil
+            @time_availabilitys_ids.each do |id|
+                time = TimeAvailability.find(id)
+                @tutee.time_availabilitys << time
+            end
+        end
         flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
         redirect_to tutor_match_path(@tutee)
     end
@@ -57,6 +65,12 @@ class TuteesController < ApplicationController
         end
     end
     
+    def update_times
+        time_ids.each do |id|
+            time = TimeAvailability.find(id)
+            tutee.time_availabilitys << time
+        end
+    end
     
     private
     
