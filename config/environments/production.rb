@@ -76,4 +76,26 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # Trying to add devise reset password: https://rubyonrailshelp.wordpress.com/2014/01/02/setting-up-mailer-using-devise-for-forgot-password/
+  config.action_mailer.default_url_options = { :host => 'slc-app.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'slc-app.herokuapp.com'
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "gmail.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "slc.tutoring.noreply",
+    password: "SLC-admin"
+  }
+
+
+  
 end
