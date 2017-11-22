@@ -5,24 +5,11 @@ class TuteesController < ApplicationController
     def validate_params
         @tutee = Tutee.find(params[:id])
         begin
-            if params[:tutee][:first_name] == nil || params[:tutee][:first_name].length == 0
+            @params = [:first_name, :last_name, :sid, :grade, :email, :phone_number, :semesters_at_cal, :major, :requested_class]
+            @params.each do |item|
+                if params[:tutee][item] == nil || params[:tutee][item].length == 0
                     throw ArgumentError
-            elsif params[:tutee][:last_name] == nil || params[:tutee][:last_name].length == 0
-                    throw ArgumentError 
-            elsif params[:tutee][:sid] == nil || params[:tutee][:sid].length == 0
-                    throw ArgumentError
-            elsif params[:tutee][:grade] == nil || params[:tutee][:grade].length == 0
-                    throw ArgumentError
-            elsif params[:tutee][:email] == nil || params[:tutee][:email].length == 0 
-                    throw ArgumentError  
-            elsif params[:tutee][:phone_number] == nil || params[:tutee][:phone_number].length == 0
-                    throw ArgumentError 
-            elsif params[:tutee][:semesters_at_cal] == nil || params[:tutee][:semesters_at_cal].length == 0
-                    throw ArgumentError  
-            elsif params[:tutee][:major] == nil || params[:tutee][:major].length == 0
-                    throw ArgumentError
-            elsif params[:tutee][:requested_class] == nil || params[:tutee][:requested_class].length == 0
-                    throw ArgumentError         
+                end    
             end        
         rescue ArgumentError => e
             flash[:error] = e.message
