@@ -6,4 +6,5 @@ class Tutor < ActiveRecord::Base
   has_many :tutees
   has_many :study_sessions
   has_and_belongs_to_many :time_availabilitys, as: :time_availabilityable 
+  attr_accessor :tutor_items
 end

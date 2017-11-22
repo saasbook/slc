@@ -1,16 +1,35 @@
 class TutorsController < ApplicationController
 
     before_action :validate_params, only: [:update]
-
-    
+   
     def validate_params
-        if params[:tutor][:first_name] == nil || params[:tutor][:first_name].length == 0
-                throw ArgumentError
-        elsif params[:tutor][:last_name] == nil || params[:tutor][:last_name].length == 0
-                throw ArgumentError        
+        @tutor = Tutor.find(params[:id])
+        begin
+            if params[:tutor][:first_name] == nil || params[:tutor][:first_name].length == 0
+                    throw ArgumentError
+            elsif params[:tutor][:last_name] == nil || params[:tutor][:last_name].length == 0
+                    throw ArgumentError 
+            elsif params[:tutor][:sid] == nil || params[:tutor][:sid].length == 0
+                    throw ArgumentError    
+            elsif params[:tutor][:year] == nil || params[:tutor][:year].length == 0
+                    throw ArgumentError 
+            elsif params[:tutor][:email] == nil || params[:tutor][:email].length == 0 
+                    throw ArgumentError         
+            elsif params[:tutor][:phone_number] == nil || params[:tutor][:phone_number].length == 0
+                    throw ArgumentError    
+            elsif params[:tutor][:major] == nil || params[:tutor][:major].length == 0
+                    throw ArgumentError    
+            elsif params[:tutor][:tutor_cohort] == nil || params[:tutor][:tutor_cohort].length == 0
+                    throw ArgumentError 
+            elsif params[:tutor][:bio] == nil || params[:tutor][:bio].length == 0
+                    throw ArgumentError
+            end
+        rescue ArgumentError => e
+            flash[:error] = e.message
+            redirect_to edit_tutor_path(@tutor) 
         end
     end
-    
+   
 
     def show
     end
