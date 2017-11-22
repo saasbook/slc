@@ -1,22 +1,13 @@
 class TuteesController < ApplicationController
-
-    before_action :validate_params, only: [:update]
     
-    def validate_params
+    before_action :validate_params_for_tutee, only: [:update]
+    
+    def validate_params_for_tutee
         @tutee = Tutee.find(params[:id])
-        begin
-            @params = [:first_name, :last_name, :sid, :grade, :email, :phone_number, :semesters_at_cal, :major, :requested_class]
-            @params.each do |item|
-                if params[:tutee][item] == nil || params[:tutee][item].length == 0
-                    throw ArgumentError
-                end    
-            end        
-        rescue ArgumentError => e
-            flash[:error] = e.message
-            redirect_to edit_tutee_path(@tutee)
-        end    
-      
+        @params = [:first_name, :last_name, :sid, :grade, :email, :phone_number, :semesters_at_cal, :major, :requested_class]
+        validate_params(@tutee, :tutee, @params)
     end
+
 
     def show
     end

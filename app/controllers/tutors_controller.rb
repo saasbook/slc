@@ -1,20 +1,11 @@
 class TutorsController < ApplicationController
 
-    before_action :validate_params, only: [:update]
+    before_action :validate_params_for_tutor, only: [:update]
    
-    def validate_params
+    def validate_params_for_tutor
         @tutor = Tutor.find(params[:id])
-        begin
-            @params = [:first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio]
-            @params.each do |item|
-                if params[:tutor][item] == nil || params[:tutor][item].length == 0
-                    throw ArgumentError
-                end    
-        end    
-        rescue ArgumentError => e
-            flash[:error] = e.message
-            redirect_to edit_tutor_path(@tutor) 
-        end
+        @params = [:first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio]
+        validate_params(@tutor, :tutor, @params)
     end
 
     def show
