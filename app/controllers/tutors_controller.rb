@@ -1,13 +1,5 @@
 class TutorsController < ApplicationController
 
-    before_action :validate_params_for_tutor, only: [:update]
-   
-    def validate_params_for_tutor
-        @tutor = Tutor.find(params[:id])
-        @params = [:first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio]
-        validate_params(@tutor, :tutor, @params)
-    end
-
     def show
     end
     
@@ -29,18 +21,23 @@ class TutorsController < ApplicationController
 
     #Update all of the attributes gathered from edit form
     def update
-        @time_availabilitys_ids = params[:tutor][:time_availabilitys_ids]
-        @tutor = Tutor.find(params[:id])
-        @tutor.update_attributes!(tutor_params)
-        @tutor.time_availabilitys.destroy_all
-        if @time_availabilitys_ids != nil
-            @time_availabilitys_ids.each do |id|
-                time = TimeAvailability.find(id)
-                @tutor.time_availabilitys << time
+        begin
+            @time_availabilitys_ids = params[:tutor][:time_availabilitys_ids]
+            @tutor = Tutor.find(params[:id])
+            @tutor.update_attributes!(tutor_params)
+            @tutor.time_availabilitys.destroy_all
+            if @time_availabilitys_ids != nil
+                @time_availabilitys_ids.each do |id|
+                    time = TimeAvailability.find(id)
+                    @tutor.time_availabilitys << time
+                end
             end
-        end
-        flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
-        redirect_to tutee_match_path(@tutor)
+            flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
+            redirect_to tutee_match_path(@tutor)
+        rescue ActiveRecord::RecordInvalid => invalid   
+            flash[:error] = invalid.record.errors
+            redirect_to_correct_edit_form(@tutor, :tutor)
+        end    
     end
     
     def destroy

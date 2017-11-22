@@ -116,7 +116,8 @@ RSpec.describe TuteesController, type: :controller do
     
     describe 'test tutee match function' do
         it 'match a tutee to a tutor' do
-            tutor = Tutor.create(:email => "email@c.com", :password => "password", :first_name => "C", :last_name => "V")
+            tutor = Tutor.create(:email => "email@c.com", :password => "password", :first_name => "C", :last_name => "V", :sid => "1234",
+            :year => "Sophomore", :major => "Computer Science", :tutor_cohort => "5", :bio => "Hello", :phone_number => "415-123-4567")
 
             tutee = Tutee.create(:email => "email@cv.com", :password => "password")
             put :update, :id => tutee.id, :tutee => { :first_name => "Con", :last_name => "Vot", :sid => "1234", :grade => "sophomore",

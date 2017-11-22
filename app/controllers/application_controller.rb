@@ -14,20 +14,6 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def validate_params(model, model_sym, specific_params)
-        begin
-            specific_params.each do |item|
-                if params[model_sym][item] == nil || params[model_sym][item].length == 0
-                    throw ArgumentError
-                end    
-            end
-        rescue ArgumentError => e
-            flash[:error] = e.message
-            redirect_to_correct_edit_form(model, model_sym)
-                
-        end    
-  end
-  
   def redirect_to_correct_edit_form(model, model_sym)
     if(model_sym == :tutee)
       redirect_to edit_tutee_path(model) and return
