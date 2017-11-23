@@ -26,15 +26,31 @@ RSpec.describe TuteesController, type: :controller do
             invalid_hash = {
                first_name: nil
             }
-            expect{put :update, id: 1, tutee: invalid_hash}.to raise_error(ArgumentError)
+            expect{put :update, id: 1, tutee: invalid_hash}.not_to raise_error(ArgumentError)
         end
         
         it 'should throw an ArgumentError with no last name' do
             invalid_hash = {
                last_name: nil
             }
-            expect{put :update, id: 1, tutee: invalid_hash}.to raise_error(ArgumentError)
+            expect{put :update, id: 1, tutee: invalid_hash}.not_to raise_error(ArgumentError)
         end
+        
+        it 'should throw an Argument Error with no SID' do
+            invalid_hash = {
+                sid: nil
+            }   
+            expect{put :update, id: 1, tutee: invalid_hash}.not_to raise_error(ArgumentError)
+        end
+    
+        it 'should throw an Argument Error with no grade' do
+            invalid_hash = {
+                grade: nil
+            }   
+            expect{put :update, id: 1, tutee: invalid_hash}.not_to raise_error(ArgumentError)
+        end
+    
+    
     end
     
 
@@ -51,7 +67,7 @@ RSpec.describe TuteesController, type: :controller do
             invalid_hash = {
                first_name: nil
             }
-            expect{put :update, id: 1, tutee: invalid_hash}.to raise_error(ArgumentError)
+            expect{put :update, id: 1, tutee: invalid_hash}.not_to raise_error(ArgumentError)
         end
     end
 
@@ -61,7 +77,7 @@ RSpec.describe TuteesController, type: :controller do
                first_name: "C",
                last_name: nil
             }
-            expect{put :update, id: 1, tutee: invalid_hash}.to raise_error(ArgumentError)
+            expect{put :update, id: 1, tutee: invalid_hash}.not_to raise_error(ArgumentError)
         end
     end
     
@@ -69,17 +85,28 @@ RSpec.describe TuteesController, type: :controller do
 
         it 'redirect to the show view' do
             tutee = Tutee.create(:email => "email@c.com", :password => "password")
-            put :update, :id => tutee.id, :tutee => { :first_name => "C", :last_name => "V" }
+            put :update, :id => tutee.id, :tutee => { :first_name => "C", :last_name => "V", :sid => "1234", 
+            :grade => "sophomore", :email => "hello@berkeley.edu", :phone_number => "415-123-4567", :semesters_at_cal => "4",
+                :major => "Computer Science", :requested_class => "CS61A"}
             tutee.reload
             expect(tutee.first_name).to eq("C")
             expect(tutee.last_name).to eq("V")
+            expect(tutee.sid).to eq(1234)
+            expect(tutee.grade).to eq("sophomore")
+            expect(tutee.email).to eq("hello@berkeley.edu")
+            expect(tutee.phone_number).to eq("415-123-4567")
+            expect(tutee.semesters_at_cal).to eq(4)
+            expect(tutee.major).to eq("Computer Science")
+            expect(tutee.requested_class).to eq("CS61A")
         end
     end
     
     describe 'test tutee match function' do
         it 'should say there are no available tutors' do
             tutee = Tutee.create(:email => "email@c.com", :password => "password")
-            put :update, :id => tutee.id, :tutee => { :first_name => "C", :last_name => "V" }
+            put :update, :id => tutee.id, :tutee => { :first_name => "C", :last_name => "V", :sid => "1234", :grade => "sophomore",
+            :email => "hello@berkeley.edu", :phone_number => "415-123-4567", :semesters_at_cal => "4", 
+            :major => "Computer Science", :requested_class => "CS61A"}
             tutee.reload
             put :tutor_match, :id => tutee.id
             #response.should have_text("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
@@ -89,10 +116,13 @@ RSpec.describe TuteesController, type: :controller do
     
     describe 'test tutee match function' do
         it 'match a tutee to a tutor' do
-            tutor = Tutor.create(:email => "email@c.com", :password => "password", :first_name => "C", :last_name => "V")
+            tutor = Tutor.create(:email => "email@c.com", :password => "password", :first_name => "C", :last_name => "V", :sid => "1234",
+            :year => "Sophomore", :major => "Computer Science", :tutor_cohort => "5", :bio => "Hello", :phone_number => "415-123-4567")
 
             tutee = Tutee.create(:email => "email@cv.com", :password => "password")
-            put :update, :id => tutee.id, :tutee => { :first_name => "Con", :last_name => "Vot" }
+            put :update, :id => tutee.id, :tutee => { :first_name => "Con", :last_name => "Vot", :sid => "1234", :grade => "sophomore",
+            :email => "hello@berkeley.edu", :phone_number => "415-123-4567", :semesters_at_cal => "4", 
+            :major => "Computer Science", :requested_class => "CS61A"}
 
             ta = TimeAvailability.create(:day => "Monday", :start_time => "8")
             tutee.time_availabilitys << ta

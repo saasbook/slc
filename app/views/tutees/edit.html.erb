@@ -1,61 +1,62 @@
   <%= form_tag @tutee, :url => tutee_match_path, :class => "form-horizontal", :method => :put do %>
     
         <h1 style="text-align:center;margin-left:7%">Writer Information Form</h1>
+        <h6 style="text-align:center;margin-left:7%"><i>*All fields are required</i></h6>
         
         <div class="form-group">
           <%= label :tutee, :first_name, :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'first_name', placeholder: "John", :value => nil, :class => "form-control"%>
+            <%= text_field :tutee, 'first_name', placeholder: "John", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
 
         <div class="form-group">
           <%= label :tutee, :last_name, 'Last Name', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'last_name', placeholder: "Doe", :value => nil, :class => "form-control" %>
+            <%= text_field :tutee, 'last_name', placeholder: "Doe", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
 
         <div class="form-group">  
           <%= label :tutee, :sid, 'SID', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'sid', placeholder: "12345678", :value => nil, :class => "form-control"  %>
+            <%= text_field :tutee, 'sid', placeholder: "12345678", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
         <div class="form-group">  
           <%= label :tutee, :grade, 'Current Grade', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'grade', placeholder: "senior", :value => nil, :class => "form-control"  %>
+            <%= text_field :tutee, 'grade', placeholder: "senior", :value => nil, :class => "form-control", :required => true  %>
           </div>
         </div>
         <div class="form-group">  
           <%= label :tutee, :email, 'Email', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'email', placeholder: "john.doe@berkeley.edu", :value => nil, :class => "form-control" %>
+            <%= text_field :tutee, 'email', placeholder: "john.doe@berkeley.edu", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
         <div class="form-group">  
           <%= label :tutee, :phone_number, 'Phone Number', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'phone_number', placeholder: "XXX-XXX-XXXX", :value => nil, :class => "form-control"  %>
+            <%= text_field :tutee, 'phone_number', placeholder: "XXX-XXX-XXXX", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
         <div class="form-group">  
           <%= label :tutee, :semesters_at_cal, 'Semesters at Cal', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'semesters_at_cal', placeholder: "7", :value => nil, :class => "form-control" %>
+            <%= text_field :tutee, 'semesters_at_cal', placeholder: "7", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
         <div class="form-group">
           <%= label :tutee, :major, 'Major', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'major', placeholder: "Media Studies", :value => nil, :class => "form-control" %>
+            <%= text_field :tutee, 'major', placeholder: "Media Studies", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
         <div class="form-group">  
           <%= label :tutee, :requested_class, 'Class Requesting Help In', :class => 'col-lg-4 control-label' %>
           <div class="col-lg-5">
-            <%= text_field :tutee, 'requested_class', placeholder: "Art History 100", :value => nil, :class => "form-control" %>
+            <%= text_field :tutee, 'requested_class', placeholder: "Art History 100", :value => nil, :class => "form-control", :required => true %>
           </div>
         </div>
 

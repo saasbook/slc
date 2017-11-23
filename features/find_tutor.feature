@@ -17,7 +17,8 @@ Scenario: tutor fills in information
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
-  And I fill in "tutor[tutor_cohort]" with "Computer Science"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
   Then I should be on Tutor Submitted Form for User 1
@@ -32,8 +33,10 @@ Scenario: tutor fills in information but lacks first name
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
-  And I fill in "tutor[tutor_cohort]" with "Computer Science"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
   Then I should be on Tutor Information Form for User 1
   
 #Lexie, User Story 2 
@@ -46,9 +49,119 @@ Scenario: tutor fills in information but lacks first name
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
-  And I fill in "tutor[tutor_cohort]" with "Computer Science"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
   Then I should be on Tutor Information Form for User 1
+  
+#153029627 (Pivotal Tracker ID)  
+@tutor_form_no_sid
+Scenario: tutor fills in information but lacks sid
+ When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
+  Then I should be on Tutor Information Form for User 1
+
+#153029627 (Pivotal Tracker ID)  
+@tutor_form_no_year
+Scenario: tutor fills in information but lacks year
+ When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
+  Then I should be on Tutor Information Form for User 1  
+  
+#153029627 (Pivotal Tracker ID)  
+@tutor_form_no_phone
+Scenario: tutor fills in information but lacks phone
+ When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
+  Then I should be on Tutor Information Form for User 1
+
+#153029627 (Pivotal Tracker ID)  
+@tutor_form_no_major
+Scenario: tutor fills in information but lacks major
+ When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
+  Then I should be on Tutor Information Form for User 1    
+
+#153029627 (Pivotal Tracker ID)  
+@tutor_form_no_tutor_cohort
+Scenario: tutor fills in information but lacks tutor cohort
+ When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
+  Then I should be on Tutor Information Form for User 1     
+
+#153029627 (Pivotal Tracker ID)   
+@tutor_form_bio
+Scenario: tutor fills in information but lacks bio
+ When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
+  And I press "Submit"
+  Then I should be on Tutor Information Form for User 1       
+
+#Currently failing
+#153029627 (Pivotal Tracker ID)    
+#For some reason requires that I make email an empty string and not just get rid of it
+@tutor_form_no_email
+Scenario: tutor fills in information but lacks email
+  When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with "Doe"
+  And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[email]" with ""
+  And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with "Info"
+  And I press "Submit"
+  Then I should be on Tutor Information Form for User 1 
   
 #Lexie, User Story 2 
 #152226966 (Pivotal Tracker ID)
@@ -61,6 +174,7 @@ Scenario: routing is correct for tutor form
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "Computer Science"
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
@@ -98,12 +212,13 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
   Then I should be on Tutee Information Form for User 1
   
 #Lexie, User Story 1  
 #151891035 (Pivotal Tracker ID)
 @tutee_form_no_last_name
-Scenario: tutee fills in information but lacks first name 
+Scenario: tutee fills in information but lacks last name 
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[email]" with "jdoe@berkeley.edu"
@@ -113,6 +228,108 @@ Scenario: tutee fills in information but lacks first name
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
+  Then I should be on Tutee Information Form for User 1
+
+#153029627 (Pivotal Tracker ID)  
+@tutee_form_no_sid
+Scenario: tutee fills in information but lacks sid
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
+  Then I should be on Tutee Information Form for User 1  
+  
+#153029627 (Pivotal Tracker ID)  
+@tutee_form_no_grade
+Scenario: tutee fills in information but lacks grade
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
+  Then I should be on Tutee Information Form for User 1    
+  
+#153029627 (Pivotal Tracker ID)  
+@tutee_form_no_email
+Scenario: tutee fills in information but lacks email
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
+  Then I should be on Tutee Information Form for User 1  
+  
+#153029627 (Pivotal Tracker ID)  
+@tutee_form_no_phone
+Scenario: tutee fills in information but lacks phone number
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
+  Then I should be on Tutee Information Form for User 1    
+
+#153029627 (Pivotal Tracker ID)  
+@tutee_form_no_semesters
+Scenario: tutee fills in information but lacks semester number
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
+  Then I should be on Tutee Information Form for User 1    
+  
+#153029627 (Pivotal Tracker ID)  
+@tutee_form_no_major
+Scenario: tutee fills in information but lacks major
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I press "Submit"
+  Then I should be on Tutee Information Form for User 1
+
+#153029627 (Pivotal Tracker ID)  
+@tutee_form_no_requested_class
+Scenario: tutee fills in information but lacks major
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
   Then I should be on Tutee Information Form for User 1
   
 #Lexie, User Story 1 
@@ -138,7 +355,18 @@ Scenario: routing is correct for tutee form
 #152832426 (Pivotal Tracker ID)  
 @tutee_back_to_form  
 Scenario: going from tutee match page back to info page
-  Given I am on Tutee Submitted Form for User 1
+  When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[phone_number]" with "123-456-7890"
+  And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[requested_class]" with "CS61A"
+  And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with "Computer Science"
+  And I press "Submit"
+  Then I should be on Tutee Submitted Form for User 1
   And I follow "Update Form"
   Then I should be on Tutee Information Form for User 1
   

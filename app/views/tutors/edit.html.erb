@@ -1,63 +1,64 @@
 <%= form_tag tutor_path(@tutor),  :class => "form-horizontal", :method => :put do %>
   <fieldset>
     <h1 style="text-align:center;margin-left:7%">Tutor Information Form</h1>
+    <h6 style="text-align:center;margin-left:7%"><i>*All fields are required</i></h6>
     <div class="form-group">
       <%= label :tutor, :first_name, 'First Name', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'first_name', placeholder: "First Name", :value => nil, :class => "form-control" %>
+        <%= text_field :tutor, 'first_name', placeholder: "First Name", :value => nil, :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :last_name, 'Last Name', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'last_name', placeholder: "Last Name", :value => nil, :class => "form-control" %>
+        <%= text_field :tutor, 'last_name', placeholder: "Last Name", :value => nil, :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :sid, 'SID', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'sid', placeholder: "SID", :class => "form-control" %>
+        <%= text_field :tutor, 'sid', placeholder: "SID", :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :year, 'Year', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'year', placeholder: "Year", :class => "form-control" %>
+        <%= text_field :tutor, 'year', placeholder: "Year", :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :email, 'Email', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'email', placeholder: "Email", :class => "form-control" %>
+        <%= text_field :tutor, 'email', placeholder: "Email", :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :phone_number, 'Phone Number', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'phone_number', placeholder: "Phone Number", :class => "form-control" %>
+        <%= text_field :tutor, 'phone_number', placeholder: "Phone Number", :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :major, 'Major', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'major', placeholder: "Major", :class => "form-control" %>
+        <%= text_field :tutor, 'major', placeholder: "Major", :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :tutor_cohort, 'Tutor Cohort', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_field :tutor, 'tutor_cohort', placeholder: "Tutor Cohort", :class => "form-control" %>
+        <%= text_field :tutor, 'tutor_cohort', placeholder: "Tutor Cohort", :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= label :tutor, :bio, 'Biography', :class => 'col-lg-4 control-label' %>
       <div class="col-lg-5">
-        <%= text_area :tutor, 'bio', placeholder: "Tell us something about yourself!", :class => "form-control" %>
+        <%= text_area :tutor, 'bio', placeholder: "Tell us something about yourself!", :class => "form-control", :required => true %>
       </div>
     </div>
 
     <div class="form-group">
-          <%= label :tutor, 'Available Times', :class => 'col-lg-4 control-label' %>
+          <%= label :tutor_items, 'Available Times', :class => 'col-lg-4 control-label', :required => true %>
           <div class="col-lg-5">
               <table class="table table-striped table-hover table-bordered">
                 <tr class="table-info">

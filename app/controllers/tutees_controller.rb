@@ -1,16 +1,5 @@
 class TuteesController < ApplicationController
 
-    before_action :validate_params, only: [:update]
-    
-    def validate_params
-        if params[:tutee][:first_name] == nil || params[:tutee][:first_name].length == 0
-                throw ArgumentError
-        elsif params[:tutee][:last_name] == nil || params[:tutee][:last_name].length == 0
-                throw ArgumentError        
-        end
-    end
-    
-
     def show
     end
     
@@ -34,19 +23,25 @@ class TuteesController < ApplicationController
 
     #Update all of the attributes gathered from edit form
     def update
-        @time_availabilitys_ids = params[:tutee][:time_availabilitys_ids]
-        @tutee = Tutee.find(params[:id])
-        @tutee.update_attributes!(tutee_params)
-        @tutee.time_availabilitys.destroy_all
-        if @time_availabilitys_ids != nil
-            @time_availabilitys_ids.each do |id|
-                time = TimeAvailability.find(id)
-                @tutee.time_availabilitys << time
+        begin
+            @time_availabilitys_ids = params[:tutee][:time_availabilitys_ids]
+            @tutee = Tutee.find(params[:id])
+            @tutee.update_attributes!(tutee_params)
+            @tutee.time_availabilitys.destroy_all
+            if @time_availabilitys_ids != nil
+                @time_availabilitys_ids.each do |id|
+                    time = TimeAvailability.find(id)
+                    @tutee.time_availabilitys << time
+                end
             end
-        end
-        flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
-        redirect_to tutor_match_path(@tutee)
+            flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
+            redirect_to tutor_match_path(@tutee)
+        rescue ActiveRecord::RecordInvalid => invalid   
+            flash[:error] = invalid.record.errors
+            redirect_to edit_tutee_path(@tutee)
+        end   
     end
+    
     
     def destroy
     end

@@ -6,6 +6,7 @@ class Tutee < ActiveRecord::Base
   belongs_to :tutor
   has_and_belongs_to_many :time_availabilitys, as: :time_availabilityable 
   has_one :study_session
+  validates_presence_of :first_name, :last_name, :sid, :grade, :email, :phone_number, :semesters_at_cal, :major, :requested_class, :on => :update
   
   def assign_tutor_and_session
     if self.tutor.nil?
