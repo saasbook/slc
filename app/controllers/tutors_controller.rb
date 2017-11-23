@@ -36,7 +36,7 @@ class TutorsController < ApplicationController
             redirect_to tutee_match_path(@tutor)
         rescue ActiveRecord::RecordInvalid => invalid   
             flash[:error] = invalid.record.errors
-            redirect_to_correct_edit_form(@tutor, :tutor)
+            redirect_to edit_tutor_path(@tutor)
         end    
     end
     

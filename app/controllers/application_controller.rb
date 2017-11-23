@@ -14,13 +14,4 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def redirect_to_correct_edit_form(model, model_sym)
-    if(model_sym == :tutee)
-      redirect_to edit_tutee_path(model) and return
-    else
-      redirect_to edit_tutor_path(model) and return
-    end  
-  end  
-  
-  
 end
