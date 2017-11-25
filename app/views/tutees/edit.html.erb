@@ -75,7 +75,8 @@
                   <tr>
                     <th><%= t.day %></th>
                     <% TimeAvailability.group(:start_time).order(:id).each do |t| %>
-                      <td><%= check_box_tag "tutee[time_availabilitys_ids][]", counter, @tutee.time_availabilitys.include?(t) %> </td>
+                      <% @checked = @tutee.time_availabilitys.exists?(counter) %>
+                      <td><%= check_box_tag "tutee[time_availabilitys_ids][]", counter, checked = @checked %> </td>
                       <% counter += 1 %>
                     <% end %>
                   </tr>

@@ -7,7 +7,8 @@ class Tutee < ActiveRecord::Base
   has_and_belongs_to_many :time_availabilitys, as: :time_availabilityable 
   has_one :study_session
   validates_presence_of :first_name, :last_name, :sid, :grade, :email, :phone_number, :semesters_at_cal, :major, :requested_class, :on => :update
-  
+  validates :time_availabilitys, :length => { :minimum => 1 }, :on => :update
+
   def assign_tutor_and_session
     if self.tutor.nil?
       matched_tutor, available_tutors = nil, []
@@ -59,6 +60,16 @@ class Tutee < ActiveRecord::Base
       end
     end
     available_tutors_list
+  end
+
+  def update_time_availabilitys!(time_slot_ids)
+      self.time_availabilitys = []
+      if time_slot_ids != nil
+          time_slot_ids.each do |id|
+              time = TimeAvailability.find(id)
+              self.time_availabilitys << time
+          end
+      end
   end
 
 end

@@ -86,7 +86,7 @@ taSun17 = TimeAvailability.create(:day => "Sunday", :start_time => 5) # Sunday 5
 ###########################################
 
 tutor1 = Tutor.new
-tutor1.email = "tutor1@gmail.com"
+tutor1.email = "j.morey@berkeley.edu"
 tutor1.first_name = "tutor1_firstname"
 tutor1.last_name = "tutor1_lastname"
 tutor1.password = "tutor1"
