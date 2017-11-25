@@ -58,7 +58,7 @@
     </div>
 
     <div class="form-group">
-          <%= label :tutor_items, 'Available Times', :class => 'col-lg-4 control-label', :required => true %>
+          <%= label :tutor, 'Available Times', :class => 'col-lg-4 control-label', :required => true %>
           <div class="col-lg-5">
               <table class="table table-striped table-hover table-bordered">
                 <tr class="table-info">
@@ -69,7 +69,7 @@
                 </tr>
                 <% counter = 1 %>
                 <% TimeAvailability.group(:day).order(:id).each do |t| %>
-                  <tr>
+                  <tr>p
                     <th><%= t.day %></th>
                     <% TimeAvailability.group(:start_time).order(:id).each do |t| %>
                       <td><%= check_box_tag "tutor[time_availabilitys_ids][]", counter, @tutor.time_availabilitys.include?(t) %> </td>

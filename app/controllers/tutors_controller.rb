@@ -33,6 +33,7 @@ class TutorsController < ApplicationController
                 end
             end
             flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
+            #debugger
             redirect_to tutee_match_path(@tutor)
         rescue ActiveRecord::RecordInvalid => invalid   
             flash[:error] = invalid.record.errors
@@ -54,6 +55,16 @@ class TutorsController < ApplicationController
           @display_text = "You have not been assigned any students yet."
       end
     end
+    
+   
+  
+  #Getter method for if checkbox items checked
+    def checkbox_checked
+        @checkbox_checked = @time_availabilitys_ids
+    end
+    
+ 
+    
 
 end
 
