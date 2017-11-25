@@ -21,24 +21,17 @@ class TutorsController < ApplicationController
 
     #Update all of the attributes gathered from edit form
     def update
-        begin
-            @time_availabilitys_ids = params[:tutor][:time_availabilitys_ids]
-            @tutor = Tutor.find(params[:id])
-            @tutor.update_attributes!(tutor_params)
-            @tutor.time_availabilitys.destroy_all
-            if @time_availabilitys_ids != nil
-                @time_availabilitys_ids.each do |id|
-                    time = TimeAvailability.find(id)
-                    @tutor.time_availabilitys << time
-                end
-            end
+        @tutor = Tutor.find(params[:id])
+        @tutor.update_attributes(tutor_params)
+        time_slot_ids = params[:tutor][:time_availabilitys_ids]
+        @tutor.update_time_availabilitys(time_slot_ids)
+        if @tutor.save
             flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
-            #debugger
-            redirect_to tutee_match_path(@tutor)
-        rescue ActiveRecord::RecordInvalid => invalid   
-            flash[:error] = invalid.record.errors
+            redirect_to tutor_match_path(@tutor)
+        else 
+            flash[:error] = "Please ensure you have selected at least one time slot"
             redirect_to edit_tutor_path(@tutor)
-        end    
+        end
     end
     
     def destroy

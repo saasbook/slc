@@ -1,3 +1,8 @@
+  <% if flash[:error] %>
+    <div class="alert alert-dismissible alert-danger">
+      <h4><%= flash[:error] %></h4>
+    </div>
+  <% end %>
   <%= form_tag @tutee, :url => tutee_match_path, :class => "form-horizontal", :method => :put do %>
     
         <h1 style="text-align:center;margin-left:7%">Writer Information Form</h1>

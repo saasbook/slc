@@ -9,4 +9,14 @@ class Tutor < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio, :on => :update
   validates :time_availabilitys, :length => { :minimum => 1 }
 
+  def update_time_availabilitys(time_slot_ids)
+      self.time_availabilitys = []
+      if time_slot_ids != nil
+          time_slot_ids.each do |id|
+              time = TimeAvailability.find(id)
+              self.time_availabilitys << time
+          end
+      end
+  end
+
 end
