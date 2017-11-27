@@ -1,5 +1,10 @@
 class TutorsController < ApplicationController
 
+    # before_filter :authenticate_tutor!, only: [:tutee_match]
+    # before_filter :correct_tutor,   only: [:tutee_match]
+     #before_filter :save_referer
+     #after_filter :save_my_previous_url:, only: [:tutee_match]
+     
     def show
     end
     
@@ -17,6 +22,11 @@ class TutorsController < ApplicationController
     #Display form for tutor to enter in attributes
     def edit
         @tutor = Tutor.find(params[:id])
+        #set_session_var(@tutor)
+        # set_session_var(@tutor)
+        # session[:id] = @tutor.id
+        # session[:redirected_tutee_path] = false
+        #@original_request_url = request.original_url
     end
 
     #Update all of the attributes gathered from edit form
@@ -48,13 +58,41 @@ class TutorsController < ApplicationController
     end
     
     def tutee_match
+   
+      if (tutor_signed_in?)
+          if(current_tutor.id.to_s != params[:id]) 
+            params[:id] = current_tutor.id.to_s
+            redirect_to tutee_match_path(current_tutor)
+          end
+      end
       @tutor = Tutor.find(params[:id])
       @tutees = @tutor.tutees
       if @tutees.empty?
           @display_text = "You have not been assigned any students yet."
       end
     end
+    
+
+    def correct_tutor
+        
+        # if (session[:redirected_tutee_path])
+        #     return
+        # else
+        #     if (session[:id].to_s != params[:id])
+                
+        #         session[:redirected_tutee_path] = true
+        #       @previous_path = session[:http_referer]
+               
+        #         redirect_to @previous_path
+        #     end    
+        # end
+        if (session[:id].to_s != params[:id])
+            redirect_to root_path
+        end
+    end
+
 
 end
+
 
 

@@ -457,7 +457,7 @@ Scenario: tutor can view a single correctly matched tutee
   And    I should see "tutee2_lastname"
 
 #Dhruv, User Story 5
-#151892797 (Pivotal Tracekr ID)
+#151892797 (Pivotal Tracker ID)
 @tutor_view_multiple_tutees
 Scenario: tutor can view mutiple correctly matched tutees
   Given  Tutee 1 has been matched with its Tutor
@@ -469,3 +469,46 @@ Scenario: tutor can view mutiple correctly matched tutees
   And    I should see "tutee1_lastname"
   And    I should see "tutee4_firstname"
   And    I should see "tutee4_lastname"
+  
+#152612489 (Pivotal Tracker ID)
+# @tutor_protected_url
+# Scenario: A tutor cannot change the route to access a different account
+#   When I go to Tutor Information Form for User 1
+#   And I fill in "tutor[first_name]" with "Jane"
+#   And I fill in "tutor[last_name]" with "Doe"
+#   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
+#   And I fill in "tutor[sid]" with "1234"
+#   And I fill in "tutor[phone_number]" with "123-456-7890"
+#   And I fill in "tutor[year]" with "Sophomore"
+#   And I fill in "tutor[major]" with "Computer Science"
+#   And I fill in "tutor[tutor_cohort]" with "5"
+#   And I fill in "tutor[bio]" with "Info"
+#   And I press "Submit"
+#   Then I should be on Tutor Submitted Form for User 1
+#   And I go to Tutor Submitted Form for User 2
+#   Then I should be on Tutor Submitted Form for User 1
+  
+#152612489 (Pivotal Tracker ID)
+@tutor_protected_url
+Scenario: protected url for tutor match page
+  When  I am on the tutor sign in page
+  And   The tutor "tutor2@example.com" with the password "tutor2" exists
+  And   I fill in "Email" with "tutor2@example.com"
+  And   I fill in "Password" with "tutor2"
+  And   I press "Log in"
+  Then I should be on Tutor Submitted Form for User 5
+  And I go to Tutor Submitted Form for User 2
+  Then I should be on Tutor Submitted Form for User 5
+
+#152612489 (Pivotal Tracker ID)
+@tutee_protected_url
+Scenario: protected url for tutee match page
+  When  I am on the tutee sign in page
+  And   The tutee "tutee1@example.com" with the password "tutee1" exists
+  And   I fill in "Email" with "tutee1@example.com"
+  And   I fill in "Password" with "tutee1"
+  And   I press "Log in"
+  Then  I should be on Tutee Submitted Form for User 5
+  And I go to Tutee Submitted Form for User 2
+  Then I should be on Tutee Submitted Form for User 5
+  
