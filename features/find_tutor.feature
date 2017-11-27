@@ -470,7 +470,6 @@ Scenario: tutor can view mutiple correctly matched tutees
   And    I should see "tutee4_firstname"
   And    I should see "tutee4_lastname"
   
-  
 #152612489 (Pivotal Tracker ID)
 @tutor_protected_url
 Scenario: protected url for tutor match page
