@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.2.5'
+ruby '2.4.2'
+
+gem 'bootswatch-rails'
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '4.2.9'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,13 +54,14 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels' # basic imperative step defs
   gem 'database_cleaner' # required by Cucumber
-  gem 'factory_girl_rails' # if using FactoryGirl
+  gem "factory_bot_rails", "~> 4.0"
   gem 'metric_fu'        # collect code metrics
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.20'
   gem 'rspec-rails'
 end
 
 gem 'devise'
+gem 'haml'
