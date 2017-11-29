@@ -48,13 +48,22 @@ class TutorsController < ApplicationController
     end
     
     def tutee_match
+   
+      if (tutor_signed_in?)
+          if(current_tutor.id.to_s != params[:id]) 
+            params[:id] = current_tutor.id.to_s
+            redirect_to tutee_match_path(current_tutor)
+          end
+      end
       @tutor = Tutor.find(params[:id])
       @tutees = @tutor.tutees
       if @tutees.empty?
           @display_text = "You have not been assigned any students yet."
       end
     end
+    
 
 end
+
 
 
