@@ -11,7 +11,7 @@ FactoryBot.define do
     semesters_at_cal "1"
     major "Media Studies"
     requested_class "English R1A"
-    time_availability
+    # time_availability
   end
 
   factory :tutor do
@@ -26,13 +26,13 @@ FactoryBot.define do
     major "Haas"
     tutor_cohort "1"
     bio "I am Bob Ross"
-    time_availability
+    # time_availability
   end
 
   factory :time_availability do
     day "Monday"
     start_time 8
-    tutor
-    tutee
+    # tutor
+    # tutee
   end
 end
