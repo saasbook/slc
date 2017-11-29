@@ -67,6 +67,7 @@ Scenario: tutor fills in information but lacks sid
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
+  And I fill in "tutor[sid]" with ""
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1
 
@@ -79,6 +80,7 @@ Scenario: tutor fills in information but lacks year
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with ""
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
@@ -93,6 +95,7 @@ Scenario: tutor fills in information but lacks phone
   And I fill in "tutor[last_name]" with "Doe"
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with ""
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
@@ -110,6 +113,7 @@ Scenario: tutor fills in information but lacks major
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with ""
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
@@ -126,6 +130,7 @@ Scenario: tutor fills in information but lacks tutor cohort
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with ""
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1     
@@ -142,6 +147,7 @@ Scenario: tutor fills in information but lacks bio
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with ""
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1       
 
