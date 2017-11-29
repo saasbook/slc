@@ -392,26 +392,6 @@ Scenario: tutee selects a tutor and sets a time
   And   I select "Confirm"
   Then  I should be on the home page
 
-Scenario: student sees current tutor and time under reservations
-  Given: I reserved "Juno Morey" on "Monday"
-  And   I am on the home page
-  And   I press "My Reservations"
-  Then  I should see "Juno Morey" under "Tutors"
-  And   I should see "Monday" under "Session Time"
-  
-
-# Given following tutees are in the system: 
-#   | tutee1_firstname tutee1_lastname | tutee1@gmail.com | [Monday 8am, Monday 3pm] |
-#   | tutee2_firstname tutee2_lastname | tutee2@gmail.com | [Monday 8am] |
-#   | tutee3_firstname tutee3_lastname | tutee3@gmail.com | [Monday 8am] |
-#   | tutee4_firstname tutee4_lastname | tutee4@gmail.com | [Monday 9am] |
-
-# Given following tutors are in the system: 
-#   | tutor1_firstname tutor1_lastname | tutor1@gmail.com | [Monday 8am, Monday 9am] |
-#   | tutor2_firstname tutor2_lastname | tutor2@gmail.com | [Monday 3pm, Monday 4pm] |
-#   | tutor3_firstname tutor3_lastname | tutor3@gmail.com | [Monday 8am, Wednesday 1pm, Wednesday 2pm] |
-#   | tutor4_firstname tutor4_lastname | tutor4@gmail.com | [Wednesday 1pm, Wednesday 2pm, Thursday 10am] |
-
 #Dhruv, User Story 1
 #151891277 (Pivotal Tracker ID)
 @tutee_view_tutor
