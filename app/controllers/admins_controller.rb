@@ -70,8 +70,14 @@ class AdminsController < ApplicationController
     end
     
     def export_tutors
-        @tutees = Tutee.order('created_at DESC')
-        @tutors = Tutor.order('created_at DESC')
+        @tutees = Tutee.all
+        if @tutees == nil
+            @tutees = []
+        end
+        @tutors = Tutor.all
+        if @tutors == nil
+            @tutors = []
+        end
         respond_to do |format|
             format.html
             format.xlsx {

@@ -1,5 +1,14 @@
 <h1 align="center">Tutors</h1>
 
+<div style="text-align:center;">
+  <div style="float: left; margin-left:35%">
+    <%= link_to "Input New Tutor SID", tutor_sid_path %>
+  </div>
+  <div style="float: right; margin-right:35%">
+    <%= link_to "Reset Tutors", destroy_tutors_path, data: { confirm: "Are you sure you want to reset the tutor database?" } %>
+  </div>
+</div>
+
 <table class="table table-striped table-hover table-bordered" style="width: auto;" align="center">
   <thead class="thead-dark">
     <tr>
@@ -26,12 +35,20 @@
     <% end %>
   </tbody>
 </table> 
-<%= link_to "Reset Tutors", destroy_tutors_path, data: { confirm: "Are you sure you want to reset the tutor database?" } %>
-<%= link_to "Input New Tutor SID", tutor_sid_path %>
+
 
 <br></br>
 
 <h1 align="center">Tutees</h1>
+
+<div style="text-align:center">
+  <div style="float: left; margin-left:35%">
+      <%= link_to "Input New Tutee SID", tutee_sid_path %>
+  </div>
+  <div style="float: right; margin-right:35%">
+      <%= link_to "Reset Tutees", destroy_tutees_path, data: { confirm: "Are you sure you want to reset the tutee database?" } %>
+  </div>
+</div>
 
 <table class="table table-striped table-hover table-bordered" style="width: auto;" align="center">
   <thead class="thead-dark">
@@ -54,26 +71,38 @@
           <td><%= name.email %></td>
           <td><%= name.sid %></td>
           <td><%= name.phone_number %></td>
-          <td><%= name.year %></td>
+          <td><%= name.grade %></td>
+          <td>
           <% if !name.tutor.nil? %>
-            <td> <%= name.tutor.first_name %>  <%= name.tutor.last_name %> (<%= link_to "Edit", edit_match_path(name) %>)</td>
+            <%= name.tutor.first_name %>  <%= name.tutor.last_name %> (<%= link_to "Edit", edit_match_path(name) %>)
           <% else %>
-            <td> None (<%= link_to "Edit", edit_match_path(name) %>)</td>
+            None (<%= link_to "Edit", edit_match_path(name) %>)
           <% end %>
-          <td><%= link_to "Delete Tutee", delete_tutee_path(name), data: { confirm: "Are you sure you want to remove this tutee from the system?" } %></td>
+          </td>
+          <td>
+            <%= link_to "Delete Tutee", delete_tutee_path(name), data: { confirm: "Are you sure you want to remove this tutee from the system?" } %>
+          </td>
         </tr>
     <% end %>
   </tbody>
 </table> 
-<%= link_to "Input New Tutee SID", tutee_sid_path %>
-<%= link_to "Reset Tutees", destroy_tutees_path, data: { confirm: "Are you sure you want to reset the tutee database?" } %>
+
+
 
 <br> </br>
-
-<div style="text-align:center">
-    <%= button_to "Logout", destroy_admin_session_path, :method => :delete, :class => "btn btn-outline-primary" %>
-    <br></br>
+<div style="text-align:center;">
+  <div style="float: left; margin-left:36%">
     <%= button_to "Back to Home", root_path, :method => :get, :class => "btn btn-outline-primary" %>
+  </div>
+  <div style="float: left; margin-left: 5%">
+    <%= button_to "Logout", destroy_admin_session_path, :method => :delete, :class => "btn btn-outline-primary" %>
+  </div>
+  <div style="float: right; margin-right:33%">
+    <%= button_to 'Download as .xlsx', export_tutors_path(format: :xlsx), :class => "btn btn-outline-primary", :method => :get %>
+  </div>
 </div>
 
-<%= link_to 'Download as .xlsx', export_tutors_path(format: :xlsx) %>
+<div style="text-align:center">
+    <br></br>
+    <br></br>
+</div>
