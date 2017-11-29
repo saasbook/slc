@@ -29,7 +29,7 @@ class AdminsController < ApplicationController
     end
     
     def destroy
-        
+    
     end
     
     def edit_match
@@ -47,5 +47,53 @@ class AdminsController < ApplicationController
         redirect_to admin_path(1)
     end
     
+    def delete_tutor
+        tutor_delete = Tutor.find(params[:id])
+        tutor_delete.destroy
+        redirect_to :back
+    end
+
+    def delete_tutee
+        tutee_delete = Tutee.find(params[:id])
+        tutee_delete.destroy
+        redirect_to :back
+    end
+    
+    def destroy_tutees
+        Tutee.destroy_all
+        redirect_to :back
+    end
+    
+    def destroy_tutors
+        Tutor.destroy_all
+        redirect_to :back
+    end
+    
+    def export_tutors
+        @tutees = Tutee.order('created_at DESC')
+        @tutors = Tutor.order('created_at DESC')
+        respond_to do |format|
+            format.html
+            format.xlsx {
+                response.headers['Content-Disposition'] = 'attachment; filename="Tutor/Tutee Database.xlsx"'
+            }
+        end
+    end
+    
+    def tutee_sid
+    end
+    
+    def tutee_sid_submit
+        Tuteesid.create(params.require(:new_sid).permit(:SID))
+        redirect_to :back
+    end
+
+    def tutor_sid
+    end
+    
+    def tutor_sid_submit
+        Tutorsid.create(params.require(:new_sid).permit(:SID))
+        redirect_to :back
+    end
 end
 

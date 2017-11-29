@@ -9,6 +9,7 @@
       <th>SID</th>
       <th>Phone Number</th>
       <th>Year</th>
+      <th>Remove</th>
     </tr>
   </thead>
   <tbody>
@@ -20,11 +21,15 @@
           <td><%= name.sid %></td>
           <td><%= name.phone_number %></td>
           <td><%= name.year %></td>
+          <td><%= link_to "Delete Tutor", delete_tutor_path(name), data: { confirm: "Are you sure you want to remove this tutor from the system?" } %></td>
         </tr>
     <% end %>
   </tbody>
 </table> 
+<%= link_to "Reset Tutors", destroy_tutors_path, data: { confirm: "Are you sure you want to reset the tutor database?" } %>
+<%= link_to "Input New Tutor SID", tutor_sid_path %>
 
+<br></br>
 
 <h1 align="center">Tutees</h1>
 
@@ -38,6 +43,7 @@
       <th>Phone Number</th>
       <th>Year</th>
       <th>Tutor</th>
+      <th>Remove</th>
     </tr>
   </thead>
   <tbody>
@@ -50,15 +56,17 @@
           <td><%= name.phone_number %></td>
           <td><%= name.year %></td>
           <% if !name.tutor.nil? %>
-            <td> <%= name.tutor.first_name %>  <%= name.tutor.last_name %></td>
+            <td> <%= name.tutor.first_name %>  <%= name.tutor.last_name %> (<%= link_to "Edit", edit_match_path(name) %>)</td>
           <% else %>
-            <td> <%= name.tutor %></td>
+            <td> None (<%= link_to "Edit", edit_match_path(name) %>)</td>
           <% end %>
-          <td><%= link_to "Edit", edit_match_path(name) %></td>
+          <td><%= link_to "Delete Tutee", delete_tutee_path(name), data: { confirm: "Are you sure you want to remove this tutee from the system?" } %></td>
         </tr>
     <% end %>
   </tbody>
 </table> 
+<%= link_to "Input New Tutee SID", tutee_sid_path %>
+<%= link_to "Reset Tutees", destroy_tutees_path, data: { confirm: "Are you sure you want to reset the tutee database?" } %>
 
 <br> </br>
 
@@ -67,4 +75,7 @@
     <br></br>
     <%= button_to "Back to Home", root_path, :method => :get, :class => "btn btn-outline-primary" %>
 </div>
+
+<%= link_to 'Download as .xlsx', export_tutors_path(format: :xlsx) %>
+
 

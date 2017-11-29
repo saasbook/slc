@@ -1,0 +1,8 @@
+<%= form_tag tutee_sid_submit_path, :method => :get do %>
+
+  <%= label :new_sid, :SID, 'SID' %>
+  <%= text_field :new_sid, 'SID', :value => nil %>
+
+<%= submit_tag 'Submit' %>
+
+<% end %>
