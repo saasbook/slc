@@ -7,7 +7,7 @@ class TuteesController < ApplicationController
         #Should there be anything here?
     end
 
-    #Not sure?
+  
     def create
         #@tutee = Tutee.new(tutee_params)
     end
@@ -42,11 +42,16 @@ class TuteesController < ApplicationController
         end   
     end
     
-    
     def destroy
     end
     
     def tutor_match
+        if (tutee_signed_in?)
+            if (current_tutee.id.to_s != params[:id]) 
+                params[:id] = current_tutee.id.to_s
+                redirect_to tutor_match_path(current_tutee)
+            end
+        end
         @tutee = Tutee.find(params[:id])
         @tutee.assign_tutor_and_session
         @tutor = @tutee.tutor
