@@ -13,3 +13,25 @@ body { padding-top: 60px; }
      margin-right:auto;
      max-width: 500px;
  }
+
+body {
+  background-image: image-url("homepage.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: freight-text-pro, serif;
+}
+
+h1 {
+    font-family: freight-text-pro, serif;
+}
+
+h6 {
+    font-family: freight-text-pro, serif;
+}
+
+*{
+  font-family: freight-text-pro, serif;;
+}
+

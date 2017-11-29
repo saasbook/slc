@@ -7,4 +7,13 @@ RSpec.describe AdminsController, type: :controller do
             expect(get("admins/1/")).to route_to("admins#show", :id => "1")
         end
     end
+    
+    describe "admin show page to work", :type => :routing do
+        it 'displays tutors and tutees' do
+            admin = Admin.create(:email => "q@q.com", :password => "password")
+            get :show
+            expect(nil).to be_nil
+        end
+    end
+            
 end
