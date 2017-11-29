@@ -3,13 +3,6 @@ Feature: a user who has logged in wants to sign out of their account
   As a student
   So that I can leave the tutoring platform
   I want to log out
-
-#152226905 (Pivotal Tracker ID)
-@log_out_general
-Scenario: log out of the system as a user
-  Given I am on Tutor Submitted Form for User 1
-  When I follow "Logout"
-  Then I should be on the home page
   
 #152226905 (Pivotal Tracker ID)  
 @log_out_tutor 

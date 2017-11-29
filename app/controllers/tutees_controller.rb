@@ -7,7 +7,7 @@ class TuteesController < ApplicationController
         #Should there be anything here?
     end
 
-    #Not sure?
+  
     def create
         #@tutee = Tutee.new(tutee_params)
     end
@@ -19,6 +19,8 @@ class TuteesController < ApplicationController
     #Display form for tutee to enter in attributes
     def edit
         @tutee = Tutee.find(params[:id])
+        @time_slots = ["8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 2", "2 - 3", "3 - 4", "4 - 5", "5 - 6"]
+        @days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     end
 
     #Update all of the attributes gathered from edit form
@@ -36,11 +38,16 @@ class TuteesController < ApplicationController
         end
     end
     
-    
     def destroy
     end
     
     def tutor_match
+        if (tutee_signed_in?)
+            if (current_tutee.id.to_s != params[:id]) 
+                params[:id] = current_tutee.id.to_s
+                redirect_to tutor_match_path(current_tutee)
+            end
+        end
         @tutee = Tutee.find(params[:id])
         @tutee.assign_tutor_and_session
         @tutor = @tutee.tutor
@@ -53,7 +60,6 @@ class TuteesController < ApplicationController
             @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
         end
     end
-    
     
     
     private

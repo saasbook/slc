@@ -17,6 +17,8 @@ class TutorsController < ApplicationController
     #Display form for tutor to enter in attributes
     def edit
         @tutor = Tutor.find(params[:id])
+        @time_slots = ["8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 2", "2 - 3", "3 - 4", "4 - 5", "5 - 6"]
+        @days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     end
 
     #Update all of the attributes gathered from edit form
@@ -27,7 +29,7 @@ class TutorsController < ApplicationController
         @tutor.update_time_availabilitys(time_slot_ids)
         if @tutor.save
             flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
-            redirect_to tutor_match_path(@tutor)
+            redirect_to tutee_match_path(@tutor)
         else 
             flash[:error] = "Please ensure you have selected at least one time slot"
             redirect_to edit_tutor_path(@tutor)
@@ -42,6 +44,12 @@ class TutorsController < ApplicationController
     end
     
     def tutee_match
+      if (tutor_signed_in?)
+          if(current_tutor.id.to_s != params[:id]) 
+            params[:id] = current_tutor.id.to_s
+            redirect_to tutee_match_path(current_tutor)
+          end
+      end
       @tutor = Tutor.find(params[:id])
       @tutees = @tutor.tutees
       if @tutees.empty?
@@ -49,16 +57,12 @@ class TutorsController < ApplicationController
       end
     end
     
-   
-  
   #Getter method for if checkbox items checked
-    def checkbox_checked
-        @checkbox_checked = @time_availabilitys_ids
-    end
-    
- 
-    
+  def checkbox_checked
+      @checkbox_checked = @time_availabilitys_ids
+  end
 
 end
+
 
 

@@ -67,6 +67,7 @@ Scenario: tutor fills in information but lacks sid
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
+  And I fill in "tutor[sid]" with ""
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1
 
@@ -79,6 +80,7 @@ Scenario: tutor fills in information but lacks year
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with ""
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
@@ -93,6 +95,7 @@ Scenario: tutor fills in information but lacks phone
   And I fill in "tutor[last_name]" with "Doe"
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with ""
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
@@ -110,6 +113,7 @@ Scenario: tutor fills in information but lacks major
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with ""
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
@@ -126,6 +130,7 @@ Scenario: tutor fills in information but lacks tutor cohort
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with ""
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1     
@@ -142,6 +147,7 @@ Scenario: tutor fills in information but lacks bio
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with ""
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1       
 
@@ -386,26 +392,6 @@ Scenario: tutee selects a tutor and sets a time
   And   I select "Confirm"
   Then  I should be on the home page
 
-Scenario: student sees current tutor and time under reservations
-  Given: I reserved "Juno Morey" on "Monday"
-  And   I am on the home page
-  And   I press "My Reservations"
-  Then  I should see "Juno Morey" under "Tutors"
-  And   I should see "Monday" under "Session Time"
-  
-
-# Given following tutees are in the system: 
-#   | tutee1_firstname tutee1_lastname | tutee1@gmail.com | [Monday 8am, Monday 3pm] |
-#   | tutee2_firstname tutee2_lastname | tutee2@gmail.com | [Monday 8am] |
-#   | tutee3_firstname tutee3_lastname | tutee3@gmail.com | [Monday 8am] |
-#   | tutee4_firstname tutee4_lastname | tutee4@gmail.com | [Monday 9am] |
-
-# Given following tutors are in the system: 
-#   | tutor1_firstname tutor1_lastname | tutor1@gmail.com | [Monday 8am, Monday 9am] |
-#   | tutor2_firstname tutor2_lastname | tutor2@gmail.com | [Monday 3pm, Monday 4pm] |
-#   | tutor3_firstname tutor3_lastname | tutor3@gmail.com | [Monday 8am, Wednesday 1pm, Wednesday 2pm] |
-#   | tutor4_firstname tutor4_lastname | tutor4@gmail.com | [Wednesday 1pm, Wednesday 2pm, Thursday 10am] |
-
 #Dhruv, User Story 1
 #151891277 (Pivotal Tracker ID)
 @tutee_view_tutor
@@ -457,7 +443,7 @@ Scenario: tutor can view a single correctly matched tutee
   And    I should see "tutee2_lastname"
 
 #Dhruv, User Story 5
-#151892797 (Pivotal Tracekr ID)
+#151892797 (Pivotal Tracker ID)
 @tutor_view_multiple_tutees
 Scenario: tutor can view mutiple correctly matched tutees
   Given  Tutee 1 has been matched with its Tutor
@@ -469,3 +455,28 @@ Scenario: tutor can view mutiple correctly matched tutees
   And    I should see "tutee1_lastname"
   And    I should see "tutee4_firstname"
   And    I should see "tutee4_lastname"
+  
+#152612489 (Pivotal Tracker ID)
+@tutor_protected_url
+Scenario: protected url for tutor match page
+  When  I am on the tutor sign in page
+  And   The tutor "tutor2@example.com" with the password "tutor2" exists
+  And   I fill in "Email" with "tutor2@example.com"
+  And   I fill in "Password" with "tutor2"
+  And   I press "Log in"
+  Then I should be on Tutor Submitted Form for User 5
+  And I go to Tutor Submitted Form for User 2
+  Then I should be on Tutor Submitted Form for User 5
+
+#152612489 (Pivotal Tracker ID)
+@tutee_protected_url
+Scenario: protected url for tutee match page
+  When  I am on the tutee sign in page
+  And   The tutee "tutee1@example.com" with the password "tutee1" exists
+  And   I fill in "Email" with "tutee1@example.com"
+  And   I fill in "Password" with "tutee1"
+  And   I press "Log in"
+  Then  I should be on Tutee Submitted Form for User 5
+  And I go to Tutee Submitted Form for User 2
+  Then I should be on Tutee Submitted Form for User 5
+  
