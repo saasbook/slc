@@ -27,6 +27,7 @@ class TutorsController < ApplicationController
         @tutor.update_attributes(tutor_params)
         time_slot_ids = params[:tutor][:time_availabilitys_ids]
         @tutor.update_time_availabilitys(time_slot_ids)
+        session[:form_submitted] = true
         if @tutor.save
             flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
             redirect_to tutee_match_path(@tutor)

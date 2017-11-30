@@ -29,6 +29,7 @@ class TuteesController < ApplicationController
         @tutee.update_attributes(tutee_params)
         time_slot_ids = params[:tutee][:time_availabilitys_ids]
         @tutee.update_time_availabilitys(time_slot_ids)
+        session[:form_submitted] = true
         if @tutee.save
             flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
             redirect_to tutor_match_path(@tutee)
