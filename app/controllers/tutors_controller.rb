@@ -17,27 +17,23 @@ class TutorsController < ApplicationController
     #Display form for tutor to enter in attributes
     def edit
         @tutor = Tutor.find(params[:id])
+        @time_slots = ["8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 2", "2 - 3", "3 - 4", "4 - 5", "5 - 6"]
+        @days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     end
 
     #Update all of the attributes gathered from edit form
     def update
-        begin
-            @time_availabilitys_ids = params[:tutor][:time_availabilitys_ids]
-            @tutor = Tutor.find(params[:id])
-            @tutor.update_attributes!(tutor_params)
-            @tutor.time_availabilitys.destroy_all
-            if @time_availabilitys_ids != nil
-                @time_availabilitys_ids.each do |id|
-                    time = TimeAvailability.find(id)
-                    @tutor.time_availabilitys << time
-                end
-            end
+        @tutor = Tutor.find(params[:id])
+        @tutor.update_attributes(tutor_params)
+        time_slot_ids = params[:tutor][:time_availabilitys_ids]
+        @tutor.update_time_availabilitys(time_slot_ids)
+        if @tutor.save
             flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
             redirect_to tutee_match_path(@tutor)
-        rescue ActiveRecord::RecordInvalid => invalid   
-            flash[:error] = invalid.record.errors
+        else 
+            flash[:error] = "Please ensure you have selected at least one time slot"
             redirect_to edit_tutor_path(@tutor)
-        end    
+        end
     end
     
     def destroy
@@ -48,7 +44,6 @@ class TutorsController < ApplicationController
     end
     
     def tutee_match
-   
       if (tutor_signed_in?)
           if(current_tutor.id.to_s != params[:id]) 
             params[:id] = current_tutor.id.to_s
@@ -62,6 +57,10 @@ class TutorsController < ApplicationController
       end
     end
     
+  #Getter method for if checkbox items checked
+  def checkbox_checked
+      @checkbox_checked = @time_availabilitys_ids
+  end
 
 end
 
