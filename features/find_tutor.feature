@@ -28,6 +28,7 @@ Scenario: tutor fills in information
 @tutor_form_no_first_name
 Scenario: tutor fills in information but lacks first name 
   When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with ""
   And I fill in "tutor[last_name]" with "Doe"
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
@@ -45,6 +46,7 @@ Scenario: tutor fills in information but lacks first name
 Scenario: tutor fills in information but lacks first name 
  When I go to Tutor Information Form for User 1
   And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with ""
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
