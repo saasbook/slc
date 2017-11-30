@@ -32,5 +32,10 @@ class AdminsController < ApplicationController
         
     end
     
+    def waitlist
+        @waitlist = TuteeWaitList.find_by_id(1)
+        @sorted_waitlist = @waitlist.tutees.sort_by(&:waitlist_added_time)
+    end
+    
 end
 

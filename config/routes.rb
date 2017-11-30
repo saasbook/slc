@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/tutors/:id/tutee_match', to: 'tutors#tutee_match', as: 'tutee_match'
   get '/login', to: 'pages#login'
   root to: 'pages#home'
-  
+  get '/admins/:id/waitlist', to: 'admins#waitlist', as: 'waitlist'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
