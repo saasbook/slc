@@ -28,6 +28,7 @@ Scenario: tutor fills in information
 @tutor_form_no_first_name
 Scenario: tutor fills in information but lacks first name 
   When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with ""
   And I fill in "tutor[last_name]" with "Doe"
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
@@ -45,6 +46,7 @@ Scenario: tutor fills in information but lacks first name
 Scenario: tutor fills in information but lacks first name 
  When I go to Tutor Information Form for User 1
   And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with ""
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
@@ -67,6 +69,7 @@ Scenario: tutor fills in information but lacks sid
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
+  And I fill in "tutor[sid]" with ""
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1
 
@@ -79,6 +82,7 @@ Scenario: tutor fills in information but lacks year
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
+  And I fill in "tutor[year]" with ""
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
@@ -93,6 +97,7 @@ Scenario: tutor fills in information but lacks phone
   And I fill in "tutor[last_name]" with "Doe"
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
+  And I fill in "tutor[phone_number]" with ""
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
@@ -110,6 +115,7 @@ Scenario: tutor fills in information but lacks major
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
+  And I fill in "tutor[major]" with ""
   And I fill in "tutor[tutor_cohort]" with "5"
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
@@ -126,6 +132,7 @@ Scenario: tutor fills in information but lacks tutor cohort
   And I fill in "tutor[phone_number]" with "123-456-7890"
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
+  And I fill in "tutor[tutor_cohort]" with ""
   And I fill in "tutor[bio]" with "Info"
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1     
@@ -142,6 +149,7 @@ Scenario: tutor fills in information but lacks bio
   And I fill in "tutor[year]" with "Sophomore"
   And I fill in "tutor[major]" with "Computer Science"
   And I fill in "tutor[tutor_cohort]" with "5"
+  And I fill in "tutor[bio]" with ""
   And I press "Submit"
   Then I should be on Tutor Information Form for User 1       
 
@@ -204,6 +212,7 @@ Scenario: tutee fills in information
 @tutee_form_no_first_name
 Scenario: tutee fills in information but lacks first name 
   When I go to Tutee Information Form for User 1
+  And I fill in "tutee[first_name]" with ""
   And I fill in "tutee[last_name]" with "Doe"
   And I fill in "tutee[email]" with "jdoe@berkeley.edu"
   And I fill in "tutee[sid]" with "1234"
@@ -221,6 +230,7 @@ Scenario: tutee fills in information but lacks first name
 Scenario: tutee fills in information but lacks last name 
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
+  And I fill in "tutee[last_name]" with ""
   And I fill in "tutee[email]" with "jdoe@berkeley.edu"
   And I fill in "tutee[sid]" with "1234"
   And I fill in "tutee[phone_number]" with "123-456-7890"
@@ -238,6 +248,7 @@ Scenario: tutee fills in information but lacks sid
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
   And I fill in "tutee[email]" with "jdoe@berkeley.edu"
+  And I fill in "tutee[sid]" with ""
   And I fill in "tutee[phone_number]" with "123-456-7890"
   And I fill in "tutee[grade]" with "Sophomore"
   And I fill in "tutee[requested_class]" with "CS61A"
@@ -255,6 +266,7 @@ Scenario: tutee fills in information but lacks grade
   And I fill in "tutee[email]" with "jdoe@berkeley.edu"
   And I fill in "tutee[phone_number]" with "123-456-7890"
   And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[grade]" with ""
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
   And I fill in "tutee[major]" with "Computer Science"
@@ -267,6 +279,7 @@ Scenario: tutee fills in information but lacks email
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[email]" with ""
   And I fill in "tutee[phone_number]" with "123-456-7890"
   And I fill in "tutee[grade]" with "Sophomore"
   And I fill in "tutee[sid]" with "1234"
@@ -282,7 +295,9 @@ Scenario: tutee fills in information but lacks phone number
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
+  And I fill in "tutee[email]" with "jdoe@berkeley.edu"
   And I fill in "tutee[grade]" with "Sophomore"
+  And I fill in "tutee[phone_number]" with ""
   And I fill in "tutee[sid]" with "1234"
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
@@ -299,6 +314,7 @@ Scenario: tutee fills in information but lacks semester number
   And I fill in "tutee[phone_number]" with "123-456-7890"
   And I fill in "tutee[grade]" with "Sophomore"
   And I fill in "tutee[sid]" with "1234"
+  And I fill in "tutee[semesters_at_cal]" with ""
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[major]" with "Computer Science"
   And I press "Submit"
@@ -315,6 +331,7 @@ Scenario: tutee fills in information but lacks major
   And I fill in "tutee[sid]" with "1234"
   And I fill in "tutee[requested_class]" with "CS61A"
   And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[major]" with ""
   And I press "Submit"
   Then I should be on Tutee Information Form for User 1
 
@@ -328,6 +345,7 @@ Scenario: tutee fills in information but lacks major
   And I fill in "tutee[grade]" with "Sophomore"
   And I fill in "tutee[sid]" with "1234"
   And I fill in "tutee[semesters_at_cal]" with "4"
+  And I fill in "tutee[requested_class]" with ""
   And I fill in "tutee[major]" with "Computer Science"
   And I press "Submit"
   Then I should be on Tutee Information Form for User 1
@@ -385,26 +403,6 @@ Scenario: tutee selects a tutor and sets a time
   Then  I select "Monday" 
   And   I select "Confirm"
   Then  I should be on the home page
-
-Scenario: student sees current tutor and time under reservations
-  Given: I reserved "Juno Morey" on "Monday"
-  And   I am on the home page
-  And   I press "My Reservations"
-  Then  I should see "Juno Morey" under "Tutors"
-  And   I should see "Monday" under "Session Time"
-  
-
-# Given following tutees are in the system: 
-#   | tutee1_firstname tutee1_lastname | tutee1@gmail.com | [Monday 8am, Monday 3pm] |
-#   | tutee2_firstname tutee2_lastname | tutee2@gmail.com | [Monday 8am] |
-#   | tutee3_firstname tutee3_lastname | tutee3@gmail.com | [Monday 8am] |
-#   | tutee4_firstname tutee4_lastname | tutee4@gmail.com | [Monday 9am] |
-
-# Given following tutors are in the system: 
-#   | tutor1_firstname tutor1_lastname | tutor1@gmail.com | [Monday 8am, Monday 9am] |
-#   | tutor2_firstname tutor2_lastname | tutor2@gmail.com | [Monday 3pm, Monday 4pm] |
-#   | tutor3_firstname tutor3_lastname | tutor3@gmail.com | [Monday 8am, Wednesday 1pm, Wednesday 2pm] |
-#   | tutor4_firstname tutor4_lastname | tutor4@gmail.com | [Wednesday 1pm, Wednesday 2pm, Thursday 10am] |
 
 #Dhruv, User Story 1
 #151891277 (Pivotal Tracker ID)
