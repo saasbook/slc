@@ -54,4 +54,10 @@ FactoryBot.define do
     tutor
     tutee
   end
+
+  factory :admin do
+    email "admin@gmail.com"
+    password "password"
+    password_confirmation "password"
+  end   
 end

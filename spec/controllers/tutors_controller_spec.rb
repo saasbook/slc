@@ -59,6 +59,21 @@ RSpec.describe TutorsController, type: :controller do
             expect{put :update, id: 1, tutor: invalid_hash}.not_to raise_error(ArgumentError)
         end
     end
+
+    describe 'GET /:id' do
+        before :each do
+            @request.env['devise.mapping'] = Devise.mappings[:tutor]
+            @tutor = FactoryBot.create(:tutor)
+            sign_in @tutor
+        end
+
+        it 'sets the variables for the form' do
+            get :edit, id: @tutor
+            expect(assigns(:tutor)).to eq(@tutor)
+            expect(assigns(:time_slots)).to eq(["8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 2", "2 - 3", "3 - 4", "4 - 5", "5 - 6"])
+            expect(assigns(:days)).to eq(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+        end
+    end
     
     describe 'PUT /:id' do
         before :each do

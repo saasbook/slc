@@ -101,6 +101,21 @@ RSpec.describe TuteesController, type: :controller do
             expect(@tutee.reload.requested_class).to eq("English R1A")
         end
     end
+
+    describe 'GET /:id' do
+        before :each do
+            @request.env['devise.mapping'] = Devise.mappings[:tutee]
+            @tutee = FactoryBot.create(:tutee)
+            sign_in @tutee
+        end
+
+        it 'sets the variables for the form' do
+            get :edit, id: @tutee
+            expect(assigns(:tutee)).to eq(@tutee)
+            expect(assigns(:time_slots)).to eq(["8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 2", "2 - 3", "3 - 4", "4 - 5", "5 - 6"])
+            expect(assigns(:days)).to eq(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
+        end
+    end
     
     describe 'tutee match function' do
         before :each do
