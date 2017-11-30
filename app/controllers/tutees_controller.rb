@@ -33,7 +33,7 @@ class TuteesController < ApplicationController
             flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
             redirect_to tutor_match_path(@tutee)
         else 
-            flash[:error] = "Please ensure you have selected at least one time slot"
+            flash[:error] = @tutee.errors.full_messages
             redirect_to edit_tutee_path(@tutee)
         end
     end
