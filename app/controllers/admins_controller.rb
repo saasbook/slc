@@ -97,9 +97,11 @@ class AdminsController < ApplicationController
     def tutor_sid
     end
     
-    def tutor_sid_submit
-        Tutorsid.create(params.require(:new_sid).permit(:SID))
-        redirect_to :back
+    
+    def waitlist
+        @waitlist = TuteeWaitList.find_by_id(1)
+        @sorted_waitlist = @waitlist.tutees.sort_by(&:waitlist_added_time)
     end
+    
 end
 
