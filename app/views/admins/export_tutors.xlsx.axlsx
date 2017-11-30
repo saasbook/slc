@@ -1,0 +1,26 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+    date_cell = style.add_style(format_code: "yyyy-mm-dd")
+    backg = style.add_style(bg_color: "EFC376")
+    wb.add_worksheet(name: "Tutees") do |sheet|
+        sheet.add_row ["First Name", "Last Name", "Email", "Year", "Phone Number", "Major", "SID", "Created On"], 
+            style: [backg, backg, backg, backg, backg, backg, backg, backg]
+        @tutees.each do |tutee|
+            sheet.add_row [tutee.first_name, tutee.last_name, tutee.email, tutee.grade, tutee.phone_number, tutee.major, tutee.sid, tutee.created_at], 
+                style: [nil, nil, nil, nil, nil, nil, nil, date_cell]
+        end
+      end
+    end
+
+wb.styles do |style|
+    date_cell = style.add_style(format_code: "yyyy-mm-dd")
+    backg = style.add_style(bg_color: "EFC376")
+    wb.add_worksheet(name: "Tutors") do |sheet|
+        sheet.add_row ["First Name", "Last Name", "Email", "Year", "Phone Number", "Major", "SID", "Created On"], 
+            style: [backg, backg, backg, backg, backg, backg, backg, backg]
+        @tutors.each do |tutor|
+            sheet.add_row [tutor.first_name, tutor.last_name, tutor.email, tutor.year, tutor.phone_number, tutor.major, tutor.sid, tutor.created_at], 
+                style: [nil, nil, nil, nil, nil, nil, nil, date_cell]
+        end
+      end
+    end

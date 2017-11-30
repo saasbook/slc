@@ -11,6 +11,20 @@ Rails.application.routes.draw do
   get '/tutees/:id/tutor_match', to: 'tutees#tutor_match', as: 'tutor_match'
   get '/tutors/:id/tutee_match', to: 'tutors#tutee_match', as: 'tutee_match'
   get '/login', to: 'pages#login'
+  get '/admins/tutees/:id/edit_match', to: 'admins#edit_match', as: 'edit_match'
+  get '/admins/1/tutees/:tutee/tutors/:tutor/assign', to: 'admins#assign', as: 'assign'
+  get '/admins/1/tutors/:id/delete_tutor', to: 'admins#delete_tutor', as: 'delete_tutor'
+  get '/admins/1/tutees/:id/delete_tutee', to: 'admins#delete_tutee', as: 'delete_tutee'
+  get '/admins/1/destroy_tutors', to: 'admins#destroy_tutors', as: 'destroy_tutors'
+  get '/admins/1/destroy_tutees', to: 'admins#destroy_tutees', as: 'destroy_tutees'
+  get '/admins/1/export_tutors', to: 'admins#export_tutors', as: 'export_tutors'
+  get '/admins/1/tutee_sid', to: 'admins#tutee_sid', as: 'tutee_sid'
+  get '/admins/1/tutee_sid_submit', to: 'admins#tutee_sid_submit', as: 'tutee_sid_submit'
+  get '/admins/1/tutor_sid', to: 'admins#tutor_sid', as: 'tutor_sid'
+  get '/admins/1/tutor_sid_submit', to: 'admins#tutor_sid_submit', as: 'tutor_sid_submit'
+
+
+
   root to: 'pages#home'
   
   

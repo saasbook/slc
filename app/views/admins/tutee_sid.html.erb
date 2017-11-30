@@ -1,0 +1,29 @@
+<div style="margin-top:13%">
+  
+  <h3 style="text-align:center;margin-right:2%">Orientation Sign-In</h1>
+  
+  </div><%= form_tag tutee_sid_submit_path, :method => :get,  :class => "form-horizontal" do %>
+  
+  <div class="form-group">
+    <%= label :new_sid, :SID, 'SID', :class => 'col-lg-5 control-label' %>
+    <div class="col-lg-5">
+      <%= text_field :new_sid, 'SID', :value => nil %>
+    </div>
+  </div>
+  
+        <div style="text-align:center;margin-right:2%">
+        <div class="col-lg-6 col-lg-offset-3">
+          <button type="submit" class="btn btn-outline-primary" style="text-align:center">Submit</button>
+        </div>
+      </div>
+    
+  
+  
+  <% end %>
+  
+  <br></br>
+  
+  <div style="text-align:center;margin-right:2%;margin-top:2%">
+    <%= button_to "Back", admin_path(1), :method => :get, :class => "btn btn-outline-primary" %>
+  </div>
+</div>
