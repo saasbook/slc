@@ -28,6 +28,7 @@ Scenario: tutor fills in information
 @tutor_form_no_first_name
 Scenario: tutor fills in information but lacks first name 
   When I go to Tutor Information Form for User 1
+  And I fill in "tutor[first_name]" with ""
   And I fill in "tutor[last_name]" with "Doe"
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
@@ -45,6 +46,7 @@ Scenario: tutor fills in information but lacks first name
 Scenario: tutor fills in information but lacks first name 
  When I go to Tutor Information Form for User 1
   And I fill in "tutor[first_name]" with "Jane"
+  And I fill in "tutor[last_name]" with ""
   And I fill in "tutor[email]" with "jdoe@berkeley.edu"
   And I fill in "tutor[sid]" with "1234"
   And I fill in "tutor[phone_number]" with "123-456-7890"
@@ -432,14 +434,14 @@ Scenario: tutor with the least existing students is matched
   And    I should see "tutor3_lastname"
 
 #Dhruv, User Story 3
-#151892797 (Pivotal Tracker ID)
+#151892797, 153288184 (Pivotal Tracker IDs)
 @tutee_not_matched_to_any_tutor
 Scenario: tutor can have multiple tutees
   Given  Tutee 1 has been matched with its Tutor
   And    Tutee 2 has been matched with its Tutor
   And    Tutee 3 has been matched with its Tutor
   When   I am on the tutor match page for tutee 3
-  Then   I should see "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
+  Then   I should see "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s): Monday at 3"
 
 #Dhruv, User Story 4
 #151892797 (Pivotal Tracker ID)
