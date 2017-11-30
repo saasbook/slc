@@ -434,14 +434,14 @@ Scenario: tutor with the least existing students is matched
   And    I should see "tutor3_lastname"
 
 #Dhruv, User Story 3
-#151892797 (Pivotal Tracker ID)
+#151892797, 153288184 (Pivotal Tracker IDs)
 @tutee_not_matched_to_any_tutor
 Scenario: tutor can have multiple tutees
   Given  Tutee 1 has been matched with its Tutor
   And    Tutee 2 has been matched with its Tutor
   And    Tutee 3 has been matched with its Tutor
   When   I am on the tutor match page for tutee 3
-  Then   I should see "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
+  Then   I should see "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s): Monday at 3"
 
 #Dhruv, User Story 4
 #151892797 (Pivotal Tracker ID)
