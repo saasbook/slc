@@ -33,6 +33,17 @@ class Tutee < ActiveRecord::Base
     available_tutors_list
   end
   
+  def find_available_tutors
+    available_tutors_list = []
+    Tutor.all.each do |tutor|
+      matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
+      if !matched_times.empty?
+        available_tutors_list << tutor
+      end
+    end
+    available_tutors_list
+  end
+  
   private
   
   def assign_session(matched_tutor)
@@ -59,18 +70,6 @@ class Tutee < ActiveRecord::Base
     best_tutor.tutees << self
     best_tutor.save!
     best_tutor
-  end
-  
-  
-  def find_available_tutors
-    available_tutors_list = []
-    Tutor.all.each do |tutor|
-      matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
-      if !matched_times.empty?
-        available_tutors_list << tutor
-      end
-    end
-    available_tutors_list
   end
 
 end
