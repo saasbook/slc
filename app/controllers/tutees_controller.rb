@@ -63,33 +63,33 @@ class TuteesController < ApplicationController
         else
             @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
             
-            # @new_timings = Set.new []
-            # Tutor.all.each do |tutor|
-            #     if !tutor.time_availabilitys.empty? #tutor is available
-            #         @new_timings = @new_timings | tutor.time_availabilitys
-            #     end
-            # end
+            @new_timings = Set.new []
+            Tutor.all.each do |tutor|
+                if !tutor.time_availabilitys.empty? #tutor is available
+                    @new_timings = @new_timings | tutor.time_availabilitys
+                end
+            end
             
             # #if none of the tutors are available, add to waitlist
-            # #if @new_timings.empty?
-            #   @waitlist = TuteeWaitList.instance.list
-            #   p "##############"
-            #   p "##############"
-            #   p "##############"
-            #   p @waitlist
-            #   p "##############"
-            #   p "##############"
-            #   p "##############"
-            #   TuteeWaitList.instance.add(@tutee, TuteeWaitList.instance.total_tutees)
-            #   @display_text = "We do not have any open tutoring slots. Your waitlist position is ##{TuteeWaitList.instance.get_position(@tutee)}"
-            # else #if some tutor is available, show correct error message
-            #   @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s):"
-            #   @new_timings.each do |time|
-            #       @display_text += " #{time.day} at #{time.start_time}," 
-            #   end
-            #   @display_text = @display_text.chop
-            #   @display_text += "."
-            # end
+            if @new_timings.empty?
+              @waitlist = TuteeWaitList.instance.list
+              p "##############"
+              p "##############"
+              p "##############"
+              p @waitlist
+              p "##############"
+              p "##############"
+              p "##############"
+              TuteeWaitList.instance.add(@tutee, TuteeWaitList.instance.total_tutees)
+              @display_text = "We do not have any open tutoring slots. Your waitlist position is ##{TuteeWaitList.instance.get_position(@tutee)}"
+            else #if some tutor is available, show correct error message
+              @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s):"
+              @new_timings.each do |time|
+                  @display_text += " #{time.day} at #{time.start_time}," 
+              end
+              @display_text = @display_text.chop
+              @display_text += "."
+            end
         end
     end
     
