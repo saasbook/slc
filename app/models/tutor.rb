@@ -7,7 +7,7 @@ class Tutor < ActiveRecord::Base
   has_many :study_sessions
   has_and_belongs_to_many :time_availabilitys, as: :time_availabilityable 
   validates_presence_of :first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio, :on => :update
-  validate :has_time_availability, :on => :update
+  # validate :has_time_availability, :on => :update
 
   def update_time_availabilitys(time_slot_ids)
       self.time_availabilitys = []
@@ -21,7 +21,7 @@ class Tutor < ActiveRecord::Base
 
   def has_time_availability
     if self.time_availabilitys.length < 1
-      errors.add(:time_availabilities, "must contain at least one time slot")
+      #errors.add(:time_availabilities, "must contain at least one time slot")
     end
   end
 

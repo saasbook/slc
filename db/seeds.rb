@@ -215,3 +215,6 @@ tutee4.requested_class = "CS169"
 tutee4.time_availabilitys << taMon9
 tutee4.save!
 
+wailist = TuteeWaitList.new
+wailist.total_tutees = 0
+wailist.save!

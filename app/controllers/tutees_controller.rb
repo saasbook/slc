@@ -57,27 +57,19 @@ class TuteesController < ApplicationController
             @display_text += "#{@study_session_time.day} at #{@study_session_time.start_time}"
             TutorMailer.match_notification(@tutee, @tutor, @study_session_time).deliver
         else
-            @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again."
-            
+        
             @new_timings = Set.new []
             Tutor.all.each do |tutor|
                 if !tutor.time_availabilitys.empty? #tutor is available
-                    @new_timings = @new_timings | tutor.time_availabilitys
+                    @new_timings = @new_timings | tutor.time_availabilitys # Union
                 end
             end
             
             # #if none of the tutors are available, add to waitlist
             if @new_timings.empty?
-              @waitlist = TuteeWaitList.instance.list
-              p "##############"
-              p "##############"
-              p "##############"
-              p @waitlist
-              p "##############"
-              p "##############"
-              p "##############"
-              TuteeWaitList.instance.add(@tutee, TuteeWaitList.instance.total_tutees)
-              @display_text = "We do not have any open tutoring slots. Your waitlist position is ##{TuteeWaitList.instance.get_position(@tutee)}"
+              @waitlist = TuteeWaitList.find_by_id(1)
+              @waitlist.add_tutee(@tutee)
+              @display_text = "We do not have any open tutoring slots. Your waitlist position is ##{@waitlist.waitlist_position(@tutee)}"
             else #if some tutor is available, show correct error message
               @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s):"
               @new_timings.each do |time|

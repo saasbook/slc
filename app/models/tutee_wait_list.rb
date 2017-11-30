@@ -1,26 +1,27 @@
 class TuteeWaitList < ActiveRecord::Base
-    @list = {}
-    @total_tutees = 0
-    @@instance = TuteeWaitList.new
+    has_many :tutees
     
-    def add(key, value)
-        self.total_tutees += 1
-        self.list[key] = value
+    def add_tutee(tutee)
+        if !self.tutees.include?(tutee)
+            tutee.waitlist_added_time = DateTime.now
+            tutee.save!
+            self.tutees << tutee
+            self.total_tutees += 1
+            self.save!
+        end
     end
     
-    def list
-        self.list
+    def remove_tutee(tutee)
+        if self.tutees.include?(tutee)
+            self.tutees.delete(tutee)
+            self.total_tutees -= 1
+            self.save!
+        end
     end
     
-    def get_position(tutee)
-        self.list[tutee]
-    end
-    
-    def total_tutees
-        self.total_tutees
-    end
-    
-    def self.instance
-        @@instance
+    def waitlist_position(tutee)
+        sorted = self.tutees.sort_by(&:waitlist_added_time)
+        position = sorted.find_index(tutee) + 1
+        position
     end
 end
