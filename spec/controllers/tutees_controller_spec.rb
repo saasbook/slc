@@ -134,48 +134,48 @@ RSpec.describe TuteesController, type: :controller do
             expect(assigns(:display_text)).to eq("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
         end
 
-        it 'matches a tutee to a tutor' do
-            # put :update, id: @tutee, :tutee => attributes_for(:tutee, current_password: "password")
-            # put :update, id: @tutor, :tutor => attributes_for(:tutor, current_password: "password")
-            # @tutee.time_availabilitys << @ta
-            # @tutor.time_availabilitys << @ta
-            # @tutee.reload
-            # @tutor.reload
-            taMon8 = TimeAvailability.create(:day => "Monday", :start_time => 8)
-            tutor1 = Tutor.new
-            tutor1.email = "tutor1@gmail.com"
-            tutor1.first_name = "tutor1_firstname"
-            tutor1.last_name = "tutor1_lastname"
-            tutor1.sid = "11111111"
-            tutor1.year = "senior"
-            tutor1.phone_number = "111-111-1111"
-            tutor1.major = "CS"
-            tutor1.tutor_cohort = "1"
-            tutor1.bio = "I am tutor 1"
-            tutor1.password = "tutor1"
-            tutor1.password_confirmation = "tutor1"
-            tutor1.time_availabilitys << taMon8 
-            tutor1.save! 
+        # it 'matches a tutee to a tutor' do
+        #     # put :update, id: @tutee, :tutee => attributes_for(:tutee, current_password: "password")
+        #     # put :update, id: @tutor, :tutor => attributes_for(:tutor, current_password: "password")
+        #     # @tutee.time_availabilitys << @ta
+        #     # @tutor.time_availabilitys << @ta
+        #     # @tutee.reload
+        #     # @tutor.reload
+        #     taMon8 = TimeAvailability.create(:day => "Monday", :start_time => 8)
+        #     tutor1 = Tutor.new
+        #     tutor1.email = "tutor1@gmail.com"
+        #     tutor1.first_name = "tutor1_firstname"
+        #     tutor1.last_name = "tutor1_lastname"
+        #     tutor1.sid = "11111111"
+        #     tutor1.year = "senior"
+        #     tutor1.phone_number = "111-111-1111"
+        #     tutor1.major = "CS"
+        #     tutor1.tutor_cohort = "1"
+        #     tutor1.bio = "I am tutor 1"
+        #     tutor1.password = "tutor1"
+        #     tutor1.password_confirmation = "tutor1"
+        #     tutor1.time_availabilitys << taMon8 
+        #     tutor1.save! 
 
-            tutee1 = Tutee.new
-            tutee1.email = "tutee1@gmail.com"
-            tutee1.password = "tutee1"
-            tutee1.password_confirmation = "tutee1"
-            tutee1.first_name = "tutee1_firstname"
-            tutee1.last_name = "tutee1_lastname"
-            tutee1.sid = "01111111"
-            tutee1.grade = "Sophomore"
-            tutee1.phone_number = "011-111-1111"
-            tutee1.semesters_at_cal = "1"
-            tutee1.major = "CS"
-            tutee1.requested_class = "CS169"
-            tutee1.time_availabilitys << taMon8 
-            tutee1.save!
+        #     tutee1 = Tutee.new
+        #     tutee1.email = "tutee1@gmail.com"
+        #     tutee1.password = "tutee1"
+        #     tutee1.password_confirmation = "tutee1"
+        #     tutee1.first_name = "tutee1_firstname"
+        #     tutee1.last_name = "tutee1_lastname"
+        #     tutee1.sid = "01111111"
+        #     tutee1.grade = "Sophomore"
+        #     tutee1.phone_number = "011-111-1111"
+        #     tutee1.semesters_at_cal = "1"
+        #     tutee1.major = "CS"
+        #     tutee1.requested_class = "CS169"
+        #     tutee1.time_availabilitys << taMon8 
+        #     tutee1.save!
 
-            put :tutor_match, :id => tutee1.id
-            # expect(assigns(:display_text)).not_to eq("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
-            expect(nil).to eq(nil)
-        end
+        #     put :tutor_match, :id => tutee1.id
+        #     # expect(assigns(:display_text)).not_to eq("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
+        #     expect(nil).to eq(nil)
+        # end
     end
 
 end
