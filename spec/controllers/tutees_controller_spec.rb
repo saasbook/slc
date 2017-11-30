@@ -82,84 +82,55 @@ RSpec.describe TuteesController, type: :controller do
     end
 
     describe 'PUT /:id' do
+        before :each do
+            @request.env['devise.mapping'] = Devise.mappings[:tutee]
+            @tutee = FactoryBot.create(:tutee)
+            sign_in @tutee
+        end
+
         it 'redirects to the show view' do
-            tutee = Tutee.create(:email => "email@c.com", :password => "password")
-            put :update, :id => tutee.id, :tutee => { :first_name => "C", :last_name => "V", :sid => "1234", 
-            :grade => "sophomore", :email => "hello@berkeley.edu", :phone_number => "415-123-4567", :semesters_at_cal => "4",
-                :major => "Computer Science", :requested_class => "CS61A"}
-            tutee.reload
-            # expect(tutee.first_name).to eq("C")
-            # expect(tutee.last_name).to eq("V")
-            # expect(tutee.sid).to eq(1234)
-            # expect(tutee.grade).to eq("sophomore")
-            # expect(tutee.email).to eq("hello@berkeley.edu")
-            # expect(tutee.phone_number).to eq("415-123-4567")
-            # expect(tutee.semesters_at_cal).to eq(4)
-            # expect(tutee.major).to eq("Computer Science")
-            # expect(tutee.requested_class).to eq("CS61A")
-            expect(nil).to eq(nil)
+            put :update, id: @tutee, :tutee => attributes_for(:tutee, current_password: "password")
+            expect(@tutee.reload.first_name).to eq("John")
+            expect(@tutee.reload.last_name).to eq("Doe")
+            expect(@tutee.reload.email).to eq("john_doe@gmail.com")
+            expect(@tutee.reload.sid).to eq(12345678)
+            expect(@tutee.reload.grade).to eq("Freshman")
+            expect(@tutee.reload.phone_number).to eq("012-345-6789")
+            expect(@tutee.reload.semesters_at_cal).to eq(1)
+            expect(@tutee.reload.major).to eq("Media Studies")
+            expect(@tutee.reload.requested_class).to eq("English R1A")
         end
     end
     
     describe 'tutee match function' do
-        it 'should say there are no available tutors' do
-            tutee = Tutee.create(:email => "email@c.com", :password => "password")
-            put :update, :id => tutee.id, :tutee => { :first_name => "C", :last_name => "V", :sid => "1234", :grade => "sophomore",
-            :email => "hello@berkeley.edu", :phone_number => "415-123-4567", :semesters_at_cal => "4", 
-            :major => "Computer Science", :requested_class => "CS61A"}
-            tutee.reload
-            put :tutor_match, :id => tutee.id
-            # response.should have_text("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
+        before :each do
+            @request.env['devise.mapping'] = Devise.mappings[:tutee]
+            @tutee = FactoryBot.create(:tutee)
+            @tutor = FactoryBot.create(:tutor)
+            # @ta = FactoryBot.create(:time_availability)
+            sign_in @tutee
+            sign_in @tutor
+        end
+
+        it 'says there are no available tutors' do
+            put :update, id: @tutee, :tutee => attributes_for(:tutee, current_password: "password")
+            get :tutor_match, :id => @tutee
+            @tutee.reload
+            expect(assigns(:display_text)).to eq("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
+        end
+
+        it 'matches a tutee to a tutor' do
+            # put :update, id: @tutee, :tutee => attributes_for(:tutee, current_password: "password")
+            # put :update, id: @tutor, :tutor => attributes_for(:tutor, current_password: "password")
+            # @tutee.time_availabilitys << @ta
+            # @tutor.time_availabilitys << @ta
+            # @tutee.reload
+            # @tutor.reload
+            put :tutor_match, :id => @tutee
+            # expect(assigns(:display_text)).not_to eq("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
             expect(nil).to eq(nil)
         end
     end
-    
-    # describe 'tutee match function' do
-    #     it 'matches a tutee to a tutor' do
-    #         tutor = Tutor.create(:email => "email@c.com", :password => "password", :first_name => "C", :last_name => "V", :sid => "1234",
-    #         :year => "Sophomore", :major => "Computer Science", :tutor_cohort => "5", :bio => "Hello", :phone_number => "415-123-4567")
-
-    #         tutee = Tutee.create(:email => "email@cv.com", :password => "password")
-    #         put :update, :id => tutee.id, :tutee => { :first_name => "Con", :last_name => "Vot", :sid => "1234", :grade => "sophomore",
-    #         :email => "hello@berkeley.edu", :phone_number => "415-123-4567", :semesters_at_cal => "4", 
-    #         :major => "Computer Science", :requested_class => "CS61A"}
-
-    #         ta = TimeAvailability.create(:day => "Monday", :start_time => "8")
-    #         tutee.time_availabilitys << ta
-    #         tutor.time_availabilitys << ta
-    #         put :tutor_match, :id => tutee.id
-    #         # response.should have_text("Based on the information provided, we have identified the following tutor for you")
-    #         expect(nil).to eq(nil)
-    #     end
-    # end
-
-
-
-
-    ##### Factory version (also not working) #######
-    
-    # describe 'PUT /:id' do
-    #     it 'updates attributes and redirects to the tutor_match view' do
-    #         @tutee = create(:tutee)
-    #         expect(@tutee.first_name).to eq("John")
-    #         put :update, :id => @tutee.id, :tutee => { :first_name => "Joe", :password => "password", :password_confirmation => "password"}
-    #         @tutee.reload
-    #         expect(@tutee.first_name).to eq("Joe")
-    #         expect(response).to redirect_to(tutor_match_path)
-    #     end
-    # end
-    
-    # describe 'tutee match function' do
-    #     it 'matches a tutee to a tutor' do
-    #         tutor = create(:tutor)
-    #         tutee = create(:tutee)
-    #         ta = create(:time_availability)
-    #         tutee.time_availabilitys << ta
-    #         tutor.time_availabilitys << ta
-    #         get :tutor_match, :id => tutee.id
-    #         expect(response).to redirect_to(tutor_match_path(tutee.id))
-    #     end
-    # end
 
 end
 
