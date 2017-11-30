@@ -1,5 +1,5 @@
 
-CodeClimate GPA Badge: <a href="https://codeclimate.com/github/rails/rails"><img src="https://codeclimate.com/github/rails/rails/badges/gpa.svg" /></a>
+CodeClimate GPA Badge: <a href="https://codeclimate.com/github/junomorey/slc-app"><img src="https://codeclimate.com/github/rails/rails/badges/gpa.svg" /></a>
 
 CodeClimate Coverage Badge: <a href="https://codeclimate.com/github/junomorey/slc-app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ba9e5241f42bad1abae2/test_coverage" /></a>
 
@@ -13,4 +13,13 @@ A brief explanation of the customer's business need that the app addresses, incl
 
 YouTube Video of Client: https://www.youtube.com/watch?v=oOvuUupD5Ds&feature=youtu.be
 
-YouTube Video of Screencast: https://www.youtube.com/watch?v=65RcD66WpG0&feature=youtu.be
+YouTube Video of Environment Screencast: https://www.youtube.com/watch?v=65RcD66WpG0&feature=youtu.be
+
+YouTube Video of App Screencast: ADD THIS HERE
+
+Directions to get the app running:
+1) The app should be cloned from GitHub using the appropriate link above
+2) After installing the correct gems, run "bundle install"
+3) Next, run "rake db:reset" to reset the datebase
+4) Run "rake db:test:prepare" to set up the test database
+5) Run "rake db:seed RAILS_ENV=test" to ensure that the tests can utilize the seed file
