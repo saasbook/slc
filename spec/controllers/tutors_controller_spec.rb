@@ -59,36 +59,52 @@ RSpec.describe TutorsController, type: :controller do
             expect{put :update, id: 1, tutor: invalid_hash}.not_to raise_error(ArgumentError)
         end
     end
-    
-    describe 'update should redirect' do
 
-        it 'should redirect to the show view without box checked' do
-            tutor = Tutor.create(:email => "email@c.com", :password => "password")
-            put :update, :id => tutor.id, :tutor => { :first_name => "C", :last_name => "V", :sid => "12345", :year => "4",
-            :phone_number => "123-456-7899", :major => "Computer Science", :tutor_cohort => "5", :bio => "tdrytfuygiuho", :email =>
-            "hello@example.com"}
-            tutor.reload
-            # expect(tutor.first_name).to eq("C")
-            # expect(tutor.last_name).to eq("V")
-            # expect(tutor.sid).to eq(12345)
-            # expect(tutor.year).to eq("4")
-            # expect(tutor.phone_number).to eq("123-456-7899")
-            # expect(tutor.major).to eq("Computer Science")
-            # expect(tutor.tutor_cohort).to eq("5")
-            # expect(tutor.bio).to eq("tdrytfuygiuho")
-            # expect(tutor.email).to eq("hello@example.com")
-            expect(nil).to eq(nil)
+    describe 'GET /:id' do
+        before :each do
+            @request.env['devise.mapping'] = Devise.mappings[:tutor]
+            @tutor = FactoryBot.create(:tutor)
+            sign_in @tutor
+        end
+
+        it 'sets the variables for the form' do
+            get :edit, id: @tutor
+            expect(assigns(:tutor)).to eq(@tutor)
+            expect(assigns(:time_slots)).to eq(["8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 2", "2 - 3", "3 - 4", "4 - 5", "5 - 6"])
+            expect(assigns(:days)).to eq(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"])
         end
     end
     
-    describe 'test tutee match function' do
-        it 'should say there are no available tutors' do
-            tutor = Tutor.create(:email => "email@c.com", :password => "password")
-            put :update, :id => tutor.id, :tutor => { :first_name => "C", :last_name => "V" }
-            tutor.reload
-            put :tutee_match, :id => tutor.id
-            # response.should have_text("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
-            expect(tutor.tutees).to eq([])
+    describe 'PUT /:id' do
+        before :each do
+            @request.env['devise.mapping'] = Devise.mappings[:tutor]
+            @tutor = FactoryBot.create(:tutor)
+            sign_in @tutor
+        end
+
+        it 'redirects to the show view' do
+            put :update, id: @tutor, :tutor => attributes_for(:tutor, current_password: "password")
+            expect(@tutor.reload.first_name).to eq("Bob")
+            expect(@tutor.reload.last_name).to eq("Ross")
+            expect(@tutor.reload.email).to eq("bob_ross@gmail.com")
+            expect(@tutor.reload.sid).to eq(87654321)
+            expect(@tutor.reload.year).to eq("Senior")
+            expect(@tutor.reload.phone_number).to eq("987-654-3210")
+            expect(@tutor.reload.major).to eq("Haas")
+            expect(@tutor.reload.bio).to eq("I am Bob Ross")
+        end
+    end
+    
+    describe 'tutee match function' do
+        before :each do
+            @request.env['devise.mapping'] = Devise.mappings[:tutor]
+            @tutor = FactoryBot.create(:tutor)
+            sign_in @tutor
+        end
+
+        it 'says there are no available tutors' do
+            put :tutee_match, :id => @tutor
+            expect(@tutor.tutees).to eq([])
         end
     end
 end
