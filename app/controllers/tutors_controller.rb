@@ -27,21 +27,23 @@ class TutorsController < ApplicationController
         @tutor.update_attributes(tutor_params)
         time_slot_ids = params[:tutor][:time_availabilitys_ids]
         @tutor.update_time_availabilitys(time_slot_ids)
-        if @tutor.save
+        session[:form_submitted] = true
+        if at_least_one_time_availability? && @tutor.save
             flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
             redirect_to tutee_match_path(@tutor)
-        else 
-            flash[:error] = "Please ensure you have selected at least one time slot"
+        elsif at_least_one_time_availability? 
+            flash[:error] = @tutor.errors.full_messages.first
             redirect_to edit_tutor_path(@tutor)
+        else
+            flash[:error] = "Must check at least one time availability"
+            redirect_to edit_tutee_path
         end
     end
     
     def destroy
     end
+
     
-    def tutor_params
-        params.require(:tutor).permit(:first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio)
-    end
     
     def tutee_match
       if (tutor_signed_in?)
@@ -56,10 +58,15 @@ class TutorsController < ApplicationController
           @display_text = "You have not been assigned any students yet."
       end
     end
+
+  private
     
-  #Getter method for if checkbox items checked
-  def checkbox_checked
-      @checkbox_checked = @time_availabilitys_ids
+  def tutor_params
+    params.require(:tutor).permit(:first_name, :last_name, :sid, :year, :email, :phone_number, :major, :tutor_cohort, :bio)
+  end
+
+  def at_least_one_time_availability?
+    params[:tutor][:time_availabilitys_ids] != nil
   end
 
 end
