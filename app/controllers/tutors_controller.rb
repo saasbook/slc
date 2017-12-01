@@ -30,7 +30,7 @@ class TutorsController < ApplicationController
         session[:form_submitted] = true
         if at_least_one_time_availability? && @tutor.save
             flash[:notice] = "Form for #{@tutor.first_name + ' ' + @tutor.last_name} was succesfully created"
-            redirect_to tutor_match_path(@tutor)
+            redirect_to tutee_match_path(@tutor)
         elsif at_least_one_time_availability? 
             flash[:error] = @tutor.errors.full_messages.first
             redirect_to edit_tutor_path(@tutor)
