@@ -61,6 +61,7 @@ end
 group :production do
   gem 'pg', '0.20.0'
   gem 'rspec-rails'
+  gem 'rails_12factor'
 end
 
 gem 'devise'
