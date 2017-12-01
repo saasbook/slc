@@ -29,13 +29,15 @@ class TuteesController < ApplicationController
         @tutee.update_attributes(tutee_params)
         time_slot_ids = params[:tutee][:time_availabilitys_ids]
         @tutee.update_time_availabilitys(time_slot_ids)
-        session[:form_submitted] = true
-        if @tutee.save
+        if at_least_one_time_availability? && @tutee.save
             flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
             redirect_to tutor_match_path(@tutee)
-        else 
-            flash[:error] = "Please ensure you have selected at least one time slot"
+        elsif at_least_one_time_availability? 
+            flash[:error] = @tutee.full_messages.first
             redirect_to edit_tutee_path(@tutee)
+        else
+            flash[:error] = "Must check at least one time availability"
+            redirect_to edit_tutee_path
         end
     end
     
@@ -68,6 +70,10 @@ class TuteesController < ApplicationController
     def tutee_params
         params.require(:tutee).permit(:first_name, :last_name, :sid, :grade, :email, :phone_number,
         :semesters_at_cal, :major, :requested_class, :DSP, :EOP, :SBC, :FPF, :TRSP, :UCIEP, :BISP)
+    end
+
+    def at_least_one_time_availability?
+        params[:tutee][:time_availabilitys_ids] != nil
     end
 end
 
