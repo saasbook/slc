@@ -33,7 +33,7 @@ class TuteesController < ApplicationController
             flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
             redirect_to tutor_match_path(@tutee)
         elsif at_least_one_time_availability? 
-            flash[:error] = @tutee.full_messages.first
+            flash[:error] = @tutee.errors.full_messages.first
             redirect_to edit_tutee_path(@tutee)
         else
             flash[:error] = "Must check at least one time availability"
