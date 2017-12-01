@@ -1,6 +1,19 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=b0bc5fb3f3eb2db38f4291319949f77e444d485fdb6c3822c5d7fbc258c1acc7
 language: ruby
 rvm:
- - 2.2.5
+ - 2.4.2
+before_script:
+ - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+ - chmod +x ./cc-test-reporter
+ - ./cc-test-reporter before-build
 script:
  - bundle exec rake db:setup
+ - bundle exec rake db:test:prepare
+ - bundle exec rake db:seed
  - bundle exec rake spec
+ - bundle exec cucumber --tags=@tutee_form_complete,@tutee_form_no_first_name,@tutee_form_no_last_name,@tutor_form_complete,@tutee_form_no_first_name,@tutee_form_no_last_name,@tutee_form_routing,@tutor_form_routing,@log_in_before_account,@register_tutee,@register_tutor,@log_in_tutee,@log_in_tutor,@log_out_tutor,@log_out_tutee,@Group_checkboxes,@redirect_to_tutee_login,@redirect_to_tutor_login,@tutor_back_to_form,@tutee_back_to_form,@tutor_form_no_first_name,@tutor_form_no_last_name,@tutor_form_bio,@tutor_form_no_tutor_cohort,@tutor_form_no_major,@tutor_form_no_phone,@tutor_form_no_year,@tutor_form_no_sid,@tutor_form_no_email,@tutor_protected_url,@tutee_protected_url
+after_script:
+ - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+ 
