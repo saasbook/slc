@@ -5,6 +5,12 @@
 # files.
 
 require 'cucumber/rails'
+require 'simplecov'
+SimpleCov.start do
+  add_filter "/spec/"
+  add_filter "/features/"
+end
+
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -56,5 +62,5 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
-World(FactoryGirl::Syntax::Methods)
+World(FactoryBot::Syntax::Methods)
 
