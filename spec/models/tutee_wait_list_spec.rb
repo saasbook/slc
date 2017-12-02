@@ -30,11 +30,18 @@ RSpec.describe TuteeWaitList, type: :model do
     
     
     it 'checks that a tutee removed from waitlist decreases size' do
+        @waitlist.add_tutee(@tutee)
+        expect(@waitlist.total_tutees).to eq(1)
         @waitlist.remove_tutee(@tutee)
         expect(@waitlist.total_tutees).to eq(0)
-        
-     
+      
     end  
+    
+    it 'gives position on waitlist' do
+        @waitlist.add_tutee(@tutee)
+        expect(@waitlist.total_tutees).to eq(1)
+        expect(@waitlist.waitlist_position(@tutee)).to eq(1)
+    end
       
   end
   
