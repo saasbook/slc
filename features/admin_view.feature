@@ -99,20 +99,6 @@ Scenario: admin can delete all tutors
   And    I should not see "tutor3_lastname"
   And    I should not see "tutor4_lastname"
 
-Scenario: admin can enter an new Tutor SID
-  Given  The admin "admin1@example.com" with the password "admin1" exists
-  When   I am on the admin show page for 1
-  And    I click the link to "Input New Tutor SID"
-  And    I fill in SID with Test
-  And    I press submit
-
-Scenario: admin can enter an new Tutee SID
-  Given  The admin "admin1@example.com" with the password "admin1" exists
-  When   I am on the admin show page for 1
-  And    I click the link to "Input New Tutee SID"
-  And    I fill in SID with Test
-  And    I press submit
-
 Scenario: admin can download database as excel file
   Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1

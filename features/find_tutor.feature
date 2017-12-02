@@ -396,14 +396,6 @@ Scenario: going from tutor match page back to info page
   And I follow "Update Form"
   Then I should be on Tutor Information Form for User 1  
 
-Scenario: tutee selects a tutor and sets a time 
-  When  I see a list of tutors
-  And   I select "Juno Morey"
-  Then  I should see "Monday, Wednesday, Friday" in available times
-  Then  I select "Monday" 
-  And   I select "Confirm"
-  Then  I should be on the home page
-
 #Dhruv, User Story 1
 #151891277 (Pivotal Tracker ID)
 @tutee_view_tutor

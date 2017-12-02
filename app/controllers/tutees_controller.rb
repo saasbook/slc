@@ -19,8 +19,8 @@ class TuteesController < ApplicationController
     #Display form for tutee to enter in attributes
     def edit
         @tutee = Tutee.find(params[:id])
-        @time_slots = ["8 - 9", "9 - 10", "10 - 11", "11 - 12", "12 - 1", "1 - 2", "2 - 3", "3 - 4", "4 - 5", "5 - 6"]
-        @days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        @time_slots = ["8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 1:00", "1:00 - 2:00", "2:00 - 3:00", "3:00 - 4:00", "4:00 - 5:00", "5:00 - 6:00"]
+        @days = ["Mon.", "Tues.", "Wed.", "Thurs.", "Fri.", "Sat.", "Sun."]
     end
 
     #Update all of the attributes gathered from edit form
@@ -29,12 +29,15 @@ class TuteesController < ApplicationController
         @tutee.update_attributes(tutee_params)
         time_slot_ids = params[:tutee][:time_availabilitys_ids]
         @tutee.update_time_availabilitys(time_slot_ids)
-        if @tutee.save
+        if at_least_one_time_availability? && @tutee.save
             flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
             redirect_to tutor_match_path(@tutee)
-        else 
-            flash[:error] = "Please ensure you have selected at least one time slot"
+        elsif at_least_one_time_availability? 
+            flash[:error] = @tutee.errors.full_messages.first
             redirect_to edit_tutee_path(@tutee)
+        else
+            flash[:error] = "Must check at least one time availability"
+            redirect_to edit_tutee_path
         end
     end
     
@@ -57,27 +60,31 @@ class TuteesController < ApplicationController
             @display_text += "#{@study_session_time.day} at #{@study_session_time.start_time}"
             TutorMailer.match_notification(@tutee, @tutor, @study_session_time).deliver
         else
-        
-            @new_timings = Set.new []
-            Tutor.all.each do |tutor|
-                if !tutor.time_availabilitys.empty? #tutor is available
-                    @new_timings = @new_timings | tutor.time_availabilitys # Union
-                end
+            tutor_match_helper(@tutee)
+        end
+    end
+
+    def tutor_match_helper(tut)
+        @tutee = tut
+        @new_timings = Set.new []
+        Tutor.all.each do |tutor|
+            if !tutor.time_availabilitys.empty? #tutor is available
+                @new_timings = @new_timings | tutor.time_availabilitys # Union
             end
+        end
             
-            # #if none of the tutors are available, add to waitlist
-            if @new_timings.empty?
-              @waitlist = TuteeWaitList.find_by_id(1)
-              @waitlist.add_tutee(@tutee)
-              @display_text = "We do not have any open tutoring slots. Your waitlist position is ##{@waitlist.waitlist_position(@tutee)}"
-            else #if some tutor is available, show correct error message
-              @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s):"
-              @new_timings.each do |time|
-                  @display_text += " #{time.day} at #{time.start_time}," 
-              end
-              @display_text = @display_text.chop
-              @display_text += "."
-            end
+        # #if none of the tutors are available, add to waitlist
+        if @new_timings.empty?
+          @waitlist = TuteeWaitList.find_by_id(1)
+          @waitlist.add_tutee(@tutee)
+          @display_text = "We do not have any open tutoring slots. Your waitlist position is ##{@waitlist.waitlist_position(@tutee)}"
+        else #if some tutor is available, show correct error message
+          @display_text = "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s):"
+          @new_timings.each do |time|
+              @display_text += " #{time.day} at #{time.start_time}," 
+          end
+          @display_text = @display_text.chop
+          @display_text += "."
         end
     end
     
@@ -87,6 +94,10 @@ class TuteesController < ApplicationController
     def tutee_params
         params.require(:tutee).permit(:first_name, :last_name, :sid, :grade, :email, :phone_number,
         :semesters_at_cal, :major, :requested_class, :DSP, :EOP, :SBC, :FPF, :TRSP, :UCIEP, :BISP)
+    end
+
+    def at_least_one_time_availability?
+        params[:tutee][:time_availabilitys_ids] != nil
     end
 end
 
