@@ -17,6 +17,7 @@ class Tutee < ActiveRecord::Base
       if !available_tutors.empty?
         matched_tutor = get_best_tutor(available_tutors)
         assign_session(matched_tutor)
+        TuteeWaitList.find_by_id(1).remove_tutee(self)
       end
       matched_tutor
     else

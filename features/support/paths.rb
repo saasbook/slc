@@ -34,6 +34,9 @@ module NavigationHelpers
   
     when /the admin show page for (.*)/
      "/admins/#{$1}"
+     
+    when /the admin waitlist page for (.*)/
+     "/admins/#{$1}/waitlist"
 
     ##############################
 

@@ -105,5 +105,39 @@ Scenario: admin can download database as excel file
   And    I press "Download as .xlsx"
   Then   I should receive a file "Tutor/Tutee Database.xlsx"
 
+# Dhruv Waitlist User Story 1
+# Pivotal Tracker ID: 152822577
+@admin_view_tutee_waitlist
+Scenario: admin can view the tutee waitlist
+  #There are 4 pre-existing tutees and tutors in the database
+  Given  I am on the admin waitlist page for 1
+  Then   I should see "Total Number of Students: 0"
+  And    I should see "Tutee Waitlist"
 
+# Dhruv Waitlist User Story 2
+# Pivotal Tracker ID: 152822577
+@add_to_tutee_waitlist
+Scenario: admin can view changes in the tutee waitlist
+  #There are 4 pre-existing tutees and tutors in the database
+  Given  All the open tutoring time slots are booked
+  And    I am on the tutor match page for tutee 1
+  Then   I should see "We do not have any open tutoring slots. Your waitlist position is #1"
+  When   I am on the admin waitlist page for 1
+  Then   I should see "Total Number of Students: 1"
+  And    I should see "tutee1_firstname"
 
+# Dhruv Waitlist User Story 3
+# Pivotal Tracker ID: 152822577
+@remove_from_tutee_waitlist
+Scenario: admin can view changes in the tutee waitlist
+  #There are 4 pre-existing tutees and tutors in the database
+  Given  All the open tutoring time slots are booked
+  And    I am on the tutor match page for tutee 1
+  Then   I should see "We do not have any open tutoring slots. Your waitlist position is #1"
+  When   I am on the admin waitlist page for 1
+  Then   I should see "Total Number of Students: 1"
+  And    I should see "tutee1_firstname"
+  When   A tutor adds a new valid time availability
+  And    Tutee 1 has been matched with its Tutor
+  When   I am on the admin waitlist page for 1
+  Then   I should see "Total Number of Students: 0"
