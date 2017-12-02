@@ -441,7 +441,7 @@ Scenario: tutor can have multiple tutees
   And    Tutee 2 has been matched with its Tutor
   And    Tutee 3 has been matched with its Tutor
   When   I am on the tutor match page for tutee 3
-  Then   I should see "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s): Monday at 3"
+  Then   I should see "Your time availabilities do not match with any tutor. Please revise your preferences & try again. Open tutoring slot(s): Monday at 9"
 
 #Dhruv, User Story 4
 #151892797 (Pivotal Tracker ID)

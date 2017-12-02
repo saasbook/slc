@@ -21,7 +21,7 @@ class Tutor < ActiveRecord::Base
 
   def has_time_availability
     if self.time_availabilitys.length < 1
-      #errors.add(:time_availabilities, "must contain at least one time slot")
+      errors.add(:time_availabilities, "must contain at least one time slot")
     end
   end
 
