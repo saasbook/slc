@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129051141) do
+ActiveRecord::Schema.define(version: 20171130142752) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 20171129051141) do
     t.integer "tutor_id"
   end
 
+  create_table "tutee_wait_lists", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "total_tutees"
+    t.integer  "tutee_id"
+  end
+
   create_table "tutees", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -95,10 +102,16 @@ ActiveRecord::Schema.define(version: 20171129051141) do
     t.boolean  "UCIEP"
     t.boolean  "BISP"
     t.integer  "study_session_id"
+    t.integer  "tutee_wait_list_id"
+    t.datetime "waitlist_added_time"
   end
 
   add_index "tutees", ["email"], name: "index_tutees_on_email", unique: true
   add_index "tutees", ["reset_password_token"], name: "index_tutees_on_reset_password_token", unique: true
+
+  create_table "tuteesids", force: :cascade do |t|
+    t.string "SID"
+  end
 
   create_table "tutors", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -126,5 +139,9 @@ ActiveRecord::Schema.define(version: 20171129051141) do
 
   add_index "tutors", ["email"], name: "index_tutors_on_email", unique: true
   add_index "tutors", ["reset_password_token"], name: "index_tutors_on_reset_password_token", unique: true
+
+  create_table "tutorsids", force: :cascade do |t|
+    t.string "SID"
+  end
 
 end

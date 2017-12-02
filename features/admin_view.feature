@@ -53,3 +53,57 @@ Scenario: tutor-tutee-match updates admin's view
   And    I should see "tutor5_lastname"
   And    I should see "tutee5_firstname"
   And    I should see "tutee5_lastname"
+  
+Scenario: admin can edit a tutor
+  Given  The admin "admin1@example.com" with the password "admin1" exists
+  When   I am on the admin show page for 1
+  Then   I should see "tutee1_firstname"
+  And    I should see "tutee1_lastname"
+  And    I click the link to "Edit"
+  And    I click the link to "Assign"
+  Then   I should see "tutor1_firstname tutor1_lastname"
+
+Scenario: admin can delete a tutee
+  Given  The admin "admin1@example.com" with the password "admin1" exists
+  When   I am on the admin show page for 1
+  Then   I should see "tutee1_firstname"
+  And    I should see "tutee1_lastname"
+  And    I click the link to "Delete Tutee"
+  Then   I should not see "tutee1_firstname"
+  And    I should not see "tutee1_lastname"
+
+Scenario: admin can delete a tutor
+  Given  The admin "admin1@example.com" with the password "admin1" exists
+  When   I am on the admin show page for 1
+  Then   I should see "tutor1_firstname"
+  And    I should see "tutor1_lastname"
+  And    I click the link to "Delete Tutor"
+  Then   I should not see "tutor1_firstname"
+  And    I should not see "tutor1_lastname"
+
+Scenario: admin can delete all tutees
+  Given  The admin "admin1@example.com" with the password "admin1" exists
+  When   I am on the admin show page for 1
+  And    I click the link to "Reset Tutees"
+  Then   I should not see "tutee1_firstname"
+  And    I should not see "tutee2_lastname"
+  And    I should not see "tutee3_lastname"
+  And    I should not see "tutee4_lastname"
+
+Scenario: admin can delete all tutors
+  Given  The admin "admin1@example.com" with the password "admin1" exists
+  When   I am on the admin show page for 1
+  And    I click the link to "Reset Tutors"
+  Then   I should not see "tutor1_firstname"
+  And    I should not see "tutor2_lastname"
+  And    I should not see "tutor3_lastname"
+  And    I should not see "tutor4_lastname"
+
+Scenario: admin can download database as excel file
+  Given  The admin "admin1@example.com" with the password "admin1" exists
+  When   I am on the admin show page for 1
+  And    I press "Download as .xlsx"
+  Then   I should receive a file "Tutor/Tutee Database.xlsx"
+
+
+

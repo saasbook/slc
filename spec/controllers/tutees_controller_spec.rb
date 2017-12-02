@@ -131,7 +131,7 @@ RSpec.describe TuteesController, type: :controller do
             put :update, id: @tutee, :tutee => attributes_for(:tutee, current_password: "password")
             get :tutor_match, :id => @tutee
             @tutee.reload
-            expect(assigns(:display_text)).to eq("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
+            expect(assigns(:display_text)).to include("Your time availabilities do not match with any tutor. Please revise your preferences & try again.")
         end
 
         # it 'matches a tutee to a tutor' do

@@ -8,9 +8,11 @@ class Tutee < ActiveRecord::Base
   has_one :study_session
   validates_presence_of :first_name, :last_name, :sid, :grade, :email, :phone_number, :semesters_at_cal, :major, :requested_class, :on => :update
 
+
   def assign_tutor_and_session
     if self.tutor.nil?
       matched_tutor, available_tutors = nil, []
+      
       available_tutors = find_available_tutors
       if !available_tutors.empty?
         matched_tutor = get_best_tutor(available_tutors)
@@ -30,6 +32,17 @@ class Tutee < ActiveRecord::Base
               self.time_availabilitys << time
           end
       end
+  end
+      
+  def find_available_tutors
+    available_tutors_list = []
+    Tutor.all.each do |tutor|
+      matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
+      if !matched_times.empty?
+        available_tutors_list << tutor
+      end
+    end
+    available_tutors_list
   end
   
   private
@@ -58,17 +71,6 @@ class Tutee < ActiveRecord::Base
     best_tutor.tutees << self
     best_tutor.save!
     best_tutor
-  end
-  
-  def find_available_tutors
-    available_tutors_list = []
-    Tutor.all.each do |tutor|
-      matched_times = tutor.time_availabilitys & self.time_availabilitys # Intersection
-      if !matched_times.empty?
-        available_tutors_list << tutor
-      end
-    end
-    available_tutors_list
   end
 
   def has_time_availability
