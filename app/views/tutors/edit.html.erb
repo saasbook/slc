@@ -71,8 +71,8 @@
               <% morn = 0 %>
               <% ti = "" %>
               <% @time_slots.each do |time_slot| %>
-                <% ti = morn < 4 ? "am" : "pm" %>
-                <th>
+                <% ti = morn < 3 ? "am" : "pm" %>
+                <th style="font-size:9px;text-align:left">
                   <%= time_slot %> <BR> 
                   <%= ti %>
                   <% morn += 1%>
