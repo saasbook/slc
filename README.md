@@ -25,3 +25,5 @@ Directions to get the app running:
 5) Run "rake db:seed RAILS_ENV=test" to ensure that the tests can utilize the seed file
 6) To run the app locally use the command "rails server" - NOTE: if you are on Cloud9 use the command "rails s -p $PORT -b $IP" instead
 7) To test functionality the seed file currently has tutor and tutee users that can be used (seeds.rb)
+8) To run the cucumber files run the command "cucumber" - NOTE: sometimes you must do the command "rvm use" to use the correct ruby version 
+9) To run the rspec tests run the command "bundle exec rspec"

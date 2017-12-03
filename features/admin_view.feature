@@ -53,7 +53,8 @@ Scenario: tutor-tutee-match updates admin's view
   And    I should see "tutor5_lastname"
   And    I should see "tutee5_firstname"
   And    I should see "tutee5_lastname"
-  
+
+# Pivotal Tracker ID: #152174166  
 Scenario: admin can edit a tutor
   Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1
@@ -62,7 +63,8 @@ Scenario: admin can edit a tutor
   And    I click the link to "Edit"
   And    I click the link to "Assign"
   Then   I should see "tutor1_firstname tutor1_lastname"
-
+  
+# Pivotal Tracker ID: #152174166
 Scenario: admin can delete a tutee
   Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1
@@ -72,6 +74,7 @@ Scenario: admin can delete a tutee
   Then   I should not see "tutee1_firstname"
   And    I should not see "tutee1_lastname"
 
+# Pivotal Tracker ID: #152174166
 Scenario: admin can delete a tutor
   Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1
@@ -81,6 +84,7 @@ Scenario: admin can delete a tutor
   Then   I should not see "tutor1_firstname"
   And    I should not see "tutor1_lastname"
 
+# Pivotal Tracker ID: #152174166
 Scenario: admin can delete all tutees
   Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1
@@ -89,7 +93,8 @@ Scenario: admin can delete all tutees
   And    I should not see "tutee2_lastname"
   And    I should not see "tutee3_lastname"
   And    I should not see "tutee4_lastname"
-
+  
+# Pivotal Tracker ID: #152174166
 Scenario: admin can delete all tutors
   Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1
@@ -99,6 +104,7 @@ Scenario: admin can delete all tutors
   And    I should not see "tutor3_lastname"
   And    I should not see "tutor4_lastname"
 
+# Pivotal Tracker ID: #153029416
 Scenario: admin can download database as excel file
   Given  The admin "admin1@example.com" with the password "admin1" exists
   When   I am on the admin show page for 1
