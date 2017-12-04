@@ -2,9 +2,9 @@ App: SLC Learning Center Part 1 (Group 6)
 
 Team Members: Lexie Polevoi, Juno Morey, James Scott Truitt, Connor Votroubek, and Dhruv Relwani
 
-CodeClimate GPA Badge: <a href="https://codeclimate.com/github/junomorey/slc-app"><img src="https://codeclimate.com/github/rails/rails/badges/gpa.svg" /></a>
+CodeClimate GPA Badge: <a href="https://codeclimate.com/github/junomorey/slc-app"><img src="https://codeclimate.com/github/rails/rails/badges/gpa.svg"/></a>
 
-CodeClimate Test Coverage Badge: <a href="https://codeclimate.com/github/junomorey/slc-app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ba9e5241f42bad1abae2/test_coverage" /></a>
+CodeClimate Test Coverage Badge: <a href="https://codeclimate.com/github/junomorey/slc-app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/ba9e5241f42bad1abae2/test_coverage"/></a>
 
 Travis CI Badge: <a href="https://travis-ci.org/junomorey/slc-app.svg?branch=master"><img src="https://travis-ci.org/junomorey/slc-app.svg?branch=master" /></a>
 
