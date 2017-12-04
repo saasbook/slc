@@ -9,13 +9,17 @@ Link to deployed app on Heroku: https://slc-app.herokuapp.com/
 
 Link to Pivotal Tracker project: https://www.pivotaltracker.com/n/projects/2117751
 
-A brief explanation of the customer's business need that the app addresses, including a link to the customer's website: An app to match tutors and tutees for the SLC based on time availability to a specific room. An app that assigns a study group to each other and a room.
+A brief explanation of the customer's business need that the app addresses, including a link to the customer's website: An app to match tutors and tutees for the SLC based on time availability to a specific room. An app that assigns a study group to each other and a room. SLC Website: http://slc.berkeley.edu/
 
 YouTube Video of Client: https://www.youtube.com/watch?v=oOvuUupD5Ds&feature=youtu.be
 
 YouTube Video of Environment Screencast: https://www.youtube.com/watch?v=65RcD66WpG0&feature=youtu.be
 
-YouTube Video of App Screencast: ADD THIS HERE
+YouTube Video of App Screencast: https://www.youtube.com/watch?v=Px4vfpx1MDw&feature=youtu.be
+
+Link to App Homepage Screenshot: https://screenshot.net/34e8ohm
+
+Link to App Writer Match Page Screenshot: https://screenshot.net/4mj4vfw
 
 Directions to get the app running:
 1) The app should be cloned from GitHub using the appropriate link: https://github.com/junomorey/slc-app
@@ -25,3 +29,5 @@ Directions to get the app running:
 5) Run "rake db:seed RAILS_ENV=test" to ensure that the tests can utilize the seed file
 6) To run the app locally use the command "rails server" - NOTE: if you are on Cloud9 use the command "rails s -p $PORT -b $IP" instead
 7) To test functionality the seed file currently has tutor and tutee users that can be used (seeds.rb)
+8) To run the cucumber files run the command "cucumber" - NOTE: sometimes you must do the command "rvm use" to use the correct ruby version 
+9) To run the rspec tests run the command "bundle exec rspec"
