@@ -62,6 +62,11 @@ Given /^Tutee (.*) has been matched with its Tutor$/ do |tutee_id|
   Tutee.find_by_id(tutee_id).assign_tutor_and_session
 end
 
+Given /^The SID (.*) is in the database$/ do |sid|
+  Tuteesid.create(:SID => sid)
+end
+
+
 # When /^I go to the "(.*)" page$/ do |page_name|
 # 	visit path_to(page_name)
 # end

@@ -29,10 +29,14 @@ class TuteesController < ApplicationController
         @tutee.update_attributes(tutee_params)
         time_slot_ids = params[:tutee][:time_availabilitys_ids]
         @tutee.update_time_availabilitys(time_slot_ids)
-        if at_least_one_time_availability? && @tutee.save
+        check = Tuteesid.where("SID = ?", params[:tutee][:sid])
+        if check.empty?
+            flash[:error] = "Your SID was not found. Make sure you go to an orientation before filling out this form."
+            redirect_to edit_tutee_path
+        elsif at_least_one_time_availability? && @tutee.save
             flash[:notice] = "Form for #{@tutee.first_name + ' ' + @tutee.last_name} was succesfully created"
             redirect_to tutor_match_path(@tutee)
-        elsif at_least_one_time_availability? 
+        elsif at_least_one_time_availability?
             flash[:error] = @tutee.errors.full_messages.first
             redirect_to edit_tutee_path(@tutee)
         else

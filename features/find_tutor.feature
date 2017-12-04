@@ -194,6 +194,7 @@ Scenario: routing is correct for tutor form
 #151891035 (Pivotal Tracker ID)
 @tutee_form_complete
 Scenario: tutee fills in information
+  Given The SID 1234 is in the database
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
@@ -308,6 +309,7 @@ Scenario: tutee fills in information but lacks phone number
 #153029627 (Pivotal Tracker ID)  
 @tutee_form_no_semesters
 Scenario: tutee fills in information but lacks semester number
+  Given The SID 1234 is in the database
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
@@ -323,6 +325,7 @@ Scenario: tutee fills in information but lacks semester number
 #153029627 (Pivotal Tracker ID)  
 @tutee_form_no_major
 Scenario: tutee fills in information but lacks major
+  Given The SID 1234 is in the database
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
@@ -338,6 +341,7 @@ Scenario: tutee fills in information but lacks major
 #153029627 (Pivotal Tracker ID)  
 @tutee_form_no_requested_class
 Scenario: tutee fills in information but lacks major
+  Given The SID 1234 is in the database
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
@@ -354,6 +358,7 @@ Scenario: tutee fills in information but lacks major
 #151891035 (Pivotal Tracker ID)
 @tutee_form_routing
 Scenario: routing is correct for tutee form
+  Given The SID 1234 is in the database
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
@@ -373,6 +378,7 @@ Scenario: routing is correct for tutee form
 #152832426 (Pivotal Tracker ID)  
 @tutee_back_to_form  
 Scenario: going from tutee match page back to info page
+  Given The SID 1234 is in the database
   When I go to Tutee Information Form for User 1
   And I fill in "tutee[first_name]" with "Jane"
   And I fill in "tutee[last_name]" with "Doe"
