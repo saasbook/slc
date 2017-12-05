@@ -13,9 +13,76 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the home\s?page$/
-      '/'
+    ##### duplicates #########
+    when /the tutee edit info page/
+      edit_tutee_path
+    
+    when /the tutee show page/
+      tutee_path
 
+    when /the tutor edit info page/
+      edit_tutor_path 
+
+    when /the tutee sign in page/
+      new_tutee_session_path
+
+    when /the tutor sign in page/
+      new_tutor_session_path
+  
+    when /the admin sign in page/
+      new_admin_session_path
+  
+    when /the admin show page for (.*)/
+     "/admins/#{$1}"
+     
+    when /the admin waitlist page for (.*)/
+     "/admins/#{$1}/waitlist"
+
+    ##############################
+
+    when /^the home\s?page$/ 
+      '/'
+      
+    when /^the tutor match page for User (.*)$/
+     "/tutees/#{$1}/tutor_match"
+       
+    when /^the tutee match page for User (.*)$/
+     "/tutors/#{$1}/tutee_match"
+     
+    when /^Tutee Information Form for User (.*)$/
+     "/tutees/#{$1}/edit"
+
+    when /^Tutee Submitted Form for User (.*)$/
+     "/tutees/#{$1}/tutor_match"
+     
+    when /^Tutor Information Form for User (.*)$/
+     "/tutors/#{$1}/edit"
+
+    when /^Tutor Submitted Form for User (.*)$/
+     "/tutors/#{$1}/tutee_match"
+
+    when /^the tutor login page$/
+      '/tutors/sign_in'
+
+    when /^the tutee login page$/
+      '/tutees/sign_in'
+
+    when /^the tutee registration page$/
+      '/tutees/sign_up'
+
+    when /^the tutor registration page$/
+      '/tutors/sign_up'
+      
+    when /^the tutor match page for tutee (.*)$/
+      "/tutees/#{$1}/tutor_match"
+      
+    when /^the tutee match page for tutor (.*)$/
+      "/tutors/#{$1}/tutee_match"
+      
+    when /^the admin registration page$/
+      '/admins/sign_up'
+      
+    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

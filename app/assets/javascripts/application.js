@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
+
+$(document).on('turbolinks:load', function() {
+    $('#select_all').click( function(event) {
+        console.log("HELLLLOEOEOEO");
+        event.preventDefault();
+        var checkboxes = document.getElementsByTagName('input');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].type == 'checkbox') {
+                checkboxes[i].checked = false;
+            }
+        }
+    });
+}); // end turbolinks
