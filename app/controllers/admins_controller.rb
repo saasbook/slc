@@ -39,11 +39,12 @@ class AdminsController < ApplicationController
     
     def assign
         puts params
-        #@admin = Admin.find(params[:id])
+        
         @tutee = Tutee.find(params[:tutee])
         tutor = Tutor.find(params[:tutor])
         @tutee.tutor = tutor
         @tutee.save!
+        TuteeWaitList.find_by_id(1).remove_tutee(@tutee)
         redirect_to admin_path(1)
     end
     
