@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20171130142752) do
   add_index "tutors", ["email"], name: "index_tutors_on_email", unique: true
   add_index "tutors", ["reset_password_token"], name: "index_tutors_on_reset_password_token", unique: true
 
-  create_table "tutorsids", force: :cascade do |t|
+  create_table "tutorsid", force: :cascade do |t|
     t.string "SID"
   end
 

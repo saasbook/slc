@@ -1,7 +1,7 @@
 class CreateTuteeSid < ActiveRecord::Migration
   def change
-    create_table :tuteesid do |t|
-      t.integer :SID
+    create_table :tuteesids do |t|
+      t.string :SID
     end
   end
 end
