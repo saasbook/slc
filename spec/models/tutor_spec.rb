@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Tutor, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+   
+   it "is not valid without valid attributes" do
+    expect(Tutor.new).to_not be_valid
+    end
+    
+    # it { should have_many(:tutees) }
+    
 end
