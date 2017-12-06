@@ -1,6 +1,19 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=787a2f89b15c637323c7340d65ec17e898ac44480706b4b4122ea040c2a88f1d
+    #Need to get right ID from Juno
 language: ruby
 rvm:
- - 2.2.5
+ - 2.4.2
+before_script:
+ - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+ - chmod +x ./cc-test-reporter
+ - ./cc-test-reporter before-build
 script:
  - bundle exec rake db:setup
+ - bundle exec rake db:test:prepare
+ - bundle exec rake db:seed
  - bundle exec rake spec
+ - bundle exec cucumber --tags=@tutee_form_complete,@tutee_form_no_first_name,@tutee_form_no_last_name,@tutor_form_complete,@tutee_form_no_first_name,@tutee_form_no_last_name,@tutee_form_routing,@tutor_form_routing,@log_in_before_account,@register_tutee,@register_tutor,@log_in_tutee,@log_in_tutor 
+after_script:
+ - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
