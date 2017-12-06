@@ -29,7 +29,7 @@ class TuteesController < ApplicationController
         @tutee.update_attributes(tutee_params)
         time_slot_ids = params[:tutee][:time_availabilitys_ids]
         @tutee.update_time_availabilitys(time_slot_ids)
-        check = Tuteesid.where("SID = ?", params[:tutee][:sid])
+        check = Tuteesid.where(SID: params[:tutee][:sid])
         if check.empty?
             flash[:error] = "Your SID was not found. Make sure you go to an orientation before filling out this form."
             redirect_to edit_tutee_path
