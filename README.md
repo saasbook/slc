@@ -22,9 +22,7 @@ Link to Pivotal Tracker project: https://www.pivotaltracker.com/n/projects/21177
 ## Customer Information 
 
 A brief explanation of the customer's business need that the app addresses, including a link to the customer's website:
-An app to match tutors and tutees for the SLC based on time availability to a specific room. 
-An app that assigns a study group to each other and a room. 
-SLC Website: http://slc.berkeley.edu/
+An app to match tutors and tutees for the SLC based on time availability. SLC Website: http://slc.berkeley.edu/
 
 ## Screencast and Screenshots 
 
